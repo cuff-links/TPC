@@ -8,8 +8,9 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
-
+var lessMiddleWare = require('less-middleware');
 var app = express();
+
 
 var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'mytestapp');
@@ -23,7 +24,11 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(lessMiddleWare({
+    src: __dirname + '/public',
+    compress: true
+}));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // development only
 if ('development' == app.get('env')) {
