@@ -1,7 +1,9 @@
 doctype 5
-html
+html(data-ng-app="TPCv4")
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    script(type="text/javascript", src="/javascripts/vendor/angular/angular.min.js")
+    script(type="text/javascript", src="/javascripts/scripts/common.js")
   body
     block content
