@@ -2,10 +2,4 @@ extends layout
 
 block content
   h1 Welcome to #{title}
-  div
-      input(type="text", data-ng-model="yourName", placeholder="Enter a name here")
-      h2 Hello, {{ name }} , {{yourName}}!
-  div(data-ng-controller="MyController")
-      input(type="text", data-ng-model="person.name", placeholder="Enter your name")
-      h5 Hello {{ person.name }}
-      h5 {{ clock }}
+    div(data-ng-view)
