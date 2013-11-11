@@ -11,5 +11,9 @@ app.config(function($routeProvider){
             when('/',{
                 templateUrl:'partials/indexPartial',
                 controller: 'TestController1'
+            }).
+            when('/manage', {
+                templateUrl:'',
+                controller: ''
             })
     });

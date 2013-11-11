@@ -1,0 +1,28 @@
+extends header
+
+block content
+    div(class="container")
+        div(class="row")
+            div(class="col-md-6 col-lg-offset-3")
+                div(class="panel panel-primary")
+                    div(class="panel-heading")
+                       div(class="panel-title")
+                       | Sign In Here
+                    div(class="panel-body")
+                        form(class="form-horizontal", role="form")
+                            div(class="form-group")
+                                label(for="inputUsername", class="control-label col-md-2") Username:
+                                div(class="col-md-10")
+                                    input(id="inputUsername", class="form-control", placeholder="Enter Username")
+                            div(class="form-group")
+                                label(for="inputPassword", class="control-label col-md-2") Password:
+                                div(class="col-md-10")
+                                    input(id="inputPassword", type="password", class="form-control", placeholder="Enter Password")
+                            div(class="form-group")
+                                div(class="col-md-offset-2 col-md-10")
+                                    div(class="checkbox")
+                                        label Remember Me
+                                            input(type="checkbox")
+                            div(class="form-group")
+                                div(class="col-md-offset-2 col-md-10")
+                                    button(type="submit", class="btn btn-primary") Sign In

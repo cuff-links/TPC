@@ -4,7 +4,7 @@ services.service("TestService1",
     function(){
         var data = [
             {
-                name: 'Nicole Elaine Mitchell Dorlus',
+                name: 'Emerald',
                 position: 'Mommy'
             },
             {
