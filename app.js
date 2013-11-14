@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , models = require('./models')
   , manage = require('./routes/manage')
   , http = require('http')
   , path = require('path');
@@ -14,7 +15,7 @@ var app = express();
 
 
 var Mongoose = require('mongoose');
-var db = Mongoose.connect('mongodb://localhost/TPCv4');
+Mongoose.connect('mongodb://localhost/TPCv4');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -43,7 +44,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/users', user.list);
-app.get('/manage', manage.manage);
+app.get('/login', manage.login);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

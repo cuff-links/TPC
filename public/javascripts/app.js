@@ -13,7 +13,7 @@ app.config(function($routeProvider){
                 controller: 'TestController1'
             }).
             when('/manage', {
-                templateUrl:'',
-                controller: ''
+                templateUrl:'partials/managePartial',
+                controller: 'TestController2'
             })
     });
