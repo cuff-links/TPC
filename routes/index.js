@@ -1,13 +1,14 @@
+(function(exports){
+"use strict";
+var mongoose = require('mongoose')
+    , Posts = mongoose.model('Posts');
 
-/*
- * GET home page.
- */
+    exports.index = function(req, res){
+      res.render('index', { title: 'The Power Coder | Home' });
+    };
 
-exports.index = function(req, res){
-  res.render('index', { title: 'The Power Coder | Home' });
-};
-
-exports.partials = function (req, res) {
-    var name = req.params.name;
-    res.render('partials/' + name);
-};
+    exports.partials = function (req, res) {
+        var name = req.params.name;
+        res.render('partials/' + name);
+    };
+}(exports));

@@ -3,7 +3,7 @@
  *
  */
 exports.login = function(request, result){
-    result.render('manage', {title: 'The Power Coder | Log In'});
+    result.render('login', {title: 'The Power Coder | Log In'});
 }
 
 exports.partials = function (req, res) {

@@ -6,7 +6,7 @@ var app = angular.module('TPCv4', [
     'services'//,
     //'directives'
 ]);
-app.config(function($routeProvider){
+app.config(function($routeProvider,$locationProvider){
         $routeProvider.
             when('/',{
                 templateUrl:'partials/indexPartial',

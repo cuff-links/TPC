@@ -1,9 +1,12 @@
 'use strict';
 var module = angular.module('controllers', ['services']);
 
-module.controller('TestController1', ['$scope', 'TestService1',
-    function($scope, TestService1){
-        $scope.people = TestService1.get();
+module.controller('IndexController', ['$scope', '$http',
+    function($scope, $http){
+        $http.get('/api/posts').
+        success(function(data, status, headers, config) {
+            $scope.posts = data.posts;
+        });
     }
 ]);
 

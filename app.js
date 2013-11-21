@@ -4,6 +4,8 @@
 *********************************/
 
 var express = require('express')
+  , models = require('./models')
+  , mongoose = require('mongoose')
   , routes = require('./routes')
   , user = require('./routes/user')
   , api = require('./routes/api')
@@ -59,8 +61,12 @@ app.get('/api/posts', api.posts);
 app.get('/api/post/:id', api.post);
 app.post('/api/post', api.addPost);
 app.put('/api/post/:id', api.editPost);
-app.delete('/api/post/:id', api.deletePost)
+app.delete('/api/post/:id', api.deletePost);
 
+/*******************************************
+ ***********CONNECT TO MONGODB**************
+ *******************************************/
+mongoose.connect("127.0.0.1", "TPCv4", 27017);
 
 /***************************
  * CREATE THE HTTP SERVER

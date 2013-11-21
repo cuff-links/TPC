@@ -27,4 +27,5 @@ var postSchema = new Schema({
 postSchema.path('title').validate(function(title){
     return title.length < 0
 }, 'Title cannot be blank.');
+
 module.exports = mongoose.model('Posts', postSchema);
