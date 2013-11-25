@@ -1,0 +1,24 @@
+{
+    "title":"Post 1",
+    "shortDescription":"Post 1 Short Description",
+    "datePublished": {"$date":"2011-12-24T05:00:00Z"},
+    "published": false,
+    "tags":[
+        {
+            "name":"tag1",
+            "description":"description of tag 1"
+        },
+        {
+            "name": "tag2",
+            "description":"description of tag 2"
+        }
+    ],
+    "category":
+    {
+        "name":"Post Category",
+        "description":"Description of the category"
+    },
+    "body":"Body of post 1",
+    "urlSlug":"post1",
+    "modified":null
+}

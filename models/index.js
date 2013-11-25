@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var postSchema = new Schema({
     title: String,
     shortDescription: String,
-    datePosted: {type: Date, default: Date.now},
+    datePublished: {type: Date, default: Date.now},
     published: {type: Boolean, default: false},
     tags: [{
         name: String,

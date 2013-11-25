@@ -10,10 +10,11 @@ app.config(function($routeProvider,$locationProvider){
         $routeProvider.
             when('/',{
                 templateUrl:'partials/indexPartial',
-                controller: 'TestController1'
+                controller: 'IndexController'
             }).
             when('/manage', {
                 templateUrl:'partials/managePartial',
                 controller: 'TestController2'
-            })
+            }).
+            otherwise({redirectTo:'/'})
     });

@@ -1,11 +1,11 @@
 input(type="text", data-ng-model="filterText", placeholder="Filter your list here")
-div(ng-repeat="person in people | filter:filterText", class="well")
+div(ng-repeat="post in posts | filter:filterText", class="well")
     div
       p
-        strong Name:
-      p {{person.name}}
+        strong Title:
+      p {{post.title}}
     div
       p
-        strong Positon:
-      p {{person.position}}
+        strong Body:
+      p {{post.body}}
 
