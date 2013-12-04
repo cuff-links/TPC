@@ -6,8 +6,8 @@ module.controller('IndexController', ['$scope', 'PostService',
         var postGet = function(data){
             $scope.posts = data.posts;
             console.log($scope.posts);
-        }
-        PostService.get(postGet);
+        };
+        PostService.getAllPosts(postGet);
     }
 ]);
 

@@ -21,7 +21,7 @@ var app = express();
 /***************************************
  * CONFIGURATION FOR ALL ENVIRONMENTS
 ***************************************/
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3002);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -54,7 +54,7 @@ app.get('/users', user.list);
 app.get('/login', manage.login);
 
 /***************************
- * JSON API
+ * JSON REST API
 ****************************/
 app.get('/api/posts', api.posts);
 
