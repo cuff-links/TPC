@@ -40,8 +40,8 @@ template {
 }
 
 html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
+    font-family: 'Marcellus', serif;
+    -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 
@@ -305,11 +305,11 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Marcellus', serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
 }
 
 input,
@@ -4318,7 +4318,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 125px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4488,8 +4488,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
-  font-size: 18px;
+  padding: 20px 15px;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -4538,9 +4538,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 20px;
+    font-size: 20px;
 }
 
 @media (max-width: 767px) {
@@ -4575,8 +4578,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -4679,12 +4682,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border-color: #e7e7e7;
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: #000;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4698,12 +4701,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #000;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #5e5e5e;
   background-color: transparent;
 }
 

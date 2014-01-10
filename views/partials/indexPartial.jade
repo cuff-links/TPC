@@ -1,11 +1,9 @@
-input(type="text", data-ng-model="filterText", placeholder="Filter your list here")
-div(ng-repeat="post in posts | filter:filterText", class="well")
-    div
-      p
-        strong Title:
-      p {{post.title}}
-    div
-      p
-        strong Body:
-      p {{post.body}}
+.row
+    .col-md-3
+        input.form-control(type="text", data-ng-model="filterText", placeholder="Filter your list here")
+    .col-md-offset-9
+.row(style='padding-top:50px;')
+    div.col-md-4(ng-repeat="project in projects | filter:filterText")
+        a.thumbnail(href='#')
+            img(src='http://placehold.it/100x100', alt='{{project.name}}')
 

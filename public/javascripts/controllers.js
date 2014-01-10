@@ -1,13 +1,12 @@
 'use strict';
 var module = angular.module('controllers', ['services']);
 
-module.controller('IndexController', ['$scope', 'PostService',
-    function($scope, PostService){
-        var postGet = function(data){
-            $scope.posts = data.posts;
-            console.log($scope.posts);
+module.controller('IndexController', ['$scope', 'ProjectService',
+    function($scope, ProjectService){
+        var projectGet = function(data){
+            $scope.projects = data.projects;
         };
-        PostService.getAllPosts(postGet);
+        ProjectService.getAllProjects(projectGet);
     }
 ]);
 

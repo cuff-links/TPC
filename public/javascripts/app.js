@@ -15,6 +15,10 @@ app.config(function($routeProvider,$locationProvider){
             when('/manage', {
                 templateUrl:'partials/managePartial',
                 controller: 'TestController2'
+            }).
+            when('/blog', {
+                templateUrl:'partials/managePartial',
+                controller: 'BlogController'
             })//.
             //otherwise({redirectTo:'/'})
     });

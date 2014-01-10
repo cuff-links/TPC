@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var Post = mongoose.model('Posts');
+var Project = mongoose.model('Projects');
 
 
 /****************************************
@@ -61,5 +62,16 @@ exports.deletePost = function (req, res) {
             console.log('delete post error');
             res.json(false);
         }
+    });
+};
+
+/****************************************
+ *************GET: ALL PROJECTS*************
+ ****************************************/
+exports.projects = function(req, res){
+    Project.find({}, function(err,projects){
+        res.json({
+            projects: projects
+        });
     });
 };

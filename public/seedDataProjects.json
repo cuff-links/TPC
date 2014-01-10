@@ -1,0 +1,13 @@
+{
+    "name":"Integrated Order Navigation System",
+    "projectType":
+    {
+        "name":"Web",
+        "description":"Web sites and intranet applications."
+    },
+    "startDate":{"$date":"2011-12-24T05:00:00Z"},
+    "completionDate": {"$date":"2012-12-24T05:00:00Z"},
+    "gitUrl": "http://www.github.com/silne30/IONS",
+    "description": "Description of IONS.",
+    "projectCode":"ions"
+}

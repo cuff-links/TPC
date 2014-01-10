@@ -1,7 +1,7 @@
 (function(exports){
 "use strict";
 var mongoose = require('mongoose')
-    , Posts = mongoose.model('Posts');
+    , Projects = mongoose.model('Projects');
 
     exports.index = function(req, res){
       res.render('index', { title: 'The Power Coder | Home' });

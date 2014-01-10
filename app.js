@@ -8,6 +8,7 @@ var express = require('express')
   , mongoose = require('mongoose')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , blog = require('./routes/blog')
   , api = require('./routes/api')
   , manage = require('./routes/manage')
   , http = require('http')
@@ -21,7 +22,7 @@ var app = express();
 /***************************************
  * CONFIGURATION FOR ALL ENVIRONMENTS
 ***************************************/
-app.set('port', process.env.PORT || 3002);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -52,11 +53,14 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/users', user.list);
 app.get('/login', manage.login);
+app.get('/blog', blog.blog)
 
 /***************************
  * JSON REST API
 ****************************/
 app.get('/api/posts', api.posts);
+
+app.get('/api/projects',api.projects)
 
 app.get('/api/post/:id', api.post);
 app.post('/api/post', api.addPost);

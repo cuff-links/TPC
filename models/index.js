@@ -1,8 +1,22 @@
-/**
- * Created by jdorlus on 11/14/13.
- */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
+
+var projectSchema = new Schema({
+    name: String,
+    projectType:{
+        name: String,
+        description: String
+    },
+    startDate: Date,
+    completionDate: Date,
+    gitUrl: {type:String, default: null},
+    description: String,
+    projectCode: String
+
+});
+
 var postSchema = new Schema({
     title: String,
     shortDescription: String,
@@ -23,9 +37,9 @@ var postSchema = new Schema({
     modified:{type: Date, default: null}
 });
 
-
 postSchema.path('title').validate(function(title){
     return title.length < 0
 }, 'Title cannot be blank.');
 
 module.exports = mongoose.model('Posts', postSchema);
+module.exports = mongoose.model('Projects', projectSchema);

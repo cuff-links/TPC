@@ -3,9 +3,11 @@ html(data-ng-app="TPCv4")
     head
         title= title
         link(rel="stylesheet", href="/stylesheets/style.css")
-        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.min.css")
-        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.min.css")
-        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/examples/carousel/carousel.css")
+        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.css", type="text/css")
+        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
+        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/examples/carousel/carousel.css", type="text/css")
+        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Marcellus", type="text/css")
+
         script(type="text/javascript", src='/javascripts/vendor/bootstrap/docs-assets/js/holder.js')
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
         script(type="text/javascript", src="/javascripts/vendor/bootstrap/dist/js/bootstrap.min.js")
@@ -17,46 +19,25 @@ html(data-ng-app="TPCv4")
         script(type="text/javascript", src="/javascripts/services.js")
         script(type="text/javascript", src="/javascripts/directives.js")
         script(type="text/javascript", src="/javascripts/scripts.js")
+        style(type="text/css", rel="stylesheet")
+            header, li, a {
+                transition: all 1s;
+                -moz-transition: all 1s; /* Firefox 4 */
+                -webkit-transition: all 1s; /* Safari and Chrome */
+                -o-transition: all 1s; /* Opera */
+            }
+            header .navbar .navbar-default .navbar-fixed-top .smallbar {
+                min-height: 50px !important;
+            }
     body
         include header
-        include carousel
+        //include carousel
         //Marketing messaging and featurettes
         // Wrap the rest of the page in another container to center all the content.
-        include recentPostsAndCategories
-            // START THE FEATURETTES
+        //include recentPostsAndCategories
         .container
-            hr.featurette-divider
-            .row.featurette
-                .col-md-7
-                    h2.featurette-heading
-                        | First featurette heading.
-                        span.text-muted It'll blow your mind.
-                    p.lead
-                        | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-                .col-md-5
-                    img.featurette-image.img-responsive(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-            hr.featurette-divider
-            .row.featurette
-                .col-md-5
-                    img.featurette-image.img-responsive(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-                .col-md-7
-                    h2.featurette-heading
-                        | Oh yeah, it's that good.
-                        span.text-muted See for yourself.
-                    p.lead
-                        | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-            hr.featurette-divider
-            .row.featurette
-                .col-md-7
-                    h2.featurette-heading
-                        | And lastly, this one.
-                        span.text-muted Checkmate.
-                    p.lead
-                        | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-                .col-md-5
-                    img.featurette-image.img-responsive(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
-            hr.featurette-divider
-            // /END THE FEATURETTES
-            h1 Welcome to #{title}
-            div(data-ng-view)
+            .row( style="padding-top: 175px;")
+                .col-md-8.col-md-offset-2.boxShadow.col-sm-12
+                    img.img-responsive(src="images/pc_business_card.png",alt='Business Card')
+            .row(style='padding-top:100px;',data-ng-view)
             include footer
