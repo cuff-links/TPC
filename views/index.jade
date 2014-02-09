@@ -7,28 +7,18 @@ html(data-ng-app="TPCv4")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/examples/carousel/carousel.css", type="text/css")
         link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Marcellus", type="text/css")
-
         script(type="text/javascript", src='/javascripts/vendor/bootstrap/docs-assets/js/holder.js')
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
         script(type="text/javascript", src="/javascripts/vendor/bootstrap/dist/js/bootstrap.min.js")
         script(type="text/javascript", src="/javascripts/vendor/bootstrap/js/tab.js")
         script(type="text/javascript", src="/javascripts/vendor/angular/angular.min.js")
         script(type="text/javascript", src="/javascripts/vendor/angular-route/angular-route.min.js")
+        script(type="text/javascript", src="/javascripts/vendor/modernizr/modernizr.js")
         script(type="text/javascript", src="/javascripts/app.js")
         script(type="text/javascript", src="/javascripts/controllers.js")
         script(type="text/javascript", src="/javascripts/services.js")
         script(type="text/javascript", src="/javascripts/directives.js")
         script(type="text/javascript", src="/javascripts/scripts.js")
-        style(type="text/css", rel="stylesheet")
-            div.navbar , li, a {
-                transition: all 1s;
-                -moz-transition: all 1s; /* Firefox 4 */
-                -webkit-transition: all 1s; /* Safari and Chrome */
-                -o-transition: all 1s; /* Opera */
-            }
-            div.navbar .smallbar {
-                min-height: 50px !important;
-            }
     body
         include header
         //include carousel

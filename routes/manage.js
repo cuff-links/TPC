@@ -2,6 +2,7 @@
  * Get manage view (only for administrator to use)
  *
  */
+
 exports.login = function(request, result){
     result.render('login', {title: 'The Power Coder | Log In'});
 }

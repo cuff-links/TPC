@@ -4,7 +4,9 @@
 *********************************/
 
 var express = require('express')
-  , models = require('./models')
+  , projects = require('./models/project')
+  , posts = require('./models/post')
+  , Account = require('./models/account')
   , mongoose = require('mongoose')
   , routes = require('./routes')
   , user = require('./routes/user')
@@ -14,6 +16,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 var lessMiddleWare = require('less-middleware');
+var passport = require('passport');
+var LocalStrategy = require('passport').Strategy;
 var app = express();
 
 
@@ -53,6 +57,13 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/users', user.list);
 app.get('/login', manage.login);
+app.post('/login',
+    passport.authenticate('local', {
+        successRedirect:"/managePosts" ,
+        failureRedirect: "/",
+        failureFlash: "Invalid Username or Password",
+        successFlash:"Welcome!"
+    }));
 app.get('/blog', blog.blog)
 
 /***************************
@@ -67,10 +78,19 @@ app.post('/api/post', api.addPost);
 app.put('/api/post/:id', api.editPost);
 app.delete('/api/post/:id', api.deletePost);
 
+
+/********************************************
+ ************PASSPORT CONFIG ****************
+ ********************************************/
+//passport.use(new LocalStrategy(Account.authenticate()));
+//passport.serializeUser(Account.serializeUser());
+//passport.deserializeUser(Account.deserializeUser());
+
 /*******************************************
  ***********CONNECT TO MONGODB**************
  *******************************************/
 mongoose.connect("127.0.0.1", "TPCv4", 27017);
+//mongoose.connect('mongodb://localhost/passport_local_mongoose');
 
 /***************************
  * CREATE THE HTTP SERVER

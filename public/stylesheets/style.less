@@ -50,3 +50,16 @@
   -o-transform: skew(5deg) rotate(5deg);
   transform: skew(5deg) rotate(5deg);
 }
+div.navbar , li, a {
+  transition: all .5s;
+  -moz-transition: all .5s; /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari and Chrome */
+  -o-transition: all .5s; /* Opera */
+}
+@media (min-width: 768px) {
+  .navbar-nav > li > a.small {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
