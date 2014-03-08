@@ -6,13 +6,14 @@ html(data-ng-app="TPCv4")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.css", type="text/css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/examples/carousel/carousel.css", type="text/css")
-        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Marcellus", type="text/css")
+        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Michroma", type="text/css")
         script(type="text/javascript", src='/javascripts/vendor/bootstrap/docs-assets/js/holder.js')
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
         script(type="text/javascript", src="/javascripts/vendor/bootstrap/dist/js/bootstrap.min.js")
         script(type="text/javascript", src="/javascripts/vendor/bootstrap/js/tab.js")
         script(type="text/javascript", src="/javascripts/vendor/angular/angular.min.js")
         script(type="text/javascript", src="/javascripts/vendor/angular-route/angular-route.min.js")
+        script(type="text/javascript", src="/javascripts/vendor/angular-mocks/angular-mocks.js")
         script(type="text/javascript", src="/javascripts/vendor/modernizr/modernizr.js")
         script(type="text/javascript", src="/javascripts/app.js")
         script(type="text/javascript", src="/javascripts/controllers.js")
@@ -26,8 +27,16 @@ html(data-ng-app="TPCv4")
         // Wrap the rest of the page in another container to center all the content.
         //include recentPostsAndCategories
         .container
-            .row( style="padding-top: 175px;")
+            .row( style="padding: 275px 0 25px 0;")
+                p(style="text-align: center;font-size:32pt;") BUILDING THINGS TO SOLVE PROBLEMS
+                p(style="text-align: center;font-size:32pt;") AND MAKE LIFE EASIER.
+                    span(class="blueText") *
+            .row
+                p(style="text-align: center;font-size:14pt;", class="blueBorderTopBottom paddingTopBottom30")
+                    span(class="blueText") *
+                    |Things like Web Apps, Mobile Apps and Automated Testing Suites.
+            .row(style='padding-top:100px;',data-ng-view)
+            .row( style="padding-top: 175px;z-index:10;")
                 .col-md-8.col-md-offset-2.boxShadow.col-sm-12
                     img.img-responsive(src="images/pc_business_card.png",alt='Business Card')
-            .row(style='padding-top:100px;',data-ng-view)
             include footer

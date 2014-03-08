@@ -40,7 +40,7 @@ template {
 }
 
 html {
-    font-family: 'Marcellus', serif;
+    font-family: 'Michroma', serif;
     -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -305,7 +305,7 @@ html {
 }
 
 body {
-    font-family: 'Marcellus', serif;
+    font-family: 'Michroma', sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -4543,7 +4543,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     padding-left: 10px;
     padding-right: 10px;
     line-height: 20px;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 @media (max-width: 767px) {

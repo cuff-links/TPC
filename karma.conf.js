@@ -9,7 +9,7 @@ module.exports = function(config) {
 
 
     // frameworks to use
-    frameworks: ['mocha','sinon','chai'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -21,7 +21,7 @@ module.exports = function(config) {
 	'public/javascripts/vendor/angular-mocks/angular-mocks.js',
 	'public/javascripts/vendor/modernizr/modernizr.js',
 	'public/javascripts/*.js',
-	'public/tests/*.js'
+	'public/javascripts/tests/*.js'
     ],
 
 
@@ -61,7 +61,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // If browser does not capture in given timeout [ms], kill it

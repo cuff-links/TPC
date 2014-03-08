@@ -1,7 +1,13 @@
 .row
-    .col-md-3
-        input.form-control(type="text", data-ng-model="filterText", placeholder="Filter your list here")
-    .col-md-offset-9
+    .col-md-4
+        .input-group
+            input.form-control(type="text", data-ng-model="filterText", placeholder="Filter your list here")
+            .input-group-btn
+                button(class="btn btn-default dropdown-toggle", data-toggle="dropdown", type="button") Category
+                    span(class="caret")
+                ul(class="dropdown-menu pull-right")
+                    li(data-ng-repeat="category in projectTypes")
+                        a {{category.name}}
 .row(style='padding-top:50px;')
     div.col-md-4(ng-repeat="project in projects | filter:filterText")
         a.thumbnail(href='#')
