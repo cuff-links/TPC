@@ -17,7 +17,6 @@ var projectSchema = new Schema({
     gitUrl: {type:String, default: null},
     description: String,
     projectCode: String
-
 });
 
 module.exports = mongoose.model('Projects', projectSchema);

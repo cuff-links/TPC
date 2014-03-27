@@ -2,11 +2,27 @@
  * Created by jdorlus on 11/29/13.
  */
 $(document).ready(function(){
+    jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
+    $('.royalSlider').royalSlider({
+        arrowsNav: true,
+        arrowsNavAutoHide: false,
+        fadeinLoadedSlide: false,
+        controlNavigation: 'bullets',
+        controlNavigationSpacing: 0,
+        imageScaleMode: 'none',
+        imageAlignCenter: false,
+        sliderDrag: false,
+        navigateByClick: true,
+        loop: true,
+        transitionType: 'fade',
+        keyboardNavEnabled: false,
+        transitionSpeed: 600
+    });
     $('#myTabs li a').click(function () {
         $(this).tab('show');
         return false;
     });
-    $(document).on("scroll",function(e){
+    $(document).on("scroll",function(){
          checkSize();
     });
     $(window).resize(function(){
