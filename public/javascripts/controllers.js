@@ -30,7 +30,7 @@ function getUniqueJsonTrait(json, resultSet) {
         {
             typeName = json[i].projectType.name
             resultTypeName = resultSet[j];
-            if(!checkIfExistsInArray()stsInArray(resultSet,typeName)){
+            if(!checkIfExistsInArray(resultSet,typeName)){
                 console.log('Hey, should skip now because ' + typeName + ' is the same as ' + resultTypeName);
             }
             else{
