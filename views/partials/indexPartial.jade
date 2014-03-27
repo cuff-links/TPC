@@ -1,15 +1,15 @@
 .row
     .col-md-4
         .input-group
-            input.form-control(type="text", data-ng-model="filterText", placeholder="Filter your list here")
+            input.form-control(type="text", data-ng-model="filter.search", placeholder="Filter your list here")
             .input-group-btn
                 button(class="btn btn-default dropdown-toggle", data-toggle="dropdown", type="button") Category
                     span(class="caret")
                 ul(class="dropdown-menu pull-right")
-                    li(data-ng-repeat="category in projectTypes")
-                        a {{category.name}}
+                    li(ng-repeat="category in categories")
+                        a(data-ng-model="filter.category") {{category}}
 .row(style='padding-top:50px;')
-    div.col-md-4(ng-repeat="project in projects | filter:filterText")
+    div.col-md-4(ng-repeat="project in projects | filter:filter")
         a.thumbnail(href='#')
             img(src='http://placehold.it/300x300&text={{project.name}}', alt='{{project.name}}')
 

@@ -8,3 +8,4 @@ div.navbar,li,a{transition:all .5s;-moz-transition:all .5s;-webkit-transition:al
 @media (min-width:768px){.navbar-nav>li>a.small{padding-top:25px;padding-bottom:25px}}.blueBorderTopBottom{border-top:2px solid #3FC8FF;border-bottom:2px solid #3FC8FF}
 .blueText{color:#3FC8FF !important}
 .paddingTopBottom30{padding-top:30px;padding-bottom:30px}
+#homeSlideShowWrapper{background:url("../images/diagmonds_@2X.png") repeat transparent;min-height:600px}
