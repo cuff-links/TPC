@@ -21,7 +21,7 @@ describe('$transition', function() {
     $timeout = _$timeout_;
   }));
 
-  it('returns our custom promise', function() {
+  it('returns our tpc promise', function() {
     var element = angular.element('<div></div>');
     var promise = $transition(element, '');
     expect(promise.then).toEqual(jasmine.any(Function));

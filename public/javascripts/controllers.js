@@ -1,5 +1,5 @@
 'use strict';
-var module = angular.module('controllers', ['services']);
+var module = angular.module('controllers', ['services','directives']);
 
 module.controller('IndexController', ['$scope', 'ProjectService',
     function($scope, ProjectService){
@@ -31,22 +31,17 @@ function getUniqueJsonTrait(json, resultSet) {
             typeName = json[i].projectType.name
             resultTypeName = resultSet[j];
             if(!checkIfExistsInArray(resultSet,typeName)){
-                console.log('Hey, should skip now because ' + typeName + ' is the same as ' + resultTypeName);
-            }
-            else{
                 resultSet[resultSet.length] = json[i].projectType.name;
             }
-
         }
-
     }
     return resultSet;
 }
 function checkIfExistsInArray(array,stringToCheck){
     for(var i in array){
-        if (array[i] == stringToCheck){
-            return false;
+        if (array[i] === stringToCheck){
+            return true;
         }
     }
-    return true;
+    return false;
 }

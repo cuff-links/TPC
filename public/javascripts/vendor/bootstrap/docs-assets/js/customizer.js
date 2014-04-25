@@ -213,7 +213,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
       // will be 'undefined'.
       if (fileInclude || (fileInclude == null)) css += __less[filename]
 
-      // Custom variables are added after Bootstrap variables so the custom
+      // Custom variables are added after Bootstrap variables so the tpc
       // ones take precedence.
       if (('variables.less' === filename) && vars) css += generateCustomCSS(vars)
     })

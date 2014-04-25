@@ -1,9 +1,11 @@
 doctype 5
 html(data-ng-app="TPCv4")
     head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= title
         link(rel="stylesheet", href="/stylesheets/style.css")
-        link(rel="stylesheet", href="/javascripts/vendor/royalslider/skins/universal/rs-universal.css")
+        link(rel="stylesheet", href="/javascripts/vendor/royalslider/royalslider.css")
+        link(rel="stylesheet", href="/javascripts/vendor/royalslider/skins/tpc/tpc.css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.css", type="text/css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
         link(rel="stylesheet", href="/javascripts/vendor/bootstrap/examples/carousel/carousel.css", type="text/css")
@@ -16,8 +18,8 @@ html(data-ng-app="TPCv4")
         script(type="text/javascript", src="/javascripts/vendor/angular-route/angular-route.min.js")
         script(type="text/javascript", src="/javascripts/vendor/angular-mocks/angular-mocks.js")
         script(type="text/javascript", src="/javascripts/vendor/modernizr/modernizr.js")
-        script(type="text/javascript", src="/javascripts/vendor/royalslider/jquery.easing-1.3.js")
         script(type="text/javascript", src="/javascripts/vendor/royalslider/jquery.royalslider.min.js")
+        script(type="text/javascript", src="/javascripts/vendor/royalslider/jquery.easing-1.3.js")
         script(type="text/javascript", src="/javascripts/app.js")
         script(type="text/javascript", src="/javascripts/controllers.js")
         script(type="text/javascript", src="/javascripts/services.js")
@@ -35,16 +37,42 @@ html(data-ng-app="TPCv4")
                 p(style="text-align: center;font-size:32pt;") AND MAKE LIFE EASIER.
                     span(class="blueText") *
             .row
-                p(style="text-align: center;font-size:14pt;", class="blueBorderTopBottom paddingTopBottom30")
-                    span(class="blueText") *
-                    |Things like Web Apps, Mobile Apps and Automated Testing Suites.
+                .container
+                    p(style="text-align: center;font-size:14pt;", class="blueBorderTopBottom paddingTopBottom30")
+                        span(class="blueText") *
+                        |Things like Web Apps, Mobile Apps and Automated Testing Suites.
+                    p(style="text-align: center; font-size: 11pt") From websites for small businesses to developer tools for super-geeks,
+                    p(style="text-align: center; font-size: 11pt") I build applications and websites with the toolset that
+                    p(style="text-align: center; font-size: 11pt") will do the job the best (though I am partial to open source).
         div(id="homeSlideShowWrapper")
             div.container(id="homeSlideShow")
-                .royalSlider.rsDefault
-                    .rsContent
-                        p.rsABlock Go Ahead and Show this
-                    .rsContent
-                        p.rsABlock Go Ahead and Show this 2
+                .row
+                    .slideShowWrapper.rsCCR
+                        .royalSlider
+                            .rsContent
+                                .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
+                                    h1 Recent Project
+                                    h2(data-move-effect="top") SRNG Consultants
+                                    h3(data-move-effect="top") Small Business Website
+                                    p(data-move-effect="top") SRNG Consultants is a realty company that specializes in
+                                    p real estate and property management in the Bahamas.
+                                    p
+                                        a(href="http://www.srngconsultants.com",target="_blank") View Website
+                                .slideImages
+                                    img.rsABlock.back-image(src="/images/SRNG-slider-desktop.jpg", alt="SRNG Consultants Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+                                    img.rsABlock.front-image(src="/images/SRNG-slider-image-front.png", alt="SRNG Consultants Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+                            .rsContent
+                                .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
+                                    h1 Some heading
+                                    h2(data-move-effect="top") A Second Heading
+                                    h3(data-move-effect="top") A third heading
+                                    p(data-move-effect="top") Paraggjaifdjs jfdpag j;fjds agjoqpejt tqewklfmak;lbjaop jfogqw
+                                    p fdjkfdjkldf jklf;dj k;lfdsa jkl;sdafjk;lfddjak ;lfja; hwqo ;vjkdlsafjhoipgjq kjfasfda
+                                    p jfkeqwjkl;djk; nfdal;jk;lgqj op jfokqjmnlk;j aspo fjkdal;
+                                .slideImages
+                                    img.rsABlock.back-image(src="/images/TPC-slider-desktop.jpg", alt="The Power Coder Previous Version Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+                                    img.rsABlock.front-image(src="/images/TPC-slider-image-front.png", alt="TPC Power Coder Previous Version Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+                        .container.slider-controls
         .container
             .row(style='padding-top:100px;',data-ng-view)
             .row( style="padding-top: 175px;z-index:10;")

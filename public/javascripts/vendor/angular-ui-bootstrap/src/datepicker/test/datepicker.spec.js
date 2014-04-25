@@ -1106,7 +1106,7 @@ describe('datepicker directive', function () {
       });
     });
 
-    describe('custom format', function () {
+    describe('tpc format', function () {
       beforeEach(inject(function() {
         var wrapElement = $compile('<div><input ng-model="date" datepicker-popup="dd-MMMM-yyyy"><div>')($rootScope);
         $rootScope.$digest();
@@ -1130,7 +1130,7 @@ describe('datepicker directive', function () {
       });
     });
 
-    describe('dynamic custom format', function () {
+    describe('dynamic tpc format', function () {
       beforeEach(inject(function() {
         $rootScope.format = 'dd-MMMM-yyyy';
         var wrapElement = $compile('<div><input ng-model="date" datepicker-popup="{{format}}"><div>')($rootScope);

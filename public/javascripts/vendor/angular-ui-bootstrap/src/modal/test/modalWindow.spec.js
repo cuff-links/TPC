@@ -9,7 +9,7 @@ describe('modal window', function () {
     $compile = _$compile_;
   }));
 
-  it('should support custom CSS classes as string', function () {
+  it('should support tpc CSS classes as string', function () {
     var windowEl = $compile('<div modal-window window-class="test">content</div>')($rootScope);
     $rootScope.$digest();
 

@@ -1190,7 +1190,7 @@ QUnit.jsDump = (function() {
 	var reName = /^function (\w+)/;
 
 	var jsDump = {
-		parse:function( obj, type, stack ) { //type is used mostly internally, you can fix a (custom)type in advance
+		parse:function( obj, type, stack ) { //type is used mostly internally, you can fix a (tpc)type in advance
 			stack = stack || [ ];
 			var parser = this.parsers[ type || this.typeOf(obj) ];
 			type = typeof parser;

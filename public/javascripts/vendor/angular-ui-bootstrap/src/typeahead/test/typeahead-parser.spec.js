@@ -37,7 +37,7 @@ describe('syntax parser', function () {
     expect(result.modelMapper(scope, locals)).toEqual('Alabama');
   });
 
-  it('should allow to specify custom model mapping that is used as a label as well', function () {
+  it('should allow to specify tpc model mapping that is used as a label as well', function () {
 
     scope.states = [
       {code:'AL', name:'Alabama'},
@@ -59,7 +59,7 @@ describe('syntax parser', function () {
     expect(result.modelMapper(scope, locals)).toEqual('Alabama');
   });
 
-  it('should allow to specify custom view and model mappers', function () {
+  it('should allow to specify tpc view and model mappers', function () {
 
     scope.states = [
       {code:'AL', name:'Alabama'},

@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     dist: 'dist',
     filename: 'ui-bootstrap',
-    filenamecustom: '<%= filename %>-custom',
+    filenamecustom: '<%= filename %>-tpc',
     meta: {
       modules: 'angular.module("ui.bootstrap", [<%= srcModules %>]);',
       tplmodules: 'angular.module("ui.bootstrap.tpls", [<%= tplModules %>]);',

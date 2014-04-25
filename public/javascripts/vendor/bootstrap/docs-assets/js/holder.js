@@ -198,7 +198,7 @@ function parse_flags(flags, options) {
 		} else if (app.flags.colors.match(flag)) {
 			ret.theme = app.flags.colors.output(flag);
 		} else if (options.themes[flag]) {
-			//If a theme is specified, it will override custom colors
+			//If a theme is specified, it will override tpc colors
 			ret.theme = options.themes[flag];
 		} else if (app.flags.font.match(flag)) {
 			ret.font = app.flags.font.output(flag);

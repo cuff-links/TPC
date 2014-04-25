@@ -55,13 +55,13 @@ $(function () {
         ok(!$(".tooltip").length, 'tooltip removed')
       })
 
-      test("should respect custom classes", function () {
+      test("should respect tpc classes", function () {
         var tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"></a>')
           .appendTo('#qunit-fixture')
           .tooltip({ template: '<div class="tooltip some-class"><div class="tooltip-arrow"/><div class="tooltip-inner"/></div>'})
           .tooltip('show')
 
-        ok($('.tooltip').hasClass('some-class'), 'custom class is present')
+        ok($('.tooltip').hasClass('some-class'), 'tpc class is present')
         tooltip.tooltip('hide')
         ok(!$(".tooltip").length, 'tooltip removed')
       })

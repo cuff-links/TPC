@@ -24,7 +24,7 @@
 .rsMinW .rsSlide,
 .rsMinW .rsVideoFrameHolder,
 .rsMinW .rsThumbs {
-	background: #000;
+	/*background: #000;*/
 	color: #FFF;
 }
 
@@ -96,7 +96,7 @@
 	display: inline-block;
 	*display:inline; 
 	*zoom:1;
-	padding: 6px 5px 6px 4px;
+	padding: 6px 6px 6px 6px;
 }
 .rsMinW .rsBullet span {
 	display: block;

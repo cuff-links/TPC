@@ -2873,7 +2873,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can pass in an object of custom data in lieu of the handler
+		// Caller can pass in an object of tpc data in lieu of the handler
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -6877,7 +6877,7 @@ var r20 = /%20/g,
 	_load = jQuery.fn.load,
 
 	/* Prefilters
-	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+	 * 1) They are useful to introduce tpc dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
 	 *    - AFTER param serialization (s.data is a string if s.processData is true)
@@ -7223,7 +7223,7 @@ jQuery.extend({
 		},
 
 		// For options that shouldn't be deep extended:
-		// you can add your own custom options here if
+		// you can add your own tpc options here if
 		// and when you create one that shouldn't be
 		// deep extended (see ajaxExtend)
 		flatOptions: {
@@ -7570,7 +7570,7 @@ jQuery.extend({
 			jqXHR.setRequestHeader( i, s.headers[ i ] );
 		}
 
-		// Allow custom headers/mimetypes and early abort
+		// Allow tpc headers/mimetypes and early abort
 		if ( s.beforeSend && ( s.beforeSend.call( callbackContext, jqXHR, s ) === false || state === 2 ) ) {
 				// Abort if not done already
 				jqXHR.abort();
@@ -8095,7 +8095,7 @@ if ( jQuery.support.ajax ) {
 						xhr.open( s.type, s.url, s.async );
 					}
 
-					// Apply custom fields if provided
+					// Apply tpc fields if provided
 					if ( s.xhrFields ) {
 						for ( i in s.xhrFields ) {
 							xhr[ i ] = s.xhrFields[ i ];
@@ -8573,7 +8573,7 @@ function genFx( type, num ) {
 	return obj;
 }
 
-// Generate shortcuts for custom animations
+// Generate shortcuts for tpc animations
 jQuery.each({
 	slideDown: genFx( "show", 1 ),
 	slideUp: genFx( "hide", 1 ),

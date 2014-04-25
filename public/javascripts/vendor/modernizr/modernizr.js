@@ -887,7 +887,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
                 // We first check to see if the type we give it sticks..
                 // If the type does, we feed it a textual value, which shouldn't be valid.
-                // If the value doesn't stick, we know there's input sanitization which infers a custom UI
+                // If the value doesn't stick, we know there's input sanitization which infers a tpc UI
                 if ( bool ) {
 
                     inputElem.value         = smile;
@@ -1356,7 +1356,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
 
     /*>>teststyles*/
-    // Modernizr.testStyles() allows you to add custom styles to the document and test an element afterwards
+    // Modernizr.testStyles() allows you to add tpc styles to the document and test an element afterwards
     // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ ... })
     Modernizr.testStyles    = injectElementWithStyles;
     /*>>teststyles*/
