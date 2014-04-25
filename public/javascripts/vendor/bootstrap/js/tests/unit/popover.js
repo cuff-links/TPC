@@ -97,7 +97,7 @@ $(function () {
         $('#qunit-fixture').empty()
       })
 
-      test("should respect custom classes", function() {
+      test("should respect tpc classes", function() {
         $.support.transition = false
         var popover = $('<a href="#">@fat</a>')
           .appendTo('#qunit-fixture')
@@ -110,7 +110,7 @@ $(function () {
         popover.popover('show')
 
         ok($('.popover').length, 'popover was inserted')
-        ok($('.popover').hasClass('foobar'), 'custom class is present')
+        ok($('.popover').hasClass('foobar'), 'tpc class is present')
 
         popover.popover('hide')
         ok(!$('.popover').length, 'popover was removed')

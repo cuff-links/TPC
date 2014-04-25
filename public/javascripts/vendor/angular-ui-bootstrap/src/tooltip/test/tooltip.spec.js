@@ -572,7 +572,7 @@ describe( '$tooltipProvider', function() {
       }));
     });
 
-    describe( 'triggers with a custom mapped value', function() {
+    describe( 'triggers with a tpc mapped value', function() {
       beforeEach(module('ui.bootstrap.tooltip', function($tooltipProvider){
         $tooltipProvider.setTriggers({ 'customOpenTrigger': 'customCloseTrigger' });
         $tooltipProvider.options({trigger: 'customOpenTrigger'});

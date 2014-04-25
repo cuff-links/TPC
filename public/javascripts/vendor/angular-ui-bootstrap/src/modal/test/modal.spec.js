@@ -335,14 +335,14 @@ describe('$modal', function () {
 
     describe('scope', function () {
 
-      it('should custom scope if provided', function () {
+      it('should tpc scope if provided', function () {
         var $scope = $rootScope.$new();
-        $scope.fromScope = 'Content from custom scope';
+        $scope.fromScope = 'Content from tpc scope';
         open({
           template: '<div>{{fromScope}}</div>',
           scope: $scope
         });
-        expect($document).toHaveModalOpenWithContent('Content from custom scope', 'div');
+        expect($document).toHaveModalOpenWithContent('Content from tpc scope', 'div');
       });
     });
 
@@ -409,11 +409,11 @@ describe('$modal', function () {
       });
     });
 
-    describe('custom window classes', function () {
+    describe('tpc window classes', function () {
 
       it('should support additional window class as string', function () {
         open({
-          template: '<div>With custom window class</div>',
+          template: '<div>With tpc window class</div>',
           windowClass: 'additional'
         });
 

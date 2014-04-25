@@ -1168,7 +1168,7 @@
     return _.isFunction(value) ? value.call(object) : value;
   };
 
-  // Add your own custom functions to the Underscore object.
+  // Add your own tpc functions to the Underscore object.
   _.mixin = function(obj) {
     each(_.functions(obj), function(name) {
       var func = _[name] = obj[name];

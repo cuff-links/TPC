@@ -62,7 +62,7 @@ describe('typeahead tests', function () {
     inputEl.trigger(e);
   };
 
-  //custom matchers
+  //tpc matchers
   beforeEach(function () {
     this.addMatchers({
       toBeClosed: function () {
@@ -143,7 +143,7 @@ describe('typeahead tests', function () {
       expect(element).toBeClosed();
     });
 
-    it('should support custom model selecting function', function () {
+    it('should support tpc model selecting function', function () {
       $scope.updaterFn = function (selectedItem) {
         return 'prefix' + selectedItem;
       };
@@ -153,7 +153,7 @@ describe('typeahead tests', function () {
       expect($scope.result).toEqual('prefixfoo');
     });
 
-    it('should support custom label rendering function', function () {
+    it('should support tpc label rendering function', function () {
       $scope.formatterFn = function (sourceItem) {
         return 'prefix' + sourceItem;
       };
@@ -269,11 +269,11 @@ describe('typeahead tests', function () {
       expect(values).toContain('second');
     }));
 
-    it('should support custom templates for matched items', inject(function ($templateCache) {
+    it('should support tpc templates for matched items', inject(function ($templateCache) {
 
       $templateCache.put('custom.html', '<p>{{ index }} {{ match.label }}</p>');
 
-      var element = prepareInputEl("<div><input ng-model='result' typeahead-template-url='custom.html' typeahead='state as state.name for state in states | filter:$viewValue'></div>");
+      var element = prepareInputEl("<div><input ng-model='result' typeahead-template-url='tpc.html' typeahead='state as state.name for state in states | filter:$viewValue'></div>");
       var inputEl = findInput(element);
 
       changeInputValueTo(element, 'Al');
@@ -569,7 +569,7 @@ describe('typeahead tests', function () {
       expect(inputEl.val()).toEqual('formatted' + $scope.result.name);
     });
 
-    it('should support a custom input formatting function', function () {
+    it('should support a tpc input formatting function', function () {
 
       $scope.result = $scope.states[0];
       $scope.formatInput = function($model) {

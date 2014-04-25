@@ -27,7 +27,7 @@ describe('buttons', function () {
       expect(btn).toHaveClass('active');
     });
 
-    it('should bind custom model values', function () {
+    it('should bind tpc model values', function () {
       $scope.model = 1;
       var btn = compileButton('<button ng-model="model" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">click</button>', $scope);
       expect(btn).toHaveClass('active');
@@ -51,7 +51,7 @@ describe('buttons', function () {
       expect(btn).not.toHaveClass('active');
     });
 
-    it('should toggle custom model values on click', function () {
+    it('should toggle tpc model values on click', function () {
       $scope.model = 0;
       var btn = compileButton('<button ng-model="model" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">click</button>', $scope);
 

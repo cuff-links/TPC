@@ -78,7 +78,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         query: 'query',
         position: 'position'
       });
-      //custom item template
+      //tpc item template
       if (angular.isDefined(attrs.typeaheadTemplateUrl)) {
         popUpEl.attr('template-url', attrs.typeaheadTemplateUrl);
       }
@@ -193,7 +193,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         } else {
 
           //it might happen that we don't have enough info to properly render input value
-          //we need to check for this situation and simply return model value if we can't apply custom formatting
+          //we need to check for this situation and simply return model value if we can't apply tpc formatting
           locals[parserResult.itemName] = modelValue;
           candidateViewValue = parserResult.viewMapper(originalScope, locals);
           locals[parserResult.itemName] = undefined;

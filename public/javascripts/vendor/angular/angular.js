@@ -849,7 +849,7 @@ function shallowCopy(src, dst) {
 
   for(var key in src) {
     // shallowCopy is only ever called by $compile nodeLinkFn, which has control over src
-    // so we don't need to worry about using our custom hasOwnProperty here
+    // so we don't need to worry about using our tpc hasOwnProperty here
     if (src.hasOwnProperty(key) && key.charAt(0) !== '$' && key.charAt(1) !== '$') {
       dst[key] = src[key];
     }
@@ -1136,7 +1136,7 @@ function toKeyValue(obj) {
 
 
 /**
- * We need our custom method because encodeURIComponent is too aggressive and doesn't follow
+ * We need our tpc method because encodeURIComponent is too aggressive and doesn't follow
  * http://www.ietf.org/rfc/rfc3986.txt with regards to the character set (pchar) allowed in path
  * segments:
  *    segment       = *pchar
@@ -1155,7 +1155,7 @@ function encodeUriSegment(val) {
 
 
 /**
- * This method is intended for encoding *key* or *value* parts of query component. We need a custom
+ * This method is intended for encoding *key* or *value* parts of query component. We need a tpc
  * method because encodeURIComponent is too aggressive and encodes stuff that doesn't have to be
  * encoded per http://tools.ietf.org/html/rfc3986:
  *    query       = *( pchar / "/" / "?" )
@@ -3331,7 +3331,7 @@ function annotate(fn) {
  *
  *    beforeEach(module(function(eventTrackerProvider) {
  *      // Configure eventTracker provider
- *      eventTrackerProvider.setTrackingUrl('/custom-track');
+ *      eventTrackerProvider.setTrackingUrl('/tpc-track');
  *    }));
  *
  *    it('tracks events', inject(function(eventTracker) {
@@ -3345,7 +3345,7 @@ function annotate(fn) {
  *      eventTracker.save();
  *      expect(postSpy).toHaveBeenCalled();
  *      expect(postSpy.mostRecentCall.args[0]).not.toEqual('/track');
- *      expect(postSpy.mostRecentCall.args[0]).toEqual('/custom-track');
+ *      expect(postSpy.mostRecentCall.args[0]).toEqual('/tpc-track');
  *      expect(postSpy.mostRecentCall.args[1]).toEqual({ 'login': 1 });
  *    }));
  *  });
@@ -7169,7 +7169,7 @@ function $HttpProvider() {
      * # Caching
      *
      * To enable caching, set the request configuration `cache` property to `true` (to use default
-     * cache) or to a custom cache object (built with {@link ng.$cacheFactory `$cacheFactory`}).
+     * cache) or to a tpc cache object (built with {@link ng.$cacheFactory `$cacheFactory`}).
      * When the cache is enabled, `$http` stores the response from the server in the specified
      * cache. The next time the same request is made, the response is served from the cache without
      * sending a request to the server.
@@ -7186,7 +7186,7 @@ function $HttpProvider() {
      * {@link ng.$http#properties_defaults `$http.defaults.cache`} property. All requests who set
      * their `cache` property to `true` will now use this cache object.
      *
-     * If you set the default cache to `false` then only requests that specify their own custom
+     * If you set the default cache to `false` then only requests that specify their own tpc
      * cache object will be cached.
      *
      * # Interceptors
@@ -8085,7 +8085,7 @@ var $interpolateMinErr = minErr('$interpolate');
 </div>
 </doc:source>
 <doc:scenario>
- it('should interpolate binding with custom symbols', function() {
+ it('should interpolate binding with tpc symbols', function() {
   expect(binding('demo.label')).toBe('This binding is brought you by // interpolation symbols.');
  });
 </doc:scenario>
@@ -12754,7 +12754,7 @@ function $SceDelegateProvider() {
  *
  * The $sceProvider provider allows developers to configure the {@link ng.$sce $sce} service.
  * -   enable/disable Strict Contextual Escaping (SCE) in a module
- * -   override the default implementation with a custom delegate
+ * -   override the default implementation with a tpc delegate
  *
  * Read more about {@link ng.$sce Strict Contextual Escaping (SCE)}.
  */
@@ -12877,7 +12877,7 @@ function $SceDelegateProvider() {
  * The included {@link ng.$sceDelegate $sceDelegate} comes with sane defaults to allow you to load
  * templates in `ng-include` from your application's domain without having to even know about SCE.
  * It blocks loading templates from other domains or loading templates over http from an https
- * served document.  You can change these by setting your own custom {@link
+ * served document.  You can change these by setting your own tpc {@link
  * ng.$sceDelegateProvider#methods_resourceUrlWhitelist whitelists} and {@link
  * ng.$sceDelegateProvider#methods_resourceUrlBlacklist blacklists} for matching such URLs.
  *
@@ -14123,7 +14123,7 @@ function filterFilter() {
        <div ng-controller="Ctrl">
          <input type="number" ng-model="amount"> <br>
          default currency symbol ($): {{amount | currency}}<br>
-         custom currency identifier (USD$): {{amount | currency:"USD$"}}
+         tpc currency identifier (USD$): {{amount | currency:"USD$"}}
        </div>
      </doc:source>
      <doc:scenario>
@@ -16448,7 +16448,7 @@ var VALID_CLASS = 'ng-valid',
  * `NgModelController` for data-binding.
  *
  * ## Custom Control Example
- * This example shows how to use `NgModelController` with a custom control to achieve
+ * This example shows how to use `NgModelController` with a tpc control to achieve
  * data-binding. Notice how different directives (`contenteditable`, `ng-model`, and `required`)
  * collaborate together to achieve the desired result.
  *
@@ -16741,7 +16741,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  * @element input
  *
  * @description
- * The `ngModel` directive binds an `input`,`select`, `textarea` (or custom form control) to a
+ * The `ngModel` directive binds an `input`,`select`, `textarea` (or tpc form control) to a
  * property on the scope using {@link ng.directive:ngModel.NgModelController NgModelController},
  * which is created and exposed by this directive.
  *
@@ -17789,7 +17789,7 @@ var ngControllerDirective = [function() {
  * @name ng.directive:ngClick
  *
  * @description
- * The ngClick directive allows you to specify custom behavior when
+ * The ngClick directive allows you to specify tpc behavior when
  * an element is clicked.
  *
  * @element ANY
@@ -17814,7 +17814,7 @@ var ngControllerDirective = [function() {
    </doc:example>
  */
 /*
- * A directive that allows creation of custom onclick handlers that are defined as angular
+ * A directive that allows creation of tpc onclick handlers that are defined as angular
  * expressions and are compiled and executed within the current scope.
  *
  * Events that are handled via these handler are always configured not to propagate further.
@@ -17846,7 +17846,7 @@ forEach(
  * @name ng.directive:ngDblclick
  *
  * @description
- * The `ngDblclick` directive allows you to specify custom behavior on a dblclick event.
+ * The `ngDblclick` directive allows you to specify tpc behavior on a dblclick event.
  *
  * @element ANY
  * @param {expression} ngDblclick {@link guide/expression Expression} to evaluate upon
@@ -17869,7 +17869,7 @@ forEach(
  * @name ng.directive:ngMousedown
  *
  * @description
- * The ngMousedown directive allows you to specify custom behavior on mousedown event.
+ * The ngMousedown directive allows you to specify tpc behavior on mousedown event.
  *
  * @element ANY
  * @param {expression} ngMousedown {@link guide/expression Expression} to evaluate upon
@@ -17892,7 +17892,7 @@ forEach(
  * @name ng.directive:ngMouseup
  *
  * @description
- * Specify custom behavior on mouseup event.
+ * Specify tpc behavior on mouseup event.
  *
  * @element ANY
  * @param {expression} ngMouseup {@link guide/expression Expression} to evaluate upon
@@ -17914,7 +17914,7 @@ forEach(
  * @name ng.directive:ngMouseover
  *
  * @description
- * Specify custom behavior on mouseover event.
+ * Specify tpc behavior on mouseover event.
  *
  * @element ANY
  * @param {expression} ngMouseover {@link guide/expression Expression} to evaluate upon
@@ -17937,7 +17937,7 @@ forEach(
  * @name ng.directive:ngMouseenter
  *
  * @description
- * Specify custom behavior on mouseenter event.
+ * Specify tpc behavior on mouseenter event.
  *
  * @element ANY
  * @param {expression} ngMouseenter {@link guide/expression Expression} to evaluate upon
@@ -17960,7 +17960,7 @@ forEach(
  * @name ng.directive:ngMouseleave
  *
  * @description
- * Specify custom behavior on mouseleave event.
+ * Specify tpc behavior on mouseleave event.
  *
  * @element ANY
  * @param {expression} ngMouseleave {@link guide/expression Expression} to evaluate upon
@@ -17983,7 +17983,7 @@ forEach(
  * @name ng.directive:ngMousemove
  *
  * @description
- * Specify custom behavior on mousemove event.
+ * Specify tpc behavior on mousemove event.
  *
  * @element ANY
  * @param {expression} ngMousemove {@link guide/expression Expression} to evaluate upon
@@ -18006,7 +18006,7 @@ forEach(
  * @name ng.directive:ngKeydown
  *
  * @description
- * Specify custom behavior on keydown event.
+ * Specify tpc behavior on keydown event.
  *
  * @element ANY
  * @param {expression} ngKeydown {@link guide/expression Expression} to evaluate upon
@@ -18027,7 +18027,7 @@ forEach(
  * @name ng.directive:ngKeyup
  *
  * @description
- * Specify custom behavior on keyup event.
+ * Specify tpc behavior on keyup event.
  *
  * @element ANY
  * @param {expression} ngKeyup {@link guide/expression Expression} to evaluate upon
@@ -18048,7 +18048,7 @@ forEach(
  * @name ng.directive:ngKeypress
  *
  * @description
- * Specify custom behavior on keypress event.
+ * Specify tpc behavior on keypress event.
  *
  * @element ANY
  * @param {expression} ngKeypress {@link guide/expression Expression} to evaluate upon
@@ -18122,7 +18122,7 @@ forEach(
  * @name ng.directive:ngFocus
  *
  * @description
- * Specify custom behavior on focus event.
+ * Specify tpc behavior on focus event.
  *
  * @element window, input, select, textarea, a
  * @param {expression} ngFocus {@link guide/expression Expression} to evaluate upon
@@ -18137,7 +18137,7 @@ forEach(
  * @name ng.directive:ngBlur
  *
  * @description
- * Specify custom behavior on blur event.
+ * Specify tpc behavior on blur event.
  *
  * @element window, input, select, textarea, a
  * @param {expression} ngBlur {@link guide/expression Expression} to evaluate upon
@@ -18152,7 +18152,7 @@ forEach(
  * @name ng.directive:ngCopy
  *
  * @description
- * Specify custom behavior on copy event.
+ * Specify tpc behavior on copy event.
  *
  * @element window, input, select, textarea, a
  * @param {expression} ngCopy {@link guide/expression Expression} to evaluate upon
@@ -18172,7 +18172,7 @@ forEach(
  * @name ng.directive:ngCut
  *
  * @description
- * Specify custom behavior on cut event.
+ * Specify tpc behavior on cut event.
  *
  * @element window, input, select, textarea, a
  * @param {expression} ngCut {@link guide/expression Expression} to evaluate upon
@@ -18192,7 +18192,7 @@ forEach(
  * @name ng.directive:ngPaste
  *
  * @description
- * Specify custom behavior on paste event.
+ * Specify tpc behavior on paste event.
  *
  * @element window, input, select, textarea, a
  * @param {expression} ngPaste {@link guide/expression Expression} to evaluate upon
@@ -18933,7 +18933,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  *   </footer>
  * </pre>
  *
- * The custom start and end points for ngRepeat also support all other HTML directive syntax flavors provided in AngularJS (such
+ * The tpc start and end points for ngRepeat also support all other HTML directive syntax flavors provided in AngularJS (such
  * as **data-ng-repeat-start**, **x-ng-repeat-start** and **ng:repeat-start**).
  *
  * @animations

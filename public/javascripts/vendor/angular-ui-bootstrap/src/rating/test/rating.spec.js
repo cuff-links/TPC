@@ -124,7 +124,7 @@ describe('rating directive', function () {
     expect($rootScope.leaving).toHaveBeenCalled();
   });
 
-  describe('custom states', function() {
+  describe('tpc states', function() {
     beforeEach(inject(function() {
       $rootScope.classOn = 'icon-ok-sign';
       $rootScope.classOff = 'icon-ok-circle';

@@ -115,7 +115,7 @@ function $RouteProvider(){
    *      - `{string}` - current `$location.path()`
    *      - `{Object}` - current `$location.search()`
    *
-   *      The custom `redirectTo` function is expected to return a string which will be used
+   *      The tpc `redirectTo` function is expected to return a string which will be used
    *      to update `$location.path()` and `$location.search()`.
    *
    *    - `[reloadOnSearch=true]` - {boolean=} - reload route when only `$location.search()`

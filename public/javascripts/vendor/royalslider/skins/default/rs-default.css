@@ -24,7 +24,7 @@
 .rsDefault .rsSlide,
 .rsDefault .rsVideoFrameHolder,
 .rsDefault .rsThumbs {
-	background: #151515;
+	/*background: #151515;*/
 	color: #FFF;
 }
 
@@ -100,8 +100,8 @@
 	height: auto;
 	margin: 0 auto; 
 
-	background: #000;
-	background: rgba(0,0,0,0.75);
+	/*background: #000;
+	background: rgba(0,0,0,0.75);   */
 
 	text-align: center;
 	line-height: 8px;
@@ -113,7 +113,7 @@
 	display: inline-block;
 	*display:inline; 
 	*zoom:1;
-	padding: 6px 5px 6px;
+	padding: 10px 5px 10px;
 }
 .rsDefault .rsBullet span {
 	display: block;

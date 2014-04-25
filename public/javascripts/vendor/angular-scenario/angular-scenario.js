@@ -2916,7 +2916,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can pass in an object of custom data in lieu of the handler
+		// Caller can pass in an object of tpc data in lieu of the handler
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -6990,7 +6990,7 @@ var r20 = /%20/g,
 	_load = jQuery.fn.load,
 
 	/* Prefilters
-	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+	 * 1) They are useful to introduce tpc dataTypes (see ajax/jsonp.js for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
 	 *    - AFTER param serialization (s.data is a string if s.processData is true)
@@ -7336,7 +7336,7 @@ jQuery.extend({
 		},
 
 		// For options that shouldn't be deep extended:
-		// you can add your own custom options here if
+		// you can add your own tpc options here if
 		// and when you create one that shouldn't be
 		// deep extended (see ajaxExtend)
 		flatOptions: {
@@ -7683,7 +7683,7 @@ jQuery.extend({
 			jqXHR.setRequestHeader( i, s.headers[ i ] );
 		}
 
-		// Allow custom headers/mimetypes and early abort
+		// Allow tpc headers/mimetypes and early abort
 		if ( s.beforeSend && ( s.beforeSend.call( callbackContext, jqXHR, s ) === false || state === 2 ) ) {
 				// Abort if not done already
 				jqXHR.abort();
@@ -8207,7 +8207,7 @@ if ( jQuery.support.ajax ) {
 						xhr.open( s.type, s.url, s.async );
 					}
 
-					// Apply custom fields if provided
+					// Apply tpc fields if provided
 					if ( s.xhrFields ) {
 						for ( i in s.xhrFields ) {
 							xhr[ i ] = s.xhrFields[ i ];
@@ -8710,7 +8710,7 @@ function genFx( type, num ) {
 	return obj;
 }
 
-// Generate shortcuts for custom animations
+// Generate shortcuts for tpc animations
 jQuery.each({
 	slideDown: genFx( "show", 1 ),
 	slideUp: genFx( "hide", 1 ),
@@ -10302,7 +10302,7 @@ function toKeyValue(obj) {
 
 
 /**
- * We need our custom method because encodeURIComponent is too agressive and doesn't follow
+ * We need our tpc method because encodeURIComponent is too agressive and doesn't follow
  * http://www.ietf.org/rfc/rfc3986.txt with regards to the character set (pchar) allowed in path
  * segments:
  *    segment       = *pchar
@@ -10321,7 +10321,7 @@ function encodeUriSegment(val) {
 
 
 /**
- * This method is intended for encoding *key* or *value* parts of query component. We need a custom
+ * This method is intended for encoding *key* or *value* parts of query component. We need a tpc
  * method becuase encodeURIComponent is too agressive and encodes stuff that doesn't have to be
  * encoded per http://tools.ietf.org/html/rfc3986:
  *    query       = *( pchar / "/" / "?" )
@@ -16659,7 +16659,7 @@ function $RouteProvider(){
    *      - `{string}` - current `$location.path()`
    *      - `{Object}` - current `$location.search()`
    *
-   *      The custom `redirectTo` function is expected to return a string which will be used
+   *      The tpc `redirectTo` function is expected to return a string which will be used
    *      to update `$location.path()` and `$location.search()`.
    *
    *    - `[reloadOnSearch=true]` - {boolean=} - reload route when only $location.search()
@@ -19398,7 +19398,7 @@ function filterFilter() {
        <div ng-controller="Ctrl">
          <input type="number" ng-model="amount"> <br>
          default currency symbol ($): {{amount | currency}}<br>
-         custom currency identifier (USD$): {{amount | currency:"USD$"}}
+         tpc currency identifier (USD$): {{amount | currency:"USD$"}}
        </div>
      </doc:source>
      <doc:scenario>
@@ -21592,7 +21592,7 @@ var VALID_CLASS = 'ng-valid',
  * propogated to the parent scope.
  *
  *
- * This example shows how to use `NgModelController` with a custom control to achieve
+ * This example shows how to use `NgModelController` with a tpc control to achieve
  * data-binding. Notice how different directives (`contenteditable`, `ng-model`, and `required`)
  * collaborate together to achieve the desired result.
  *
@@ -22619,7 +22619,7 @@ var ngCspDirective = ['$sniffer', function($sniffer) {
  * @name ng.directive:ngClick
  *
  * @description
- * The ngClick allows you to specify custom behavior when
+ * The ngClick allows you to specify tpc behavior when
  * element is clicked.
  *
  * @element ANY
@@ -22644,7 +22644,7 @@ var ngCspDirective = ['$sniffer', function($sniffer) {
    </doc:example>
  */
 /*
- * A directive that allows creation of custom onclick handlers that are defined as angular
+ * A directive that allows creation of tpc onclick handlers that are defined as angular
  * expressions and are compiled and executed within the current scope.
  *
  * Events that are handled via these handler are always configured not to propagate further.
@@ -22672,7 +22672,7 @@ forEach(
  * @name ng.directive:ngDblclick
  *
  * @description
- * The `ngDblclick` directive allows you to specify custom behavior on dblclick event.
+ * The `ngDblclick` directive allows you to specify tpc behavior on dblclick event.
  *
  * @element ANY
  * @param {expression} ngDblclick {@link guide/expression Expression} to evaluate upon
@@ -22688,7 +22688,7 @@ forEach(
  * @name ng.directive:ngMousedown
  *
  * @description
- * The ngMousedown directive allows you to specify custom behavior on mousedown event.
+ * The ngMousedown directive allows you to specify tpc behavior on mousedown event.
  *
  * @element ANY
  * @param {expression} ngMousedown {@link guide/expression Expression} to evaluate upon
@@ -22704,7 +22704,7 @@ forEach(
  * @name ng.directive:ngMouseup
  *
  * @description
- * Specify custom behavior on mouseup event.
+ * Specify tpc behavior on mouseup event.
  *
  * @element ANY
  * @param {expression} ngMouseup {@link guide/expression Expression} to evaluate upon
@@ -22719,7 +22719,7 @@ forEach(
  * @name ng.directive:ngMouseover
  *
  * @description
- * Specify custom behavior on mouseover event.
+ * Specify tpc behavior on mouseover event.
  *
  * @element ANY
  * @param {expression} ngMouseover {@link guide/expression Expression} to evaluate upon
@@ -22735,7 +22735,7 @@ forEach(
  * @name ng.directive:ngMouseenter
  *
  * @description
- * Specify custom behavior on mouseenter event.
+ * Specify tpc behavior on mouseenter event.
  *
  * @element ANY
  * @param {expression} ngMouseenter {@link guide/expression Expression} to evaluate upon
@@ -22751,7 +22751,7 @@ forEach(
  * @name ng.directive:ngMouseleave
  *
  * @description
- * Specify custom behavior on mouseleave event.
+ * Specify tpc behavior on mouseleave event.
  *
  * @element ANY
  * @param {expression} ngMouseleave {@link guide/expression Expression} to evaluate upon
@@ -22767,7 +22767,7 @@ forEach(
  * @name ng.directive:ngMousemove
  *
  * @description
- * Specify custom behavior on mousemove event.
+ * Specify tpc behavior on mousemove event.
  *
  * @element ANY
  * @param {expression} ngMousemove {@link guide/expression Expression} to evaluate upon
@@ -22783,7 +22783,7 @@ forEach(
  * @name ng.directive:ngKeydown
  *
  * @description
- * Specify custom behavior on keydown event.
+ * Specify tpc behavior on keydown event.
  *
  * @element ANY
  * @param {expression} ngKeydown {@link guide/expression Expression} to evaluate upon
@@ -22799,7 +22799,7 @@ forEach(
  * @name ng.directive:ngKeyup
  *
  * @description
- * Specify custom behavior on keyup event.
+ * Specify tpc behavior on keyup event.
  *
  * @element ANY
  * @param {expression} ngKeyup {@link guide/expression Expression} to evaluate upon
@@ -22815,7 +22815,7 @@ forEach(
  * @name ng.directive:ngKeypress
  *
  * @description
- * Specify custom behavior on keypress event.
+ * Specify tpc behavior on keypress event.
  *
  * @element ANY
  * @param {expression} ngKeypress {@link guide/expression Expression} to evaluate upon
@@ -26276,7 +26276,7 @@ angular.scenario.dsl('element', function() {
   };
 
   chain.query = function(fn) {
-    return this.addFutureAction('element ' + this.label + ' custom query', function($window, $document, done) {
+    return this.addFutureAction('element ' + this.label + ' tpc query', function($window, $document, done) {
       fn.call(this, $document.elements(), done);
     });
   };

@@ -42,7 +42,7 @@ angular.module('ui.bootstrap.transition', [])
       }
     });
 
-    // Add our custom cancel function to the promise that is returned
+    // Add our tpc cancel function to the promise that is returned
     // We can call this if we are about to run a new transition, which we know will prevent this transition from ending,
     // i.e. it will therefore never raise a transitionEnd event for that transition
     deferred.promise.cancel = function() {
