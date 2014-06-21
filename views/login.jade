@@ -1,28 +1,42 @@
-extends header
+doctype html
+html(data-ng-app="TPCv4")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title
+        link(rel="stylesheet", href="/stylesheets/style.css")
+        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.css", type="text/css")
+        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
+        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Michroma", type="text/css")
+        script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
+        script(type="text/javascript", src="/javascripts/vendor/bootstrap/dist/js/bootstrap.min.js")
+        script(type="text/javascript", src="/javascripts/vendor/bootstrap/js/tab.js")
+        script(type="text/javascript", src="/javascripts/vendor/modernizr/modernizr.js")
+    body
+        include header
+        div(id="loginDiv", class="container")
+            div(class="row")
+                div(class="col-md-6 col-lg-offset-3")
+                    div(class="panel panel-primary")
+                        div(class="panel-heading")
+                           div(class="panel-title")
+                           | Sign In Here
+                        div(class="panel-body")
+                            form(class="form-horizontal", role="form", action="/login", method="post")
+                                div(class="form-group")
+                                    label(for="inputUsername", name="username", class="control-label col-md-3") Username:
+                                    div(class="col-md-9")
+                                        input(id="inputUsername", name="username" type="text", class="form-control", placeholder="Enter Username")
+                                div(class="form-group")
+                                    label(for="inputPassword", name="password", class="control-label col-md-3") Password:
+                                    div(class="col-md-9")
+                                        input(id="inputPassword", name="password", type="password", class="form-control", placeholder="Enter Password")
+                                div(class="form-group")
+                                    div(class="col-md-offset-2 col-md-10")
+                                        div(class="pull-right")
+                                            div(class="checkbox")
+                                                input(id="rememberMeCheck",type="checkbox")
+                                                label(for="rememberMeCheck") Remember Me
 
-block content
-    div(id="loginDiv", class="container")
-        div(class="row")
-            div(class="col-md-6 col-lg-offset-3")
-                div(class="panel panel-primary")
-                    div(class="panel-heading")
-                       div(class="panel-title")
-                       | Sign In Here
-                    div(class="panel-body")
-                        form(class="form-horizontal", role="form", onsubmit=)
-                            div(class="form-group")
-                                label(for="inputUsername", class="control-label col-md-2") Username:
-                                div(class="col-md-10")
-                                    input(id="inputUsername", class="form-control", placeholder="Enter Username")
-                            div(class="form-group")
-                                label(for="inputPassword", class="control-label col-md-2") Password:
-                                div(class="col-md-10")
-                                    input(id="inputPassword", type="password", class="form-control", placeholder="Enter Password")
-                            div(class="form-group")
-                                div(class="col-md-offset-2 col-md-10")
-                                    div(class="checkbox")
-                                        label Remember Me
-                                            input(type="checkbox")
-                            div(class="form-group")
-                                div(class="col-md-offset-2 col-md-10")
-                                    button(type="submit", class="btn btn-primary") Sign In
+                                div(class="form-group")
+                                    div(class="col-md-offset-2 col-md-10")
+                                        button(type="submit", class="btn btn-primary pull-right") Sign In

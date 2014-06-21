@@ -7,18 +7,18 @@ var app = angular.module('TPCv4', [
     //'directives'
 ]);
 app.config(function($routeProvider,$locationProvider){
-        $routeProvider.
-            when('/',{
-                templateUrl:'partials/indexPartial',
-                controller: 'IndexController'
-            }).
-            when('/manage', {
-                templateUrl:'partials/managePartial',
-                controller: 'TestController2'
-            }).
-            when('/blog', {
-                templateUrl:'partials/managePartial',
-                controller: 'BlogController'
-            })//.
-            //otherwise({redirectTo:'/'})
-    });
+    $routeProvider.
+        when('/',{
+            templateUrl:'partials/indexPartial',
+            controller: 'IndexController'
+        }).
+        when('/manage', {
+            templateUrl:'partials/managePartial',
+            controller: 'TestController2'
+        }).
+        when('/blog', {
+            templateUrl:'partials/managePartial',
+            controller: 'BlogController'
+        });
+        $locationProvider.html5Mode(true);
+});
