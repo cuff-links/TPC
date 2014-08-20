@@ -4538,12 +4538,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-nav > li > a {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    font-family: 'Paytone One', sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
     padding-left: 10px;
     padding-right: 10px;
     line-height: 20px;
-    font-size: 14px;
+    /*font-size: 16pt;*/
 }
 
 @media (max-width: 979px) {
@@ -4578,10 +4579,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 50px;
-    padding-bottom: 50px;
-      padding-left: 10px;
-      padding-right: 10px;
+    padding: 75px 10px;
   }
 }
 

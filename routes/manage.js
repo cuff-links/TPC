@@ -12,7 +12,7 @@ exports.partials = function (req, res) {
 };
 
 exports.login = function(req,res){
-    res.render('login', {title: 'The Power Coder | Log In', user: req.user});
+    res.render('login', {title: 'The Power Coder | Log In' + req.user, user: req.user});
 }
 
 exports.register = function(req,res){

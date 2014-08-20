@@ -1,8 +1,7 @@
 (function(exports){
     "use strict";
     var mongoose = require('mongoose')
-        , post  = require('../models/post')
-        , Posts = mongoose.model('Posts', post);
+        , Posts = require('../models/post').PostModel;
     exports.blog = function(request, result){
         result.render('blog', {title: 'The Power Coder | The Power Blog'});
     }
