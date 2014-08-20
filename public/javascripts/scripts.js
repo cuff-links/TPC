@@ -2,6 +2,7 @@
  * Created by jdorlus on 11/29/13.
  */
 $(document).ready(function(){
+    checkSize();
     jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
     $('.royalSlider').royalSlider({
         arrowsNav: true,
@@ -43,16 +44,20 @@ function checkSize(){
     if(Modernizr.mq('screen and (min-width:992px)')) {
         $('#homeSlideShowWrapper').show();
         if($(document).scrollTop()>75){
-            $(".navbar").css('min-height','50px');
+            $(".navbar").css('min-height','40px');
             $(".navbar-brand").css('padding','25px 15px');
             navbarNavListItems.addClass('small');
-            $('.navbar-brand').css('font-size','16pt');
+            navbarNavListItems.css('font-size','10pt');
+//            $('#navbarLogo').css('width', '136px').css('height','50px');
+            $('#navbarLogo').css('width', '105px').css('height','40px');
 
         } else{
-            $('.navbar').css('min-height','125px');
+            $('.navbar').css('min-height','100px');
             $(".navbar-brand").css('padding','50px 15px');
             navbarNavListItems.removeClass('small');
-            $('.navbar-brand').css('font-size','20pt');
+            navbarNavListItems.css('font-size','12pt');
+            $('#navbarLogo').css('width', '177px').css('height','65px');
+//            $('#navbarLogo').css('width', '240px').css('height','80px');
         }
     }
     else{

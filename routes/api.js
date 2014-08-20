@@ -1,52 +1,114 @@
 /**
  * Created by jdorlus on 11/14/13.
  */
+var log4js= require('log4js');
+log4js.loadAppender('file');
+log4js.addAppender(log4js.appenders.file('logs/ApiLog.log'), 'ApiLog');
+
+var logger = log4js.getLogger('ApiLog');
 var mongoose = require('mongoose');
-var post = require('../models/post');
-var project = require('../models/project')
-var Posts = mongoose.model('Posts', post);
+var project = require('../models/project');
+var Post = require('../models/post').PostModel;
 var Project = mongoose.model('Projects', project);
+
+logger.setLevel('INFO');
 
 
 /****************************************
  *************GET: ALL POSTS*************
  ****************************************/
 exports.posts = function(req, res){
-     Posts.find({}, function(err,posts){
-         res.json({
-             posts: posts
-         });
+     Post.find({}, function(err,posts){
+         logger.info('Getting posts...');
+         if (err){
+             res.json({
+                 status: err.status,
+                 message: err.message
+             })
+             logger.error('Error:'+ err.status + " Message:" + err.message)
+         }
+         else{
+             logger.debug('Retrieved posts: \n' + posts);
+             res.json({
+                 posts: posts
+             });
+             logger.info('Post retrieved...')
+         }
      });
 };
 /****************************************
  *************GET: ONE POST**************
  ****************************************/
 exports.post = function(req,res){
-    Posts.findOne({_id:req.params.id},function(err,obj){
-        console.log('returns the post: ' + obj);
-        res.json({
-            post:obj
-        });
+    Post.findOne({_id:req.params.id},function(err,post){
+        if (!post){
+            res.json({
+                status: '404',
+                message: 'Post not found'
+            });
+            logger.info("Error - 404: Post not Found");
+        }
+        if(err){
+            res.json({
+                status: err.status,
+                message: err.message
+            });
+            logger.error("Error: "+ err.status + ' - ' + err.message);
+        }
+        else{
+            logger.debug('returns the post: ' + obj);
+            res.json({
+                post:post
+            });
+        }
     });
 };
 /****************************************
  *************POST: ADD POST*************
  ****************************************/
 exports.addPost = function (req, res) {
-    var newPost = new Posts(req.body);
-    newPost.save();
-    console.log("post added: " + req.body);
+    var newPost = new Post(req.body);
+    newPost.save(function(err){
+        if(!err){
+            logger.info('Article Created!');
+            return res.send({status : 'OK', post: newPost} )
+        }
+        else{
+            logger.error(err);
+            if(err){
+                res.json({
+                    status: err.status,
+                    message: err.message
+                });
+            }
+        }
+    });
+    logger.info("post added: " + req.body);
     res.json(req.body);
+    logger.info('Post was added since authenticated.')
 };
 
 /****************************************
  *************PUT: EDIT POST*************
  ****************************************/
 exports.editPost = function (req, res) {
-    //console.log("edit post: " + req.body.title);
-    Posts.findByIdAndUpdate(req.params.id, {
-            $set: { text: req.body.text, title: req.body.title }}, {upsert:true}, function (err, user) {
-            return res.json(true);
+    logger.info("edit post: " + req.body.title);
+    Post.findByIdAndUpdate(req.params.id, {
+            $set: { body: req.body.body, title: req.body.title }}, {upsert:true}, function (err) {
+            if(!err){
+                log.info('Article Updated!');
+                res.json({
+                    updateSuccessful: true
+                });
+            }
+            else{
+                res.json({
+                    updateSuccessful: false,
+                    status: err.status,
+                    message: err.message
+                });
+                logger.error('Error: '+ err.status + ' - ' + err.message);
+            }
         }
     );
 };
@@ -55,14 +117,20 @@ exports.editPost = function (req, res) {
  *************PUT: DELETE POST***********
  ****************************************/
 exports.deletePost = function (req, res) {
-    Posts.remove({_id: req.params.id}, function (err) {
-        if (!err) {
-            console.log('no delete post error');
-            res.json(true);
+    Post.remove({_id: req.params.id}, function (err) {
+        if(!err){
+            log.info('Article Updated!');
+            res.json({
+                deleteSuccessful: true
+            });
         }
-        else {
-            console.log('delete post error');
-            res.json(false);
+        else{
+            res.json({
+                updateSuccessful: false,
+                status: err.status,
+                message: err.message
+            });
+            logger.error('Error: '+ err.status + ' - ' + err.message);
         }
     });
 };

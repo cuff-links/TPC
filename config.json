@@ -1,0 +1,10 @@
+{
+    "port" : 27017,
+    "security":{
+        "tokenLife": 3600
+    },
+    "mongoose": {
+        "uri": "127.0.0.1",
+        "database":"TPCv4"
+    }
+}

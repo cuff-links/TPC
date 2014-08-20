@@ -33,17 +33,17 @@ module.exports = function(app) {
 
 
     /*******************************
-     * JSON REST API
-     ********************************/
+     ********JSON REST API**********
+     *******************************/
     app.route('/api/posts')
         .get(api.posts);
     app.route('/api/projects')
         .get(api.projects);
-    app.route('/api/post:id')
+    app.route('/api/post/:id')
         .get(api.post)
         .put( api.editPost)
         .delete(api.deletePost);
     app.route('/api/post')
-        .post(api.addPost);
+        .post(passport.authenticate('localapikey'),api.addPost);
 };
 
