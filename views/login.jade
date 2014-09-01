@@ -3,14 +3,9 @@ html(data-ng-app="TPCv4")
     head
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= title
-        link(rel="stylesheet", href="/stylesheets/style.css")
-        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap.css", type="text/css")
-        link(rel="stylesheet", href="/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.css", type="text/css")
-        link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Michroma", type="text/css")
+        link(rel="stylesheet", href="/stylesheets/loginRegister.css")
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
-        script(type="text/javascript", src="/javascripts/vendor/bootstrap/dist/js/bootstrap.min.js")
-        script(type="text/javascript", src="/javascripts/vendor/bootstrap/js/tab.js")
-        script(type="text/javascript", src="/javascripts/vendor/modernizr/modernizr.js")
+        script(type="text/javascript", src="/javascripts/deploy/loginBuilt.min.js")
     body
         include header
         div(id="loginDiv", class="container")
@@ -21,7 +16,7 @@ html(data-ng-app="TPCv4")
                            div(class="panel-title")
                            | Sign In Here
                         div(class="panel-body")
-                            form(class="form-horizontal", role="form", action="/login", method="post")
+                            form(class="form-horizontal", role="form", action="/login", method="POST")
                                 div(class="form-group")
                                     label(for="inputUsername", name="username", class="control-label col-md-3") Username:
                                     div(class="col-md-9")

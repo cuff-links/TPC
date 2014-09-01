@@ -8,21 +8,22 @@ var express = require('express')
   , methodOverride = require('method-override')
   , morganlogger = require('morgan')
   , errorHandler = require('errorhandler')
-  , Account = require('./models/account')
   , http = require('http')
   , mongoose = require('mongoose')
   , cookieParser = require('cookie-parser')
   , session = require('express-session')
   , bodyParser = require('body-parser')
   , config = require('./config')
+  , Account = require('./models/account')
   , path = require('path');
 var sass = require('node-sass');
 var compass = require('node-compass');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var LocalAPIStrategy = require('passport-localapikey').Strategy;
 var app = express();
+var LocalStrategy = require('passport-local').Strategy;
+var BasicStrategy = require('passport-http').BasicStrategy;
 var log4js= require('log4js');
+log4js.setGlobalLogLevel('DEBUG');
 log4js.loadAppender('file');
 log4js.addAppender(log4js.appenders.file('logs/ApplicationLog.log'), 'ApplicationLog');
 var logger = log4js.getLogger('ApplicationLog');
@@ -39,7 +40,9 @@ app.set('env', 'development');
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(morganlogger('dev'));
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(methodOverride());
 app.use(function(req, res, next){
     app.locals.pretty = true;
@@ -65,17 +68,10 @@ require('./routes')(app);
 /********************************************
  ************PASSPORT CONFIG ****************
  ********************************************/
-passport.use('local',new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
-passport.use(new LocalAPIStrategy(
-    function(apikey, done){
-        Account.findOne({ apikey : apikey}, function(err, user){
-           if(err) {return done(null, false)}
-            return done(null, user);
-        });
-    }
-));
+
+
+app.use(passport.initialize());
+
 
 /*******************************************
  ***********CONNECT TO MONGODB**************

@@ -3,8 +3,11 @@
  *
  */
 
-var Account = require('../models/account'),
-    passport = require('passport');
+var Account = require('../models/account');
+var log4js= require('log4js');
+log4js.loadAppender('file');
+log4js.addAppender(log4js.appenders.file('logs/ManageRouteLog.log'), 'ManageRouteLog');
+var logger = log4js.getLogger('ManageRouteLog');
 
 exports.partials = function (req, res) {
     var name = req.params.name;
@@ -12,16 +15,16 @@ exports.partials = function (req, res) {
 };
 
 exports.login = function(req,res){
-    res.render('login', {title: 'The Power Coder | Log In' + req.user, user: req.user});
+    res.render('login', {title: 'The Power Coder | Log In'});
 }
 
 exports.register = function(req,res){
-    if(req.isAuthenticated()){
+   if(req.isAuthenticated()){
         res.render('register', {});
-    }
-    else{
-        res.redirect('/login');
-    }
+   }
+   else{
+       res.redirect('/login');
+   }
 }
 
 exports.loginPost = function(req, res) {
@@ -39,10 +42,10 @@ exports.managePosts = function(req,res){
 
 exports.registerPost = function(req, res) {
     Account.register(new Account({ username: req.body.username }), req.body.password, function (err) {
-        if (err) {
-            return res.render(err.message);
-        }
-        passport.authenticate('local')(req, res, function () {
+            if (err) {
+                return res.render(err.message);
+            }
+            passport.authenticate('local')(req, res, function () {
             res.redirect('/login');
         });
     });

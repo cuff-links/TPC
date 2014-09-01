@@ -10,8 +10,8 @@ var mongoose = require('mongoose');
 var project = require('../models/project');
 var Post = require('../models/post').PostModel;
 var Project = mongoose.model('Projects', project);
-
-logger.setLevel('INFO');
+var User = require('../models/user');
+logger.setLevel('DEBUG');
 
 
 /****************************************
@@ -67,25 +67,42 @@ exports.post = function(req,res){
  *************POST: ADD POST*************
  ****************************************/
 exports.addPost = function (req, res) {
-    var newPost = new Post(req.body);
-    newPost.save(function(err){
-        if(!err){
-            logger.info('Article Created!');
-            return res.send({status : 'OK', post: newPost} )
-        }
-        else{
-            logger.error(err);
-            if(err){
-                res.json({
-                    status: err.status,
-                    message: err.message
+    if (req.isAuthenticated()){
+        var newPost = new Post();
+        newPost.title = req.body.title;
+        newPost.shortDescription = req.body.shortDescription;
+        newPost.body = req.body.body;
+        newPost.urlSlug = req.body.urlSlug;
+        newPost.save(function(err){
+            if(!err){
+                logger.info('Article Created!');
+                logger.info("post added: " + req.body);
+
+                logger.info('Post was added since authenticated.')
+                return res.json({
+                    status: 200,
+                    message: "Post was successfully added."
                 });
             }
-        }
-    });
-    logger.info("post added: " + req.body);
-    res.json(req.body);
-    logger.info('Post was added since authenticated.')
+            else{
+                logger.error(err);
+                if(err){
+                    res.json({
+                        status: err.status,
+                        message: err.message
+                    });
+                }
+            }
+        });
+    }
+    else{
+        logger.info("Error: 403 - User is unauthorized.");
+        return res.json({
+            status: 403,
+            message: "Unauthorized."
+        });
+    }
+
 };
 
 /****************************************
@@ -143,5 +160,39 @@ exports.projects = function(req, res){
         res.json({
             projects: projects
         });
+    });
+};
+
+
+
+/****************************************
+ *************POST: USER*****************
+ ****************************************/
+exports.postUsers = function(req, res) {
+    var user = new User({
+        username: req.body.username,
+        password: req.body.password
+    });
+
+    user.save(function(err) {
+        if (err)
+            res.send(err);
+        else{
+            res.json({ message: 'New user added!', data: user });
+        }
+    });
+};
+
+/****************************************
+ *************GET: ALL USERS*************
+ ****************************************/
+exports.getUsers = function(req, res) {
+    User.find(function(err, users) {
+        if (err){
+            res.send(err);
+        }
+        else{
+            res.json(users);
+        }
     });
 };
