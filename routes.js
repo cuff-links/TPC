@@ -1,14 +1,12 @@
 /**
  * Created by jdorlus on 6/12/14.
  */
-var passport = require('passport')
-    , Account = require('./models/account')
-    , index = require('./routes/index')
+var index = require('./routes/index')
     , blog = require('./routes/blog')
     , api = require('./routes/api')
     , manage = require('./routes/manage')
     , Projects = require('./models/project')
-    , Posts = require('./models/post');
+    , authController = require('./auth');
 
 module.exports = function(app) {
     /**************************
@@ -20,7 +18,7 @@ module.exports = function(app) {
         .get(index.partials);
     app.route('/login')
         .get(manage.login)
-        .post(passport.authenticate('local'), manage.loginPost);
+        .post(authController.isLoggedIn, manage.loginPost);
     app.route('/register')
         .get(manage.register)
         .post(manage.registerPost);
@@ -35,15 +33,25 @@ module.exports = function(app) {
     /*******************************
      ********JSON REST API**********
      *******************************/
+
+    //Post API
     app.route('/api/posts')
         .get(api.posts);
-    app.route('/api/projects')
-        .get(api.projects);
     app.route('/api/post/:id')
         .get(api.post)
         .put( api.editPost)
         .delete(api.deletePost);
     app.route('/api/post')
-        .post(passport.authenticate('localapikey'),api.addPost);
+        .post(authController.isAuthenticated, api.addPost);
+
+    //Project API
+    app.route('/api/projects')
+        .get(api.projects);
+
+    //User API
+    app.route('/api/users')
+        .post(api.postUsers)
+        .get(authController.isAuthenticated, api.getUsers);
+
 };
 

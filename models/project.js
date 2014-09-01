@@ -5,18 +5,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
-var projectSchema = new Schema({
-    name: String,
-    projectType:{
-        name: String,
-        description: String
-    },
-    startDate: Date,
-    completionDate: Date,
-    gitUrl: {type:String, default: null},
-    description: String,
-    projectCode: String
+var projectType = new Schema({
+    name: {type: String, required: true},
+    description: {type: String, required: true}
 });
 
+var projectSchema = new Schema({
+    name: {type: String, required: true},
+    type: {type: mongoose.Schema.Types.ObjectId , ref: 'ProjectType'},
+    startDate: {type: Date , required: true},
+    completionDate: {type: Date, required: false},
+    gitUrl: {type:String, default: null},
+    description: {type: String, required: true},
+    projectCode: {type: String, required: true}
+});
+
+
+module.exports = mongoose.model('ProjectType', projectType);
 module.exports = mongoose.model('Projects', projectSchema);

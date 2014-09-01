@@ -1,52 +1,47 @@
 /**
- * Created by jdorlus on 8/19/14.
+ * Created by jdorlus on 8/31/14.
  */
-var crypto = require('crypto');
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 
-var User = new Schema({
-   username:{
-       type: String,
-       uniquer: true,
-       required: true
-   },
-   hashedPassword:{
-       type: String,
-       required: true
-   },
-   salt: {
-       type: String,
-       required: true
-   },
-   created: {
-       type: Date,
-       default: Date.now
-   }
+// Define our user schema
+var UserSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 });
 
-User.methods.encryptPassword = function(password){
-    return crypto.pbkdf2Sync(password, this.salt, 10000, 512);
-}
+// Execute before each user.save() call
+UserSchema.pre('save', function(callback) {
+    var user = this;
 
-User.virtual('userId')
-    .get(function(){
-        return this.id;
-    }
-);
+    // Break out if the password hasn't changed
+    if (!user.isModified('password')) return callback();
 
-User.virtual('password')
-    .set(function(password){
-        this._plainPassword = password;
-        this.salt = crypto.randomBytes(128).toString('base64');
-        this.hashedPassword = this.encryptPassword(password);
-    })
-    .get(function() { return this._plainPassword; });
+    // Password changed so we need to hash it
+    bcrypt.genSalt(5, function(err, salt) {
+        if (err) return callback(err);
 
-User.methods.checkPassword = function(password){
-    return this.encryptPassword(password) === this.hashedPassword;
-}
+        bcrypt.hash(user.password, salt, null, function(err, hash) {
+            if (err) return callback(err);
+            user.password = hash;
+            callback();
+        });
+    });
+});
 
-var UserModel = mongoose.model('User', User);
+UserSchema.methods.verifyPassword = function(password, cb) {
+    bcrypt.compare(password, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 
-
-
-module.exports.UserModel = UserModel;
+// Export the Mongoose model
+module.exports = mongoose.model('User', UserSchema);

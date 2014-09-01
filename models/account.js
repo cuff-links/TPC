@@ -1,5 +1,5 @@
 /**
- * Created by jdorlus on 2/8/14.
+ * Created by jdorlus on 8/29/14.
  */
 
 var mongoose = require('mongoose'),
@@ -8,8 +8,7 @@ var mongoose = require('mongoose'),
 
 var Account = new Schema({
     username: String,
-    password: String,
-    apikey: String
+    password: String
 });
 
 Account.plugin(passportLocalMongoose);
