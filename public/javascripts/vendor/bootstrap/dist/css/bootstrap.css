@@ -4676,14 +4676,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 980px) {
   .navbar-text {
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 25px;
+    margin-left: 25px;
   }
 }
 
 .navbar-default {
   background-color: #ffffff;
-  border-color: #e7e7e7;
+  /*border-color: #e7e7e7;*/
 }
 
 .navbar-default .navbar-brand {

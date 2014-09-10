@@ -4,28 +4,26 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+//var tagSchema = require('./tag').TagModel;
 
-var tagSchema = new Schema({
-    name: {type: String, required : true},
-    description: {type: String, required : true},
-    urlSlug: {type: String, required : true}
-});
 
 var postSchema = new Schema({
-    title: {type: String, required : true},
+    title: {type: String, required : true, unique: true},
     shortDescription: {type: String, required : true},
     datePublished: {type: Date, default: Date.now, required: false},
-    tags: [tagSchema],
+    tags:  [{ type : mongoose.Schema.ObjectId, ref : 'Tag' }],
     body: {type: String, required : true},
-    urlSlug: {type: String, required : true},
-    modified:{type: Date, default: null, required: false}
+    urlSlug: {type: String, required : true, unique:true},
+    modified:{type: Date, default: null, required: false},
+    tags:[
+        {
+            name: {type: String, required : true, unique: true},
+            description: {type: String, required : true},
+            urlSlug: {type: String, required : true, unique: true}
+        }
+    ]
 });
 
-
-
-//postSchema.path('title').validate(function(value){
-//    return value.length = 0;
-//}, 'Title cannot be blank.');
 
 var PostModel = mongoose.model('Post', postSchema);
 
