@@ -10,20 +10,31 @@ html(data-ng-app="TPCv4")
         script(type="text/javascript", src="/javascripts/deploy/indexBuilt.min.js")
     body
         include header
-        section
+        section(id="indexIntro").blueText
             .container
-                .row( style="padding: 275px 0 25px 0;")
-                    p(style="text-align: center;font-size:32pt;") Software Blacksmith
-                    p(style="text-align: center;font-size:32pt;") Unit Test Craftsman
-                        span(class="blueText") *
+                .row(style="padding:175px 0 50px 0;")
+                    .scrollblock
+                        p(id="fullStackHeader", style="font-size:32pt;") Full Stack Web Developer
+                    .scrollblock
+                        p.blackText(id="welcomeHeader", style="font-size:24pt;") Welcome! Check out my
+                            a(href="#")
+                                span.blueText  work
+                            |  below!
+        section.blueBackgroundTextured.whiteText(id="indexDescription")
+            .container
+                .row( style="padding: 85px 0 0 0;")
+                    p(id="softwareBlackSmith",style="text-align:center;font-size:32pt;") Software Blacksmith
+                    p(style="text-align:center;font-size:32pt;") Unit Test Craftsman
+                        span(class="blackText") *
                 .row
                     .container
-                        p(style="text-align: center;font-size:14pt;", class="blueBorderTopBottom paddingTopBottom30")
-                            span(class="blueText") *
+                        p(style="text-align: center;font-size:14pt;", class="whiteBorderTopBottom paddingTopBottom30")
+                            span(class="blackText") *
                             |Things like Web Apps, Mobile Apps and Automated Testing Suites.
                         p(style="text-align: center; font-size: 11pt") From websites for small businesses to developer tools for super-geeks,
                         p(style="text-align: center; font-size: 11pt") I build applications and websites with the toolset that
                         p(style="text-align: center; font-size: 11pt") will do the job the best (though I am partial to open source).
+        section(id="indexSliderBody")
             div(id="homeSlideShowWrapper")
                 div.container(id="homeSlideShow")
                     .row
@@ -53,8 +64,6 @@ html(data-ng-app="TPCv4")
                                         img.rsABlock.back-image(src="/images/TPC-slider-desktop.jpg", alt="The Power Coder Previous Version Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
                                         img.rsABlock.front-image(src="/images/TPC-slider-image-front.png", alt="TPC Power Coder Previous Version Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
                             .container.slider-controls
-            .container
-                include recentPostsAndCategories
             .container
                 .row(style='padding-top:100px;',data-ng-view)
                 .row( style="padding-top: 175px;z-index:10;")

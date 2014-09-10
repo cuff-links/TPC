@@ -20,8 +20,6 @@ var sass = require('node-sass');
 var compass = require('node-compass');
 var passport = require('passport');
 var app = express();
-var LocalStrategy = require('passport-local').Strategy;
-var BasicStrategy = require('passport-http').BasicStrategy;
 var log4js= require('log4js');
 log4js.setGlobalLogLevel('DEBUG');
 log4js.loadAppender('file');
@@ -34,15 +32,14 @@ var logger = log4js.getLogger('ApplicationLog');
 /***************************************
  * CONFIGURATION FOR ALL ENVIRONMENTS
 ***************************************/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('env', 'development');
 app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(morganlogger('dev'));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(methodOverride());
 app.use(function(req, res, next){
     app.locals.pretty = true;

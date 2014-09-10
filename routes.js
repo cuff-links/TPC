@@ -39,8 +39,10 @@ module.exports = function(app) {
         .get(api.posts);
     app.route('/api/post/:id')
         .get(api.post)
-        .put( api.editPost)
-        .delete(api.deletePost);
+        .put(authController.isAuthenticated, api.editPost)
+        .delete(authController.isAuthenticated,api.deletePost);
+    app.route('/api/posts/tag/:name')
+        .get(api.postsByTag);
     app.route('/api/post')
         .post(authController.isAuthenticated, api.addPost);
 
