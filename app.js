@@ -46,7 +46,11 @@ app.use(function(req, res, next){
     next();
 });
 app.use(cookieParser());
-app.use(session({secret: 'keyboard cat'}));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized:true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(compass());
