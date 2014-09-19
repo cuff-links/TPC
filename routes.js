@@ -52,8 +52,8 @@ module.exports = function(app) {
 
     //User API
     app.route('/api/users')
-        .post(api.postUsers)
-        .get(authController.isAuthenticated, api.getUsers);
+        .post(api.postUsers);
+//        .get(authController.isAuthenticated, api.getUsers);
 
 };
 
