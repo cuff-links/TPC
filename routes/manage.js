@@ -19,12 +19,12 @@ exports.login = function(req,res){
 };
 
 exports.register = function(req,res){
-//   if(req.isAuthenticated()){
+   if(req.isAuthenticated()){
         res.render('register', {});
-//   }
-//   else{
-//       res.redirect('/login');
-//   }
+   }
+   else{
+       res.redirect('/login');
+   }
 };
 
 exports.loginPost = function(req, res) {
