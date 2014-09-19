@@ -220,7 +220,8 @@ exports.postUsers = function(req, res) {
         if (err)
             res.send(err);
         else{
-            res.json({ message: 'New user added!', data: user });
+            res.redirect('/login');
+//            res.json({ message: 'New user added!', data: user });
         }
     });
 };
@@ -228,13 +229,13 @@ exports.postUsers = function(req, res) {
 /****************************************
  *************GET: ALL USERS*************
  ****************************************/
-exports.getUsers = function(req, res) {
-    User.find(function(err, users) {
-        if (err){
-            res.send(err);
-        }
-        else{
-            res.json(users);
-        }
-    });
-};
+//exports.getUsers = function(req, res) {
+//    User.find(function(err, users) {
+//        if (err){
+//            res.send(err);
+//        }
+//        else{
+//            res.json(users);
+//        }
+//    });
+//};
