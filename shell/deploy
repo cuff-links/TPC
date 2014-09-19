@@ -1,12 +1,16 @@
 #!/bin/sh
 
-echo $path
-nodejs --version
-cd /home/jdorlus/Sites/Node/TPCv4
-npm --version
-git pull origin master
-npm test
-npm install --production
-forever restartall
-exit
+ssh jdorlus@127.0.0.1 <<EOF
+    echo $path
+    nodejs --version
+    cd /home/jdorlus/Sites/Node/TPCv4
+    npm --version
+    git pull origin master
+    npm test
+    npm install --production
+    chmod 777 ../TPCv4
+    chmod 777 ../TPCv4/**/*
+    chmod 777 ../TPCv4/**/**
+    forever restartall
+    exit
 EOF
