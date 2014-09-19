@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd ~/Sites/Node/TPCv4
+git pull
+npm install --production
+forever restartall
+EOF
