@@ -16,16 +16,16 @@ exports.partials = function (req, res) {
 
 exports.login = function(req,res){
     res.render('login', {title: 'The Power Coder | Log In'});
-}
+};
 
 exports.register = function(req,res){
-   if(req.isAuthenticated()){
+//   if(req.isAuthenticated()){
         res.render('register', {});
-   }
-   else{
-       res.redirect('/login');
-   }
-}
+//   }
+//   else{
+//       res.redirect('/login');
+//   }
+};
 
 exports.loginPost = function(req, res) {
     res.redirect('/managePosts');
@@ -38,7 +38,7 @@ exports.managePosts = function(req,res){
     else{
         res.redirect('/login');
     }
-}
+};
 
 exports.registerPost = function(req, res) {
     Account.register(new Account({ username: req.body.username }), req.body.password, function (err) {
@@ -54,4 +54,4 @@ exports.registerPost = function(req, res) {
 exports.logout = function(req,res){
     req.logOut();
     res.redirect('/login');
-}
+};
