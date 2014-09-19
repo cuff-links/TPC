@@ -6,7 +6,7 @@
 var Account = require('../models/account');
 var log4js= require('log4js');
 log4js.loadAppender('file');
-log4js.addAppender(log4js.appenders.file('logs/ManageRouteLog.log'), 'ManageRouteLog');
+log4js.addAppender(log4js.appenders.file('./logs/ManageRouteLog.log'), 'ManageRouteLog');
 var logger = log4js.getLogger('ManageRouteLog');
 
 exports.partials = function (req, res) {
