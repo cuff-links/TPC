@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh jdorlus@127.0.0.1 <<EOF
+ssh -t -t jdorlus@127.0.0.1 <<EOF
     echo $path
     nodejs --version
     cd /home/jdorlus/Sites/Node/TPCv4
