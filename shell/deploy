@@ -8,4 +8,5 @@ git pull origin master
 npm test
 npm install --production
 forever restartall
+exit
 EOF
