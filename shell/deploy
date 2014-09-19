@@ -2,7 +2,7 @@
 
 echo $path
 nodejs --version
-cd ~/Sites/Node/TPCv4
+cd /home/jdorlus/Sites/Node/TPCv4
 npm --version
 git pull origin master
 npm test
