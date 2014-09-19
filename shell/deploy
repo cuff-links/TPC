@@ -4,7 +4,7 @@ echo $path
 nodejs --version
 cd ~/Sites/Node/TPCv4
 npm --version
-git pull
+git pull origin master
 npm test
 npm install --production
 forever restartall
