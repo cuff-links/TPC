@@ -7,10 +7,4 @@
  */
 'use strict';
 
-var module = angular.module('directives', []);
 
-module.directive('ngIsotope', function(){
-   return{
-       restrict: "A"
-   }
-});

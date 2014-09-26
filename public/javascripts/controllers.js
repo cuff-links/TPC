@@ -24,7 +24,6 @@ function getUniqueJsonTrait(json, resultSet) {
     for (var i in json) {
         if(resultSet.length === 0){
             resultSet[0] = json[i].projectType.name;
-            console.log( resultSet[0]);
         }
         for(var j = 0; j < resultSet.length; j++)
         {
