@@ -17,9 +17,12 @@ var projectSchema = new Schema({
     completionDate: {type: Date, required: false},
     gitUrl: {type:String, default: null},
     description: {type: String, required: true},
-    projectCode: {type: String, required: true}
+    projectCode: {type: String, required: true},
+    recentProject: {type: Boolean, required: true, default: false}
 });
 
 
 module.exports = mongoose.model('ProjectType', projectType);
-module.exports = mongoose.model('Projects', projectSchema);
+var ProjectModel = mongoose.model('Projects', projectSchema);
+
+module.exports.ProjectModel = ProjectModel;
