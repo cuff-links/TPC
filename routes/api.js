@@ -9,7 +9,7 @@ var logger = log4js.getLogger('ApiLog');
 var mongoose = require('mongoose');
 var project = require('../models/project');
 var Post = require('../models/post').PostModel;
-var Project = mongoose.model('Projects', project);
+var Project = require('../models/project').ProjectModel;
 var User = require('../models/user');
 logger.setLevel('DEBUG');
 
@@ -24,7 +24,7 @@ exports.posts = function(req, res){
              res.json({
                  status: err.status,
                  message: err.message
-             })
+             });
              logger.error('Error:'+ err.status + " Message:" + err.message)
          }
          else{
@@ -46,7 +46,7 @@ exports.postsByTag = function(req, res){
             res.json({
                 status: err.status,
                 message: err.message
-            })
+            });
             logger.error('Error:'+ err.status + " Message:" + err.message)
         }
         else{
@@ -181,7 +181,7 @@ exports.tags = function(req, res){
             res.json({
                 status: err.status,
                 message: err.message
-            })
+            });
             logger.error('Error:'+ err.status + " Message:" + err.message)
         }
         else{

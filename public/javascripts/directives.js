@@ -6,11 +6,5 @@
  * To change this template use File | Settings | File Templates.
  */
 'use strict';
-
 var module = angular.module('directives', []);
 
-module.directive('ngIsotope', function(){
-   return{
-       restrict: "A"
-   }
-});

@@ -33529,11 +33529,10 @@ function getUniqueJsonTrait(json, resultSet) {
     for (var i in json) {
         if(resultSet.length === 0){
             resultSet[0] = json[i].projectType.name;
-            console.log( resultSet[0]);
         }
         for(var j = 0; j < resultSet.length; j++)
         {
-            typeName = json[i].projectType.name
+            typeName = json[i].projectType.name;
             resultTypeName = resultSet[j];
             if(!checkIfExistsInArray(resultSet,typeName)){
                 resultSet[resultSet.length] = json[i].projectType.name;
@@ -33558,14 +33557,8 @@ function checkIfExistsInArray(array,stringToCheck){
  * To change this template use File | Settings | File Templates.
  */
 'use strict';
-
 var module = angular.module('directives', []);
 
-module.directive('ngIsotope', function(){
-   return{
-       restrict: "A"
-   }
-});
 
 /**
  * Created with JetBrains WebStorm.
@@ -33612,7 +33605,7 @@ $(document).ready(function(){
         fadeTransition: true
     });
     jQuery('.rsNav, .rsArrow').appendTo('.slider-controls');
-    $('#myTabs li a').click(function () {
+    $('#myTabs li a').click(function() {
         $(this).tab('show');
         return false;
     });
