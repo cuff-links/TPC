@@ -4,11 +4,13 @@ html(data-ng-app="TPCv4")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= title
         link(type="text/css", rel="stylesheet", href="/stylesheets/index.css")
+        link(type="text/css", rel="stylesheet", href="/javascripts/vendor/google-code-prettify/src/prettify.css")
         script(type="text/javascript", src='/javascripts/vendor/bootstrap/docs-assets/js/holder.js')
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
         script(type="text/javascript", src="/javascripts/vendor/royalslider/jquery.royalslider.min.js")
         script(type="text/javascript", src="/javascripts/deploy/indexBuilt.min.js")
-    body
+        script(type="text/javascript", src="/javascripts/vendor/google-code-prettify/src/prettify.js")
+    body(onload="prettyPrint()")
         include header
         section(id="indexIntro").blueText
             .container
@@ -20,8 +22,49 @@ html(data-ng-app="TPCv4")
                             a(href="#")
                                 span.blueText  work
                             |  below!
+            .container
+                .row
+                    .scrollblock
+                        p(id="testCentricHeader", style="font-size: 24pt") Test-Centric Development
+                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode1")
+                        pre.prettyprint.linenums
+                            code
+                                |//Test Will Fail - Written Before Implementation
+                                |private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                                |@Test
+                                |public void checkEmailFormat(){
+                                |       assertThat(new User("email@domain.com").getEmail().matches(EMAIL_PATTERN), true);
+                                |   }
+                                |}
+                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode2")
+                        pre.prettyprint.linenums
+                            code.text-nowrap.language-java
+                                |//Implementing Tested Code
+                                |public class User{
+                                |   private String email;
+                                |   public void setEmail(String email){
+                                |       this.email = email;
+                                |   }
+                                |   public String getEmail(){
+                                |       return this.email;
+                                |   }
+                                |   public User(){
+                                |       this.email = "foo@bar.com";
+                                |   }
+                                |   public User(String email{
+                                |       this.email = email;
+                                |   }
+                                |}
+                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode3")
+                        pre(style="height: 200px;")
+                            p.text-center(style="color:#990000;") RED
+                            p.text-center(style="color: #339933;") GREEN
+                            p.text-center TESTING!
         section.blueBackgroundTextured.whiteText(id="indexDescription")
             .container
+                .row
+                    .scrollblock
+                        p.whiteText(id="nTierDevelopmentHeader", style="font-size:24pt;") N-Tier Development
                 .row( style="padding: 85px 0 0 0;")
                     p(id="softwareBlackSmith",style="text-align:center;font-size:32pt;") Software Blacksmith
                     p(style="text-align:center;font-size:32pt;") Unit Test Craftsman
@@ -54,12 +97,15 @@ html(data-ng-app="TPCv4")
                                         img.rsABlock.front-image(src="/images/SRNG-slider-image-front.png", alt="SRNG Consultants Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
                                 .rsContent
                                     .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
-                                        h1 Some heading
-                                        h2(data-move-effect="top") A Second Heading
-                                        h3(data-move-effect="top") A third heading
-                                        p(data-move-effect="top") Paraggjaifdjs jfdpag j;fjds agjoqpejt tqewklfmak;lbjaop jfogqw
-                                        p fdjkfdjkldf jklf;dj k;lfdsa jkl;sdafjk;lfddjak ;lfja; hwqo ;vjkdlsafjhoipgjq kjfasfda
-                                        p jfkeqwjkl;djk; nfdal;jk;lgqj op jfokqjmnlk;j aspo fjkdal;
+                                        h1 Previous Website
+                                        h2(data-move-effect="top") The Power Coder - Version 3
+                                        h3(data-move-effect="top") Blog/Portfolio
+                                        p(data-move-effect="top") This is a previous version of my website built using the WISA stack.
+                                        p ASP.NET MVC 3, Entity Framework, Ninject and had an integrated blogging engine.
+                                        p This was based off of a blog post that
+                                            a(href="http://www.prideparrot.com/blog/archive/2012/12/how_to_create_a_simple_blog_part1", target="_blank")  Vijaya Anand wrote.
+                                        p
+                                            a(href="http://www.github.com/silne30/TPCv3",target="_blank")  View Github Repo
                                     .slideImages
                                         img.rsABlock.back-image(src="/images/TPC-slider-desktop.jpg", alt="The Power Coder Previous Version Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
                                         img.rsABlock.front-image(src="/images/TPC-slider-image-front.png", alt="TPC Power Coder Previous Version Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
