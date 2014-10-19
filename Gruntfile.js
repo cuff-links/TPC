@@ -44,6 +44,7 @@ module.exports = function(grunt){
                     , 'public/javascripts/vendor/modernizr/modernizr.js'
                     , 'public/javascripts/vendor/royalslider/jquery.easing-1.3.js'
                     , 'public/javascripts/vendor/greensock-js/src/uncompressed/TweenMax.js'
+                    , 'public/javascripts/vendor/greensock-js/src/uncompressed/TimelineLite.js'
                     , 'public/javascripts/vendor/superscrollorama/js/jquery.superscrollorama.js'
                     , 'public/javascripts/app.js'
                     , 'public/javascripts/common.js'

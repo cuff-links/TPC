@@ -2,8 +2,8 @@ The Power Coder - Version 4
 =====
 
 This is a MEAN Stack implementation of my website. It serves three purposes:
-* Portfolio of my work
 * Web Presence
+* Portfolio of my work
 * Blog
 
 Version
@@ -19,9 +19,10 @@ Technical Stack
 * [Node.js](http://www.nodejs.org): Server-side JavaScript...nuff said.
 * [Passport.js](http://www.passportjs.org): A simple, yet powerful authentication system for Node.js.
 * [MongoDB](http://www.mongodb.org): A cross-platform, object-oriented, NoSQL database that uses a hierarchical JSON like structure.
-* [Mongoose - Object Document Modeler](http://www.mongoosejs.com): A wonderful Object Mapper for Node.js to MongoDB.
+* [Mongoose](http://www.mongoosejs.com): A wonderful Object Mapper for Node.js to MongoDB.
 * [AngularJS](http://www.angularjs.org): Google's MV* framework. Highly opinionated and very powerful.
 * [Express](http://www.expressjs.com): A lightweight MVC framework for Node.js. It takes a lot of the sting out of routing in node.
+* [jQuery](http://www.jquery.com): One of the most used JavaScript frameworks. I am sure you have heard of it. 
 * [Jade](http://www.jade-lang.com): A neat templating engine for node. Say goodbye to ending tags.
 * [Grunt](http://www.gruntjs.com): A lovely task runner that automates the mundane, like minification, concatenation and other tasks.
 * [Bower](http://www.bower.io): A package manager that is used to manage your resources in your node project. Think NuGet, node-style!
@@ -32,5 +33,8 @@ Technical Stack
 * [Twitter Bootstrap](http://www.getbootstrap.com): A mobile first, presentation framework that allows for rapid prototyping and development of the front end.
 * [Log4js](https://github.com/nomiddlename/log4js-node): A lightweight logging framework for node.js.
 * [Forever](https://github.com/nodejitsu/forever): A simple CLI tool that allows scripts to run continuously.
+* [RoyalSlider](http://dimsemenov.com/plugins/royal-slider): A simple to use, mobile friendly slider with lots of options. 
+* [Super Scroll-O-Rama](http://johnpolacek.github.io/superscrollorama) A full-featured scroll animation library with so many options, it's not for the faint of heart. 
+* [google-code-prettify](https://code.google.com/p/google-code-prettify) A simple syntax highlighting library that doesn't conflict with Twitter Bootstrap 3.
 
 

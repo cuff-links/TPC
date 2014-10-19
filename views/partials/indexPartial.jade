@@ -10,6 +10,6 @@
                         a(data-ng-model="filter.projectType.name") {{category}}
 .row(style='padding-top:50px;')
     div.col-xs-12.col-sm-6.col-md-6.col-lg-4(ng-repeat="project in projects | filter:filter")
-        a.thumbnail(href='#')
-            img(src='http://placehold.it/300x300&text={{project.name}}', alt='{{project.name}}')
+        a.thumbnail(href='#', style="color:#000;")
+          | {{project.name}}
 
