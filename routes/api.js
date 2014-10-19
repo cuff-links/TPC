@@ -11,6 +11,7 @@ var project = require('../models/project');
 var Post = require('../models/post').PostModel;
 var Project = require('../models/project').ProjectModel;
 var User = require('../models/user');
+var RecentProject = require('../models/recentProject').RecentProjectModel;
 logger.setLevel('DEBUG');
 
 
@@ -205,7 +206,24 @@ exports.projects = function(req, res){
     });
 };
 
-
+/****************************************
+ *********GET: ALL RECENT PROJECTS*******
+ ****************************************/
+exports.recentProjects = function(req,res){
+    RecentProject.find({},function(err,recentProjects){
+        if(!err){
+            res.json({
+                recentProjects: recentProjects
+            });
+        }
+        else{
+            res.json({
+                status: err.status,
+                message: err.message
+            });
+        }
+    });
+};
 
 /****************************************
  *************POST: USER*****************

@@ -17,8 +17,7 @@ var projectSchema = new Schema({
     completionDate: {type: Date, required: false},
     gitUrl: {type:String, default: null},
     description: {type: String, required: true},
-    projectCode: {type: String, required: true},
-    recentProject: {type: Boolean, required: true, default: false}
+    projectCode: {type: String, required: true}
 });
 
 

@@ -50,6 +50,9 @@ module.exports = function(app) {
     app.route('/api/projects')
         .get(api.projects);
 
+    //RecentProject API
+    app.route('/api/recentProjects')
+        .get(api.recentProjects);
     //User API
     app.route('/api/users')
         .post(api.postUsers);

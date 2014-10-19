@@ -1,15 +1,13 @@
-.row
-    .col-md-4
-        .input-group
-            input.form-control(type="text", data-ng-model="filter.name", placeholder="Filter your list here")
-            .input-group-btn
-                button(class="btn btn-default dropdown-toggle", data-toggle="dropdown", type="button") Category
-                    span(class="caret")
-                ul(class="dropdown-menu pull-right")
-                    li(ng-repeat="category in categories")
-                        a(data-ng-model="filter.projectType.name") {{category}}
-.row(style='padding-top:50px;')
-    div.col-xs-12.col-sm-6.col-md-6.col-lg-4(ng-repeat="project in projects | filter:filter")
-        a.thumbnail(href='#', style="color:#000;")
-          | {{project.name}}
-
+.royalSlider
+    .rsContent(ng-repeat="project in recentProjects")
+        .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
+            h1 Recent Project
+            h2(data-move-effect="top") {{project.name}}
+            h3(data-move-effect="top") {{project.purpose}}
+            p(data-move-effect="top") {{project.description}}
+            a.btn-primary(ng-if="project.siteUrl != null", href="{{project.siteUrl}}",target="_blank") View Website
+            a.btn-default(ng-if="project.codeUrl != null",href="{{project.codeUrl}}", target="_blank") View Code
+        .slideImages
+            //img.rsABlock.back-image(src="{{project.desktopImageUrl}}", alt="{{project.name + ' Desktop'}}",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+            //img.rsABlock.front-image(src="{{project.mobileImageUrl}}", alt="{{project.name + ' Mobile'}} ",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+.container.slider-controls

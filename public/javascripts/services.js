@@ -13,13 +13,10 @@ services.service("PostService",function($http){
         }
     });
 
-services.service("ProjectService",function($http){
-    this.getAllProjects = function(projectGet){
-        $http.get('/api/projects').success(
-            function(data){
-                if(projectGet){
-                    projectGet(data)
-                }
-            });
+services.factory("RecentProjectService",function($http){
+    return {
+        getRecentProjects: function(){
+            return $http.get('/api/recentprojects');
         }
-    });
+    }
+});

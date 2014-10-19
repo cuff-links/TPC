@@ -1,15 +1,17 @@
 'use strict';
-var module = angular.module('controllers', ['services','directives']);
+var module = angular.module('controllers', ['services']);
 
-module.controller('IndexController', ['$scope', 'ProjectService',
-    function($scope, ProjectService){
-        var projectGet = function(data){
-            $scope.projects = data.projects;
-            var categories = [];
-            categories = getUniqueJsonTrait(data.projects, categories);
-            $scope.categories = categories;
-        };
-        ProjectService.getAllProjects(projectGet);
+
+module.controller('RecentProjectsController', ['$scope', 'RecentProjectService',
+    function($scope, RecentProjectService){
+        RecentProjectService.getRecentProjects()
+            .success(function(data){
+                $scope.recentProjects = data.recentProjects;
+                console.log(data.recentProjects);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
     }
 ]);
 

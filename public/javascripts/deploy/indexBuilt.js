@@ -34064,14 +34064,14 @@ var app = angular.module('TPCv4', [
     'ngRoute',
     'controllers',
     //'filters',
-    'services'//,
-    //'directives'
+    'services' //,
+//    'directives'
 ]);
 app.config(function($routeProvider,$locationProvider){
     $routeProvider.
         when('/',{
             templateUrl:'partials/indexPartial',
-            controller: 'IndexController'
+            controller: 'RecentProjectsController'
         }).
         when('/manage', {
             templateUrl:'partials/managePartial',
@@ -34115,17 +34115,19 @@ function checkSize(){
 }
 
 'use strict';
-var module = angular.module('controllers', ['services','directives']);
+var module = angular.module('controllers', ['services']);
 
-module.controller('IndexController', ['$scope', 'ProjectService',
-    function($scope, ProjectService){
-        var projectGet = function(data){
-            $scope.projects = data.projects;
-            var categories = [];
-            categories = getUniqueJsonTrait(data.projects, categories);
-            $scope.categories = categories;
-        };
-        ProjectService.getAllProjects(projectGet);
+
+module.controller('RecentProjectsController', ['$scope', 'RecentProjectService',
+    function($scope, RecentProjectService){
+        RecentProjectService.getRecentProjects()
+            .success(function(data){
+                $scope.recentProjects = data.recentProjects;
+                console.log(data.recentProjects);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
     }
 ]);
 
@@ -34188,14 +34190,18 @@ $(document).ready(function(){
         playoutAnimations: true,
         reverse: true
     });
-    controller.addTween('#softwareBlackSmith',
-        TweenMax.from($('#softwareBlackSmith'), .5, {css:{opacity:0}}));
     controller.addTween('#testCentricHeader',
         TweenMax.fromTo($('#testCentricHeader'), .5, {x:-1000},{x:0}));
     controller.addTween('#testCentricCode1',
     t1.from('#testCentricCode1',.5, {scale:.5, autoAlpha: 0})
         .from('#testCentricCode2',.5, {scale:.5, autoAlpha: 0})
         .from('#testCentricCode3',.5, {scale:.5, autoAlpha: 0}));
+    controller.addTween('#nTierDevelopmentHeader',
+        TweenMax.from($('#nTierDevelopmentHeader'), .25, {css:{opacity:0}}));
+    controller.addTween('#nTierDevelopmentHeader',
+        t1.from($('#imgMeanStack'),.5,{y:-10000, ease:"Power1.easeOut"})
+            .from($('#imgServerSide'),.5,{y:10000, ease:"Power1.easeOut"})
+            .from($('#imgEtc'),.5,{x:10000, ease:"Power1.easeOut"}));
     checkSize();
     alignText();
     jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
@@ -34260,13 +34266,10 @@ services.service("PostService",function($http){
         }
     });
 
-services.service("ProjectService",function($http){
-    this.getAllProjects = function(projectGet){
-        $http.get('/api/projects').success(
-            function(data){
-                if(projectGet){
-                    projectGet(data)
-                }
-            });
+services.factory("RecentProjectService",function($http){
+    return {
+        getRecentProjects: function(){
+            return $http.get('/api/recentprojects');
         }
-    });
+    }
+});

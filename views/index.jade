@@ -57,14 +57,24 @@ html(data-ng-app="TPCv4")
                                 |}
                     .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode3")
                         pre(style="height: 200px;")
-                            p.text-center(style="color:#990000;") RED
-                            p.text-center(style="color: #339933;") GREEN
-                            p.text-center TESTING!
+                            p.text-center(style="color:#990000;") RED!
+                            p.text-center(style="color: #339933;") GREEN!
+                            p.text-center REFACTOR!!!
         section.blueBackgroundTextured.whiteText(id="indexDescription")
             .container
                 .row
                     .scrollblock
                         p.whiteText(id="nTierDevelopmentHeader", style="font-size:24pt;") N-Tier Development
+                .row
+                    .scrollblock
+                        .col-xs-12.col-sm-12.col-md-4.text-left
+                            img.img-responsive.img-thumbnail(id="imgMeanStack", src="/images/coderCombatStack_final.png")
+                    .scrollblock
+                        .col-xs-12.col-sm-12.col-md-4.text-left
+                            img.img-responsive.img-thumbnail(id="imgServerSide", src="/images/server_side_final.png")
+                    .scrollblock
+                        .col-xs-12.col-sm-12.col-md-4.text-left
+                            img.img-responsive.img-thumbnail(id="imgEtc", src="/images/etc_final.png")
                 .row( style="padding: 85px 0 0 0;")
                     p(id="softwareBlackSmith",style="text-align:center;font-size:32pt;") Software Blacksmith
                     p(style="text-align:center;font-size:32pt;") Unit Test Craftsman
@@ -77,41 +87,39 @@ html(data-ng-app="TPCv4")
                         p(style="text-align: center; font-size: 11pt") From websites for small businesses to developer tools for super-geeks,
                         p(style="text-align: center; font-size: 11pt") I build applications and websites with the toolset that
                         p(style="text-align: center; font-size: 11pt") will do the job the best (though I am partial to open source).
-        section(id="indexSliderBody")
+        section(id="indexSliderBody", data-ng-controller="RecentProjectsController")
             div(id="homeSlideShowWrapper")
                 div.container(id="homeSlideShow")
                     .row
-                        .slideShowWrapper.rsCCR
-                            .royalSlider
-                                .rsContent
-                                    .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
-                                        h1 Recent Project
-                                        h2(data-move-effect="top") SRNG Consultants
-                                        h3(data-move-effect="top") Small Business Website
-                                        p(data-move-effect="top") SRNG Consultants is a realty company that specializes in
-                                        p real estate and property management in the Bahamas.
-                                        p
-                                            a(href="http://www.srngconsultants.com",target="_blank") View Website
-                                    .slideImages
-                                        img.rsABlock.back-image(src="/images/SRNG-slider-desktop.jpg", alt="SRNG Consultants Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
-                                        img.rsABlock.front-image(src="/images/SRNG-slider-image-front.png", alt="SRNG Consultants Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
-                                .rsContent
-                                    .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
-                                        h1 Previous Website
-                                        h2(data-move-effect="top") The Power Coder - Version 3
-                                        h3(data-move-effect="top") Blog/Portfolio
-                                        p(data-move-effect="top") This is a previous version of my website built using the WISA stack.
-                                        p ASP.NET MVC 3, Entity Framework, Ninject and had an integrated blogging engine.
-                                        p This was based off of a blog post that
-                                            a(href="http://www.prideparrot.com/blog/archive/2012/12/how_to_create_a_simple_blog_part1", target="_blank")  Vijaya Anand wrote.
-                                        p
-                                            a(href="http://www.github.com/silne30/TPCv3",target="_blank")  View Github Repo
-                                    .slideImages
-                                        img.rsABlock.back-image(src="/images/TPC-slider-desktop.jpg", alt="The Power Coder Previous Version Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
-                                        img.rsABlock.front-image(src="/images/TPC-slider-image-front.png", alt="TPC Power Coder Previous Version Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
-                            .container.slider-controls
+                        .slideShowWrapper.rsCCR(data-ng-view)
+                                //.rsContent
+                                //    .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
+                                //        h1 Recent Project
+                                //        h2(data-move-effect="top") SRNG Consultants
+                                //        h3(data-move-effect="top") Small Business Website
+                                //        p(data-move-effect="top") SRNG Consultants is a realty company that specializes in
+                                //        p real estate and property management in the Bahamas.
+                                //        p
+                                //            a(href="http://www.srngconsultants.com",target="_blank") View Website
+                                //    .slideImages
+                                //        img.rsABlock.back-image(src="/images/SRNG-slider-desktop.jpg", alt="SRNG Consultants Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+                                //        img.rsABlock.front-image(src="/images/SRNG-slider-image-front.png", alt="SRNG Consultants Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+                                //.rsContent
+                                //    .slideInfo.rsABlock(data-move-effect="top", data-move-offset="250", data-delay="500")
+                                //        h1 Previous Website
+                                //        h2(data-move-effect="top") The Power Coder - Version 3
+                                //        h3(data-move-effect="top") Blog/Portfolio
+                                //        p(data-move-effect="top") This is a previous version of my website built using the WISA stack.
+                                //        p ASP.NET MVC 3, Entity Framework, Ninject and had an integrated blogging engine.
+                                //        p This was based off of a blog post that
+                                //            a(href="http://www.prideparrot.com/blog/archive/2012/12/how_to_create_a_simple_blog_part1", target="_blank")  Vijaya Anand wrote.
+                                //        p
+                                //            a(href="http://www.github.com/silne30/TPCv3",target="_blank")  View Github Repo
+                                //    .slideImages
+                                //        img.rsABlock.back-image(src="/images/TPC-slider-desktop.jpg", alt="The Power Coder Previous Version Desktop",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+                                //        img.rsABlock.front-image(src="/images/TPC-slider-image-front.png", alt="TPC Power Coder Previous Version Mobile",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+                            //.container.slider-controls
             .container
-                .row(style='padding-top:100px;',data-ng-view)
                 .row( style="padding-top: 175px;z-index:10;")
                     .col-md-8.col-md-offset-2.boxShadow.col-sm-12
                         img.img-responsive(src="images/pc_business_card.png",alt='Business Card')
