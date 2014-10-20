@@ -49,10 +49,10 @@ module.exports = function(grunt){
                     , 'public/javascripts/app.js'
                     , 'public/javascripts/common.js'
                     , 'public/javascripts/controllers.js'
+                    , 'public/javascripts/services.js'
                     , 'public/javascripts/directives.js'
                     , 'public/javascripts/filters.js'
                     , 'public/javascripts/index.js'
-                    , 'public/javascripts/services.js'
                 ],
                 dest:'public/javascripts/deploy/indexBuilt.js'
             },
