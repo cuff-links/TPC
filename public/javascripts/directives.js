@@ -28,9 +28,9 @@ module.directive('royalSlider', ['$timeout',function($timeout){
                     sliderDrag: false,
                     autoPlay: {
                         enabled: true,
-                        stopAtAction: true,
+                        stopAtAction: false,
                         delay: 5000,
-                        pauseOnHover: true
+                        pauseOnHover: false
                     },
                     navigateByClick: false,
                     loop: true,
