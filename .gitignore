@@ -16,3 +16,4 @@ node_modules
 .sass-cache
 .gitignore
 npm-debug.log
+public/javascripts/deploy/*

@@ -5,7 +5,7 @@ cd /home/jdorlus/Sites/Node/TPCv4
 npm --version
 git pull origin master
 npm test
-npm install --production
+npm install 
 grunt build
 forever start app.js
 forever restartall
