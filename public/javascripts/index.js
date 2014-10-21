@@ -17,35 +17,12 @@ angular.element(document).ready(function(){
     controller.addTween('#nTierDevelopmentHeader',
         TweenMax.from($('#nTierDevelopmentHeader'), .25, {css:{opacity:0}}));
     controller.addTween('#nTierDevelopmentHeader',
-        t1.from($('#imgMeanStack'),.5,{y:-10000, ease:"Power1.easeOut"})
-            .from($('#imgServerSide'),.5,{y:10000, ease:"Power1.easeOut"})
-            .from($('#imgEtc'),.5,{x:10000, ease:"Power1.easeOut"}));
+        t1.from($('#imgMeanStack'),.5,{css:{opacity:'0', x: -200},ease:"Power1.easeOut"})
+            .from($('#imgServerSide'),.5,{css:{opacity:'0', y: -200},ease:"Power1.easeOut"})
+            .from($('#imgEtc'),.5,{css:{opacity:'0', x: 200},ease:"Power1.easeOut"}));
     checkSize();
     alignText();
     jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
-//    $('.royalSlider').royalSlider({
-//        arrowsNav: true,
-//        arrowsNavAutoHide: false,
-//        controlNavigation: 'bullets',
-//        controlNavigationSpacing: 0,
-//        imageScaleMode: 'fit-if-smaller',
-//        imageAlignCenter: false,
-//        sliderDrag: false,
-//        autoPlay: {
-//            enabled: true,
-//            stopAtAction: true,
-//            delay: 5000,
-//            pauseOnHover: true
-//        },
-//        navigateByClick: false,
-//        loop: true,
-//        controlsInside: true,
-//        allowCSS3: true,
-//        usePreloader: true,
-//        transitionSpeed: 600,
-//        transitionType: "fade" ,
-//        fadeTransition: true
-//    });
 
     $('#myTabs li a').click(function() {
         $(this).tab('show');
