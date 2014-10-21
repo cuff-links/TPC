@@ -5,9 +5,11 @@
             h2(data-move-effect="top") {{project.name}}
             h3(data-move-effect="top") {{project.purpose}}
             p(data-move-effect="top") {{project.description}}
-            a.btn-primary(ng-if="project.siteUrl != null", href="{{project.siteUrl}}",target="_blank") View Website
-            a.btn-default(ng-if="project.codeUrl != null",href="{{project.codeUrl}}", target="_blank") View Code
+            a(href="{{project.siteUrl}}", ng-if="project.siteUrl != null",target="_blank")
+                button.btn-primary View Website
+            a(href="{{project.codeUrl}}", ng-if="project.codeUrl != null", target="_blank")
+                button.btn-default View Code
         .slideImages
-            //img.rsABlock.back-image(src="{{project.desktopImageUrl}}", alt="{{project.name + ' Desktop'}}",data-move-effect="right", data-move-offset="1000" , data-delay="0")
-            //img.rsABlock.front-image(src="{{project.mobileImageUrl}}", alt="{{project.name + ' Mobile'}} ",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
+            img.rsABlock.back-image(src="{{project.desktopImageUrl}}", alt="{{project.name + ' Desktop'}}",data-move-effect="right", data-move-offset="1000" , data-delay="0")
+            img.rsABlock.front-image(src="{{project.mobileImageUrl}}", alt="{{project.name + ' Mobile'}} ",data-move-effect="right",data-easing="easeOutBack", data-move-offset="1000", data-delay="125")
 .container.slider-controls

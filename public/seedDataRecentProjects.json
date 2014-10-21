@@ -1,9 +1,20 @@
-{
-    "name":"SRNG Consultants",
-    "purpose": "Small Business Website",
-    "siteUrl":"http://www.srngconsultants.com",
-    "codeUrl": null,
-    "description": "SRNG Consultants is a realty company that specializes in real estate and property management in the Bahamas.",
-    "desktopImageUrl": "/images/SRNG-slider-desktop.jpg",
-    "mobileImageUrl": "/images/SRNG-slider-image-front.png"
-}
+[
+    {
+        "name":"SRNG Consultants",
+        "purpose": "Small Business Website",
+        "siteUrl":"http://www.srngconsultants.com",
+        "codeUrl": null,
+        "description": "SRNG Consultants is a realty company that specializes in real estate and property management in the Bahamas.",
+        "desktopImageUrl": "/images/SRNG-slider-desktop.jpg",
+        "mobileImageUrl": "/images/SRNG-slider-image-front.png"
+    },
+    {
+        "name":"The Power Coder Version 3",
+        "purpose": "Blog/Portfolio",
+        "siteUrl": null,
+        "codeUrl": "http://www.github.com/silne30/TPCv3",
+        "description": "This is the previous version of my website using the .NET stack. Good times.",
+        "desktopImageUrl": "/images/TPC-slider-desktop.jpg",
+        "mobileImageUrl": "/images/TPC-slider-image-front.png"
+    }
+]

@@ -1,12 +1,9 @@
-/**
- * Created by jdorlus on 2/8/14.
- */
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var recentProjectSchema = new Schema({
-    name: {type: String, required: true},
+    name: {type: String, required: true, unique: true},
     purpose: {type: String, required: true},
     siteUrl: {type: String, required: false},
     codeUrl: {type:String, required: false},
