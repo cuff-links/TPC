@@ -1,9 +1,7 @@
 (function(exports){
     "use strict";
-    var mongoose = require('mongoose')
-        , Posts = require('../models/post').PostModel;
-    exports.blog = function(request, result){
-        result.render('blog', {title: 'The Power Coder | The Power Blog'});
+    exports.blog = function(req, res){
+        res.redirect('http://www.thepowercoder.com/blog')
     }
 
     exports.partials = function (req, res) {

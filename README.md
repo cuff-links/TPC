@@ -39,5 +39,7 @@ Technical Stack
 * [RoyalSlider](http://dimsemenov.com/plugins/royal-slider): A simple to use, mobile friendly slider with lots of options. 
 * [Super Scroll-O-Rama](http://johnpolacek.github.io/superscrollorama) A full-featured scroll animation library with so many options, it's not for the faint of heart. 
 * [google-code-prettify](https://code.google.com/p/google-code-prettify) A simple syntax highlighting library that doesn't conflict with Twitter Bootstrap 3.
+* [Ghost](https://www.ghost.org) This light-weight blogging engine is built in node.js and has a free version if you are willing to stand it up yourself on your own server. Being that this site was built in node.js, easy win!
+
 
 

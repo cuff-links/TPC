@@ -14,7 +14,6 @@ var express = require('express')
   , session = require('express-session')
   , bodyParser = require('body-parser')
   , config = require('./config')
-  , Account = require('./models/account')
   , path = require('path');
 var sass = require('node-sass');
 var compass = require('node-compass');

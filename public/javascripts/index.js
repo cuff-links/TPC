@@ -1,7 +1,6 @@
 /**
  * Created by jdorlus on 11/29/13.
  */
-//$(document).ready(function(){
 angular.element(document).ready(function(){
     var t1 = new TimelineLite();
     var controller = $.superscrollorama({
