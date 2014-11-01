@@ -86,6 +86,12 @@ div.navbar , li, a , #navbarLogo{
 a {
   color: #ffffff;
 }
+#backToTop {
+  color: #cdcdcd;
+}
+#backToTop:hover {
+  color: #000000;
+}
 .navbar-default .navbar-nav > li > a:hover > span,
 .navbar-default .navbar-nav > li > a:focus > span{
   border-bottom: 2px solid #3FC8FF;
