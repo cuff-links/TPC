@@ -1,11 +1,9 @@
-/**
- * Created by jdorlus on 11/29/13.
- */
+
 angular.element(document).ready(function(){
     var t1 = new TimelineLite();
     var controller = $.superscrollorama({
         playoutAnimations: true,
-        reverse: true
+        reverse: false
     });
     controller.addTween('#testCentricHeader',
         TweenMax.fromTo($('#testCentricHeader'), .5, {x:-1000},{x:0}));
