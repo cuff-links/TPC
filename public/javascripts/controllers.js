@@ -7,16 +7,9 @@ module.controller('RecentProjectsController', ['$scope', 'RecentProjectService',
         RecentProjectService.getRecentProjects()
             .success(function(data){
                 $scope.recentProjects = data.recentProjects;
-//                console.log(data.recentProjects);
             })
             .error(function(data) {
                 console.log('Error: ' + data);
             });
-    }
-]);
-
-module.controller('BlogController', ['$scope', 'PostService',
-    function($scope, PostService){
-
     }
 ]);
