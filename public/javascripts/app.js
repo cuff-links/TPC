@@ -1,8 +1,9 @@
 'use strict';
-var app = angular.module('TPCv4', [
+var app = angular.module('TPC', [
     'ngRoute',
+    'ngResource',
+    'ngMock',
     'controllers',
-    //'filters',
     'services' ,
     'directives'
 ]);

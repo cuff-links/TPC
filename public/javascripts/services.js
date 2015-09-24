@@ -2,21 +2,13 @@
 var services = angular.module('services', []);
 
 
-services.service("PostService",function($http){
-    this.getAllPosts = function(postGet){
-        $http.get('/api/posts').success(
-            function(data) {
-                if(postGet){
-                    postGet(data);
-                }
-            });
-        }
-    });
-
-services.factory("RecentProjectService",function($http){
-    return {
-        getRecentProjects: function(){
-            return $http.get('/api/recentprojects');
-        }
-    }
-});
+services.factory("BugzillaService",['$http', function($http){
+    var factory = {};
+    factory.getAssignedBugs = function(){
+        return $http.get('https://bugzilla.mozilla.org/rest/bug?assigned_to=jdorlus@mozilla.com&include_fields=id,summary,status,resolution,product,component,blocks,depends_on');
+    };
+    factory.getCreatedBugs = function(){
+        return $http.get('https://bugzilla.mozilla.org/rest/bug?creator=jdorlus@mozilla.com&include_fields=id,summary,status,resolution,product,component,blocks,depends_on');
+    };
+    return factory;
+}]);

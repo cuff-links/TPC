@@ -1,6 +1,3 @@
-/**
- * Created by jdorlus on 8/31/14.
- */
 function checkSize(){
     var navbarNavListItems = $('.navbar-nav > li > a');
     if(Modernizr.mq('screen and (min-width:992px)')) {
