@@ -5,6 +5,6 @@
     },
     "mongoose": {
         "uri": "127.0.0.1",
-        "database":"TPCv4"
+        "database":"TPC"
     }
 }

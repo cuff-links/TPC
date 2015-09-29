@@ -14,16 +14,22 @@ var module = angular.module('controllers', ['services','directives']);
 //    }
 //]);
 
-module.controller('AssignedBugsController', function($scope, BugzillaService){
+module.controller('MaterialController', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+    $scope.toggleSidenav = function(menuId) {
+        $mdSidenav(menuId).toggle();
+    };
+}]);
+
+module.controller('AssignedBugsController', ['$scope', 'BugzillaService', function($scope, BugzillaService){
         BugzillaService.getAssignedBugs()
             .then(function(result) {
                 $scope.assignedBugs = result
             });
-    });
+    }]);
 
-module.controller('CreatedBugsController', function($scope, BugzillaService){
+module.controller('CreatedBugsController', ['$scope', 'BugzillaService', function($scope, BugzillaService){
         BugzillaService.getCreatedBugs()
             .then(function(result){
                 $scope.createdBugs = result;
             });
-    });
+    }]);

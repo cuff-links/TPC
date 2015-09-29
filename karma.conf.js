@@ -7,7 +7,6 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
-
     // frameworks to use
     frameworks: ['jasmine'],
 
@@ -15,16 +14,19 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
 
-    'public/javascripts/vendor/jquery/jquery.js',
-	'public/javascripts/vendor/angular/angular.js',
-	'public/javascripts/vendor/angular-route/angular-route.js',
+    'public/javascripts/vendor/jquery/dist/jquery.js',
+    'public/javascripts/vendor/angular/angular.js',
+    'public/javascripts/vendor/angular-ui-router/release/angular-ui-router.js',
     'public/javascripts/vendor/angular-resource/angular-resource.js',
-	'public/javascripts/vendor/angular-mocks/angular-mocks.js',
-	'public/javascripts/app.js',
+    'public/javascripts/vendor/angular-mocks/angular-mocks.js',
+    'public/javascripts/vendor/angular-animate/angular-animate.js',
+    'public/javascripts/vendor/angular-aria/angular-aria.js',
+    'public/javascripts/vendor/angular-material/angular-material.js',
+    'public/javascripts/app.js',
     'public/javascripts/controllers.js',
     'public/javascripts/services.js',
     'public/javascripts/directives.js',
-	'public/javascripts/tests/*.js'
+    'public/javascripts/tests/*.js'
     ],
 
 
@@ -36,8 +38,11 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['junit','dots', 'progress', 'coverage'],
+    reporters: ['junit'],
 
+    junitReporter : {
+      outputFile: 'test-results.xml'
+    },
 
     // web server port
     port: 9876,

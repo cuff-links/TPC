@@ -17,9 +17,7 @@ var express = require('express')
   , path = require('path');
 var sass = require('node-sass');
 var compass = require('node-compass');
-var passport = require('passport');
 var app = express();
-var RecentProject = require('./models/recentProject').RecentProjectModel;
 var log4js= require('log4js');
 log4js.setGlobalLogLevel('DEBUG');
 log4js.loadAppender('file');
@@ -51,8 +49,6 @@ app.use(session({
     resave: true,
     saveUninitialized:true
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(compass());
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -66,14 +62,6 @@ if ('development' == app.get('env')) {
 require('./routes')(app);
 
 
-/********************************************
- ************PASSPORT CONFIG ****************
- ********************************************/
-
-
-app.use(passport.initialize());
-
-
 /*******************************************
  ***********CONNECT TO MONGODB**************
  *******************************************/
@@ -83,16 +71,6 @@ mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:database'), co
 /***************************
  * CREATE THE HTTP SERVER
  ***************************/
-
-//var newThing = new RecentProject();
-//newThing.name = "The Power Coder Version 3";
-//newThing.purpose = "Blog/Portfolio";
-//newThing.siteUrl = null;
-//newThing.codeUrl = "http://www.github.com/silne30/TPCv3";
-//newThing.description = "This is the previous version of my website using the .NET stack and Twitter Bootstrap 2. Good times.";
-//newThing.desktopImageUrl = "/images/TPC-slider-desktop.jpg";
-//newThing.mobileImageUrl = "/images/TPC-slider-image-front.png";
-//newThing.save();
 
 http.createServer(app).listen(app.get('port'), function(){
   logger.info('Express server listening on port: ' + app.get('port'));

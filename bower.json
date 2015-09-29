@@ -4,15 +4,19 @@
   "homepage": "https://github.com/silne30/TPC",
   "license": "MIT",
   "dependencies": {
-    "angular-material": "~0.11.0",
+    "angular-material": "~0.11.1",
     "angular-mocks": "1.4.6",
-    "angular-route": "1.4.6",
     "angular-resource": "~1.4.6",
+    "angular-route": "1.4.6",
+    "angular-ui-router": "~0.2.15",
     "google-code-prettify": "~1.0.3",
     "isotope": "~1.5.26",
-    "protractor": "~2.2.0",
+    "material-design-icons": "~2.0.0",
     "modernizr": "~2.7.1",
-    "superscrollorama": "~1.0.2",
-    "underscore": "~1.7.0"
+    "protractor": "~2.2.0",
+    "superscrollorama": "~1.0.2"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
   }
 }
