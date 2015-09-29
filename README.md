@@ -1,4 +1,4 @@
-The Power Coder - Version 4
+The Power Coder 
 =====
 [![Build Status](http://ci.thepowercoder.com/buildStatus/icon?job=The_Power_Coder)](http://ci.thepowercoder.com/job/The_Power_Coder/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
@@ -11,11 +11,11 @@ This is a MEAN Stack implementation of my website. It serves three purposes:
 
 Version
 ------
-4.0
+5.0
 
 ###### Important Links
 * [Homepage](http://www.thepowercoder.com): View the deliciousness that is my site!
-* [Continuous Integration](http://ci.thepowercoder.com/job/The_Power_Coder_Version_4): My butler, Jenkins, is always at work running jobs.
+* [Continuous Integration](http://ci.thepowercoder.com/job/The_Power_Coder): My butler, Jenkins, is always at work running jobs.
 
 Technical Stack
 --------------
