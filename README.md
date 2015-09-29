@@ -1,6 +1,6 @@
 The Power Coder - Version 4
 =====
-[![Build Status](http://ci.thepowercoder.com/buildStatus/icon?job=The_Power_Coder_Version_4)](http://ci.thepowercoder.com/job/The_Power_Coder_Version_4/)
+[![Build Status](http://ci.thepowercoder.com/buildStatus/icon?job=The_Power_Coder)](http://ci.thepowercoder.com/job/The_Power_Coder/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 
