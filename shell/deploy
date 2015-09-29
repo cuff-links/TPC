@@ -9,6 +9,8 @@ npm install node-sass
 bower install
 grunt build
 forever start app.js
+cd ~/Sites/Node/ghost
+NODE_ENV=production forever start index.js
 forever restartall
 exit
 EOF
