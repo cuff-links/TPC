@@ -3,9 +3,10 @@
 nodejs --version
 npm --version
 git pull origin master
-npm test
+npm install -g bower
 npm install -g grunt-cli
 npm install
+bower install
 grunt build
 forever start app.js
 forever restartall
