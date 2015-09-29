@@ -20,5 +20,7 @@ app.config(function($routeProvider,$locationProvider){
             templateUrl:'partials/managePartial',
             controller: 'BlogController'
         });
-        $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue');
 });
