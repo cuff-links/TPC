@@ -1,97 +1,35 @@
 doctype html
-html(data-ng-app="TPCv4")
+html(data-ng-app="TPC")
     head
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name='viewport', content='initial-scale=1')
         title= title
+        link(type="text/css", rel="stylesheet", href="/javascripts/vendor/angular-material/angular-material.min.css")
         link(type="text/css", rel="stylesheet", href="/stylesheets/index.css")
-        link(type="text/css", rel="stylesheet", href="/javascripts/vendor/google-code-prettify/src/prettify.css")
-    body(onload="prettyPrint()")
-        include header
-        section(id="indexIntro").blueText
-            .container
-                .row(style="padding:175px 0 50px 0;")
-                    .scrollblock
-                        p(id="fullStackHeader", style="font-size:32pt;") Full Stack Web Developer
-                    .scrollblock
-                        p.blackText(id="welcomeHeader", style="font-size:24pt;") Welcome! Check out my
-                            a(href="#")
-                                span.blueText  work
-                            |  below!
-            .container
-                .row
-                    .scrollblock
-                        p(id="testCentricHeader", style="font-size: 24pt") Test-Centric Development
-                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode1")
-                        pre.prettyprint.linenums
-                            code
-                                |//Test Will Fail - Written Before Implementation
-                                |private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-                                |@Test
-                                |public void checkEmailFormat(){
-                                |       assertThat(new User("email@domain.com").getEmail().matches(EMAIL_PATTERN), true);
-                                |   }
-                                |}
-                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode2")
-                        pre.prettyprint.linenums
-                            code.text-nowrap.language-java
-                                |//Implementing Tested Code
-                                |public class User{
-                                |   private String email;
-                                |   public void setEmail(String email){
-                                |       this.email = email;
-                                |   }
-                                |   public String getEmail(){
-                                |       return this.email;
-                                |   }
-                                |   public User(){
-                                |       this.email = "foo@bar.com";
-                                |   }
-                                |   public User(String email{
-                                |       this.email = email;
-                                |   }
-                                |}
-                    .col-xs-12.col-sm-12.col-md-4.text-left(id="testCentricCode3")
-                        pre(style="height: 200px;")
-                            p.text-center(style="color:#990000;") RED!
-                            p.text-center(style="color: #339933;") GREEN!
-                            p.text-center REFACTOR!!!
-        section.blueBackgroundTextured.whiteText(id="indexDescription")
-            .container
-                .row
-                    .scrollblock
-                        p.whiteText(id="nTierDevelopmentHeader", style="font-size:24pt;") N-Tier Development
-                .row
-                    .scrollblock(style="margin: 20px 0;")
-                        .col-xs-8.col-xs-offset-2.col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0.text-center
-                            img.img-responsive.img-thumbnail(style="margin: 20px 0;", id="imgMeanStack", src="/images/coderCombatStack_final.png")
-                    .scrollblock(style="margin: 20px 0;")
-                        .col-xs-8.col-xs-offset-2.col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0.text-center
-                            img.img-responsive.img-thumbnail(style="margin: 20px 0;",id="imgServerSide", src="/images/server_side_final.png")
-                    .scrollblock(style="margin: 20px 0;")
-                        .col-xs-8.col-xs-offset-2.col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0.text-center
-                            img.img-responsive.img-thumbnail(style="margin: 20px 0;",id="imgEtc", src="/images/etc_final.png")
-                .row( style="padding: 85px 0 0 0;")
-                    p(id="buildThingsHeader",style="text-align:center;font-size:32pt;") I Build Things
-                        span(class="blackText") *
-                .row
-                    .container
-                        p(style="text-align: center;font-size:14pt;", class="whiteBorderTopBottom paddingTopBottom30")
-                            span(class="blackText") *
-                            |Things like Web Apps, Mobile Apps and Automated Testing Suites.
-                        p(style="text-align: center; font-size: 11pt") From websites for small businesses to developer tools for super-geeks,
-                        p(style="text-align: center; font-size: 11pt") I build applications and websites with the toolset that
-                        p(style="text-align: center; font-size: 11pt") will do the job the best (though I am partial to open source).
-        section(id="indexSliderBody", ng-controller="RecentProjectsController")
-            div(id="homeSlideShowWrapper")
-                div.container(id="homeSlideShow")
-                    .row
-                        .slideShowWrapper.rsCCR
-                            royal-slider.royalSlider(recent-projects="recentProjects")
-        section
-            .container
-                .row
-                script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
-                script(type="text/javascript", src="/javascripts/vendor/royalslider/jquery.royalslider.min.js")
-                script(type="text/javascript", src="/javascripts/deploy/indexBuilt.min.js")
-                script(type="text/javascript", src="/javascripts/vendor/google-code-prettify/src/prettify.js")
-                include footer
+
+    body(layout="column" ng-controller="MaterialController")
+        md-toolbar(layout='row')
+            .md-toolbar-tools
+                md-button.md-icon-button(ng-click="toggleSidenav('left')", hide-gt-md=)
+                    md-icon(aria-label='Menu', md-svg-icon='https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg')
+                h1 Hello World
+        div(layout='row', flex, style="position: relative;")
+            md-sidenav.md-sidenav-left.md-whiteframe-z3(layout='column', md-component-id='left', md-is-locked-open="$mdMedia('gt-md')")
+            #content(layout='column', flex)
+                md-content.md-padding(layout='column', flex)
+
+
+        script(type="text/javascript", src="/javascripts/vendor/jquery/dist/jquery.min.js")
+        script(type='text/javascript', src='/javascripts/vendor/isotope/jquery.isotope.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular/angular.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-animate/angular-animate.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-aria/angular-aria.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-material/angular-material.min.js')
+        script(type="text/javascript", src='/javascripts/vendor/angular-resource/angular-resource.min.js')
+        script(type="text/javascript", src='/javascripts/vendor/angular-ui-router/release/angular-ui-router.min.js')
+        script(type="text/javascript", src='/javascripts/vendor/angular-mocks/angular-mocks.js')
+        script(type="text/javascript", src='/javascripts/vendor/modernizr/modernizr.js')
+        script(type="text/javascript", src='/javascripts/vendor/royalslider/jquery.easing-1.3.js')
+        script(type="text/javascript", src='/javascripts/vendor/superscrollorama/js/jquery.superscrollorama.js')
+        script(type="text/javascript", src="/javascripts/deploy/indexBuilt.js")
+        script(type="text/javascript", src="/javascripts/vendor/google-code-prettify/src/prettify.js")
+        //include footer
