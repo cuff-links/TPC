@@ -5,6 +5,7 @@ npm --version
 npm install -g bower
 npm install -g grunt-cli
 reinstall
+npm install node-sass
 bower install
 grunt build
 forever start app.js
