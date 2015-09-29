@@ -36,10 +36,7 @@
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.20",
-    "karma-teamcity-reporter": "^0.2.1"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
+    "karma-teamcity-reporter": "^0.2.1",
     "grunt-contrib-concat": "^0.4.0",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-sass": "^0.7.3",
