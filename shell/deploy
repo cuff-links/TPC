@@ -4,7 +4,9 @@ nodejs --version
 npm --version
 npm install -g bower
 npm install -g grunt-cli
+nvm use node12
 reinstall
+rm -rf node_modules
 bower install
 grunt build
 npm rebuild node-sass
