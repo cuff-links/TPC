@@ -15,8 +15,5 @@
     "modernizr": "~2.7.1",
     "protractor": "~2.2.0",
     "superscrollorama": "~1.0.2"
-  },
-  "resolutions": {
-    "jquery": "~2.1.1"
   }
 }
