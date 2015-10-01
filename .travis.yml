@@ -8,6 +8,6 @@ before_install:
 deploy:
   provider: heroku
   app: thepowercoder
-  env:
-    global:
-      secure: VeD/IgmGhTQfHX96g0klVWMATYjX2W902t7zWvJmUSNofqZpH/wGPFHBNeH1/fCueN5y2cuo2AdNYniems+LkN1x4eJMrrUiCbaq4i46xGXJhF2jl23Rbqc9LB3o6vX6S1RC4KNtKyZoNjGdAPRMS3olDOSQbGjqWMgomtZiUic=
+env:
+  global:
+    secure: I6uQcMoXkIzkwIXmN9j6w4xaFJykRHJm0fUSAS1Ncf5KfsZiRM6kaaKvo15RAbO70lJ9xp5mTK1L2dMY1MGj8Fq+049tZCVOqBfYm8EEo0KTsOK0mMbSQ2JiPIxG2fC94Kx/cWbr6cC99Gg7Nx5s9D71nefWOmBghoA2mDCExW0=
