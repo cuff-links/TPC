@@ -1,11 +1,13 @@
 language: node_js
 node_js:
-  - "0.12.7"
+- 0.12.7
 before_install:
-  - npm install -g bower
-  - bower install
-  - npm install -g grunt-cli
+- npm install -g bower
+- bower install
+- npm install -g grunt-cli
 deploy:
   provider: heroku
-  api_key:
-    secure: "dEOFiP7UVCHIo4XYgSd7T/QiD+YXzBFToURwvebhW2xbT+N9599CUiTw+pcMJY8kLtc2ZrW89yNTJPp2I+vbXKxSrsLSKWGkZ0J+w4/WKnNFGIRu/vFXWr75Xmw4SxglwG2zhis1uTquvK4MYzayy4SdL2FjWxG4/SldWWKDBKA="
+  app: thepowercoder
+  env:
+    global:
+      secure: VeD/IgmGhTQfHX96g0klVWMATYjX2W902t7zWvJmUSNofqZpH/wGPFHBNeH1/fCueN5y2cuo2AdNYniems+LkN1x4eJMrrUiCbaq4i46xGXJhF2jl23Rbqc9LB3o6vX6S1RC4KNtKyZoNjGdAPRMS3olDOSQbGjqWMgomtZiUic=
