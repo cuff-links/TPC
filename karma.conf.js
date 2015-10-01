@@ -14,7 +14,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
 
-    'public/javascripts/vendor/jquery/dist/jquery.js',
+    'public/javascripts/vendor/jquery/jquery.js',
     'public/javascripts/vendor/angular/angular.js',
     'public/javascripts/vendor/angular-ui-router/release/angular-ui-router.js',
     'public/javascripts/vendor/angular-resource/angular-resource.js',
@@ -38,11 +38,7 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['junit'],
-
-    junitReporter : {
-      outputFile: 'test-results.xml'
-    },
+    reporters: ['spec'],
 
     // web server port
     port: 9876,
@@ -78,6 +74,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };
