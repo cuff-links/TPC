@@ -44,5 +44,8 @@
     "require": "^0.5.0",
     "requirejs": "^2.1.15",
     "serve-favicon": "^2.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
   }
 }

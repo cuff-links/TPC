@@ -1,15 +1,12 @@
 #!/bin/sh
 
-nodejs --version
+node --version
 npm --version
-npm install -g bower
-npm install -g grunt-cli
-nvm use node12
 reinstall
-rm -rf node_modules
 bower install
+npm install -g grunt-cli
+npm install grunt
 grunt build
-npm rebuild node-sass
 forever start app.js
 cd ~/Sites/Node/ghost
 NODE_ENV=production forever start index.js
