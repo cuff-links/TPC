@@ -5,3 +5,7 @@ before_install:
   - npm install -g bower
   - bower install
   - npm install -g grunt-cli
+deploy:
+  provider: heroku
+  api_key:
+    secure: "dEOFiP7UVCHIo4XYgSd7T/QiD+YXzBFToURwvebhW2xbT+N9599CUiTw+pcMJY8kLtc2ZrW89yNTJPp2I+vbXKxSrsLSKWGkZ0J+w4/WKnNFGIRu/vFXWr75Xmw4SxglwG2zhis1uTquvK4MYzayy4SdL2FjWxG4/SldWWKDBKA="
