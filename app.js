@@ -30,13 +30,15 @@ var logger = log4js.getLogger('ApplicationLog');
 /***************************************
  * CONFIGURATION FOR ALL ENVIRONMENTS
 ***************************************/
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('env', 'development');
 app.set('view engine', 'jade');
-app.use(favicon(__dirname + '/public/favicon.ico'));
+
 app.use(morganlogger('dev'));
 app.use(methodOverride());
 app.use(function(req, res, next){
@@ -50,7 +52,7 @@ app.use(session({
     saveUninitialized:true
 }));
 app.use(compass());
-app.use(express.static(path.join(__dirname, '/public')));
+
 
 /**********************************************
  * CONFIGURATION FOR DEVELOPMENT ENVIRONMENT
