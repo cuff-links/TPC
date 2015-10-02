@@ -4,7 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "./node_modules/karma/bin/karma start"
+    "test": "./node_modules/karma/bin/karma start",
+    "postinstall": "bower install && grunt build"
+  },
+  "engines": {
+      "node": "0.12.7",
+      "npm": "2.1.x"
   },
   "dependencies": {
     "body-parser": "^1.2.0",
