@@ -5,8 +5,10 @@ before_install:
 - npm install -g bower
 - bower install
 - npm install -g grunt-cli
+before_script:
 deploy:
   provider: heroku
   app: thepowercoder
   api_key:
     secure: I6uQcMoXkIzkwIXmN9j6w4xaFJykRHJm0fUSAS1Ncf5KfsZiRM6kaaKvo15RAbO70lJ9xp5mTK1L2dMY1MGj8Fq+049tZCVOqBfYm8EEo0KTsOK0mMbSQ2JiPIxG2fC94Kx/cWbr6cC99Gg7Nx5s9D71nefWOmBghoA2mDCExW0=
+  skip_cleanup: true
