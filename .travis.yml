@@ -1,12 +1,12 @@
 language: node_js
 node_js:
 - 0.12.7
-before_install:
-- npm install -g bower
-- npm install -g grunt-cli
-- gem install sass -v 3.4.13
-- gem install compass -v 1.0.3
-before_script:
+#before_install:
+#- npm install -g bower
+#- npm install -g grunt-cli
+#- gem install sass -v 3.4.13
+#- gem install compass -v 1.0.3
+#before_script:
 deploy:
   provider: heroku
   app: thepowercoder
