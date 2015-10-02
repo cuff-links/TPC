@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "./node_modules/karma/bin/karma start",
-    "postinstall": "bower install",
+    "postinstall": "bower install && grunt build",
     "preinstall": "npm install -g bower && npm install -g grunt-cli"
   },
   "engines": {
