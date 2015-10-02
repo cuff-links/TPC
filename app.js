@@ -65,8 +65,8 @@ require('./routes')(app);
 /*******************************************
  ***********CONNECT TO MONGODB**************
  *******************************************/
-logger.info('Connected to MongoDB - Host: ' + config.get('mongoose:uri') + ' ; ' + 'Database:' + config.get('mongoose:database') + ' : ' + 'Port: ' +config.get('port'));
-mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:database'), config.get('port'));
+//logger.info('Connected to MongoDB - Host: ' + config.get('mongoose:uri') + ' ; ' + 'Database:' + config.get('mongoose:database') + ' : ' + 'Port: ' +config.get('port'));
+//mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:database'), config.get('port'));
 
 /***************************
  * CREATE THE HTTP SERVER
