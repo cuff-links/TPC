@@ -18,6 +18,44 @@ module.controller('MaterialController', ['$scope', '$mdSidenav', function($scope
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
+    $scope.menuItems = [
+        {
+            "name": "Home",
+            "icon": "home",
+            "target": "SomeTarget",
+            "color": "powderblue"
+        },
+        {
+            "name": "Work",
+            "icon": "work",
+            "target": "SomeTarget",
+            "color": "tan"
+        },
+        {
+            "name": "Projects",
+            "icon": "build",
+            "target": "SomeTarget",
+            "color": "lightsalmon"
+        },
+        {
+            "name" : "Skills",
+            "icon" : "poll",
+            "target" : "SomeTarget",
+            "color" : "lightblue"
+        },
+        {
+            "name": "Blog",
+            "icon": "comment",
+            "target": "SomeTarget",
+            "color": "violet"
+        },
+        {
+            "name": "About",
+            "icon": "person_outline",
+            "target": "SomeTarget",
+            "color" : "lightgray"
+        }
+    ]
 }]);
 
 module.controller('AssignedBugsController', ['$scope', 'BugzillaService', function($scope, BugzillaService){

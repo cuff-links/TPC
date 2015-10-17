@@ -37,6 +37,17 @@ module.exports = function(grunt){
                 ],
                 dest:'public/javascripts/deploy/indexBuilt.js'
             }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/stylesheets',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'public/stylesheets',
+                    ext: '.min.css'
+                }]
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-concat');

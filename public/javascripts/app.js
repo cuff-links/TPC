@@ -2,6 +2,7 @@
 var app = angular.module('TPC', [
     'ui.router',
     'ngMaterial',
+    'ngAnimate',
     'controllers',
     'services' ,
     'directives'

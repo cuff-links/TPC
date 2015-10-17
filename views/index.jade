@@ -4,19 +4,67 @@ html(data-ng-app="TPC")
         meta(name='viewport', content='initial-scale=1')
         title= title
         link(type="text/css", rel="stylesheet", href="/javascripts/vendor/angular-material/angular-material.min.css")
-        link(type="text/css", rel="stylesheet", href="/stylesheets/index.css")
+        link(type="text/css", rel="stylesheet", href="/stylesheets/index.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
 
     body(layout="column" ng-controller="MaterialController")
-        md-toolbar(layout='row')
-            .md-toolbar-tools
-                md-button.md-icon-button(ng-click="toggleSidenav('left')", hide-gt-md=)
-                    md-icon(aria-label='Menu', md-svg-icon='https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg')
-                h1 Hello World
-        div(layout='row', flex, style="position: relative;")
-            md-sidenav.md-sidenav-left.md-whiteframe-z3(layout='column', md-component-id='left', md-is-locked-open="$mdMedia('gt-md')")
-            #content(layout='column', flex)
+        div(layout='row', flex)
+            md-sidenav.md-sidenav-left.md-whiteframe-z2( layout='column', hide-lt-lg, show-gt-md, md-component-id='left', md-is-locked-open='$mdMedia("gt-md")')
+                md-toolbar.md-tall(layout='row', id="large_nav")
+                    .md-toolbar-tools
+                        h1 The Power Coder
                 md-content.md-padding(layout='column', flex)
-
+                    md-list
+                        a(ng-repeat="item in menuItems")
+                            md-list-item.menuListItem.md-clickable(md-ink-ripple)
+                                md-icon(md-font-library="material-icons", flex="25", style="color: {{item.color}}",aria-label="{{item.name}}") {{item.icon}}
+                                span(flex) {{item.name}}
+            md-content(id="content",layout='column', flex)
+                md-toolbar.md-tall(layout='row', id="large_nav")
+                    .md-toolbar-tools
+                        h1 The Power Coder
+                div(layout-padding, layout-margin)
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
+                    div
+                    h1 Test
+                    p lets see how this work
 
         script(type="text/javascript", src="/javascripts/vendor/jquery/jquery.min.js")
         script(type='text/javascript', src='/javascripts/vendor/isotope/jquery.isotope.min.js')
@@ -26,10 +74,9 @@ html(data-ng-app="TPC")
         script(type='text/javascript', src='/javascripts/vendor/angular-material/angular-material.min.js')
         script(type="text/javascript", src='/javascripts/vendor/angular-resource/angular-resource.min.js')
         script(type="text/javascript", src='/javascripts/vendor/angular-ui-router/release/angular-ui-router.min.js')
-        script(type="text/javascript", src='/javascripts/vendor/angular-mocks/angular-mocks.js')
         script(type="text/javascript", src='/javascripts/vendor/modernizr/modernizr.js')
         //script(type="text/javascript", src='/javascripts/vendor/royalslider/jquery.easing-1.3.js')
         script(type="text/javascript", src='/javascripts/vendor/superscrollorama/js/jquery.superscrollorama.js')
-        script(type="text/javascript", src="/javascripts/deploy/indexBuilt.js")
+        script(type="text/javascript", src="/javascripts/deploy/indexBuilt.min.js")
         script(type="text/javascript", src="/javascripts/vendor/google-code-prettify/src/prettify.js")
         //include footer

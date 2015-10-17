@@ -1,15 +1,25 @@
 language: node_js
 node_js:
 - 0.12.7
-#before_install:
-#- npm install -g bower
-#- npm install -g grunt-cli
-#- gem install sass -v 3.4.13
-#- gem install compass -v 1.0.3
-#before_script:
 deploy:
-  provider: heroku
-  app: thepowercoder
-  api_key:
-    secure: I6uQcMoXkIzkwIXmN9j6w4xaFJykRHJm0fUSAS1Ncf5KfsZiRM6kaaKvo15RAbO70lJ9xp5mTK1L2dMY1MGj8Fq+049tZCVOqBfYm8EEo0KTsOK0mMbSQ2JiPIxG2fC94Kx/cWbr6cC99Gg7Nx5s9D71nefWOmBghoA2mDCExW0=
+- provider: s3
+  access_key_id: AKIAITRC3HXGKFDEDDBQ
+  secret_access_key: &1
+    secure: MwDbICCiynexoyZmPu+Mk74gpUnpVw4YjoAnPtIUHboaVSEAYCVqC38W+B8qQcgWJIiinpVUNKZtEinfq/57qtQmi0ghkXh/7CvgDJgniK1gyaO8fSj+X7oB1tjueyM8As7+dtqKF9UZ8f5yFUEtuhT9OrH/CfiJXOegnDa35OY=
+  local_dir: dpl_cd_upload
   skip_cleanup: true
+  on: &2
+    repo: silne30/TPC
+  bucket: TPC
+- provider: codedeploy
+  access_key_id: AKIAITRC3HXGKFDEDDBQ
+  secret_access_key: *1
+  bucket: thepowercoder
+  key: ''
+  bundle_type: zip
+  application: TPC
+  deployment_group: TPCFleet
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv '' dpl_cd_upload/''

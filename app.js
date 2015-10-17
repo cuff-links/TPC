@@ -9,7 +9,6 @@ var express = require('express')
   , morganlogger = require('morgan')
   , errorHandler = require('errorhandler')
   , http = require('http')
-  , mongoose = require('mongoose')
   , cookieParser = require('cookie-parser')
   , session = require('express-session')
   , bodyParser = require('body-parser')
@@ -63,12 +62,6 @@ if ('development' == app.get('env')) {
 //Routes
 require('./routes')(app);
 
-
-/*******************************************
- ***********CONNECT TO MONGODB**************
- *******************************************/
-//logger.info('Connected to MongoDB - Host: ' + config.get('mongoose:uri') + ' ; ' + 'Database:' + config.get('mongoose:database') + ' : ' + 'Port: ' +config.get('port'));
-//mongoose.connect(config.get('mongoose:uri'), config.get('mongoose:database'), config.get('port'));
 
 /***************************
  * CREATE THE HTTP SERVER
