@@ -13,9 +13,10 @@ deploy:
   bucket: TPC
 - provider: codedeploy
   access_key_id: AKIAITRC3HXGKFDEDDBQ
-  secret_access_key: *1
+  secret_access_key: &1
+    secure: MwDbICCiynexoyZmPu+Mk74gpUnpVw4YjoAnPtIUHboaVSEAYCVqC38W+B8qQcgWJIiinpVUNKZtEinfq/57qtQmi0ghkXh/7CvgDJgniK1gyaO8fSj+X7oB1tjueyM8As7+dtqKF9UZ8f5yFUEtuhT9OrH/CfiJXOegnDa35OY=
   bucket: thepowercoder
-  key: ''
+  key: latest.zip
   bundle_type: zip
   application: TPC
   deployment_group: TPCFleet
