@@ -4,3 +4,7 @@ tpc_flask/static/js/vendor
 **/.sass-cache
 .idea
 tpc_flask/static/js/deploy/*
+.cache
+.tox
+**/*.egg-info
+.coverage
