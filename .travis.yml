@@ -6,6 +6,7 @@ install:
 - pip install -r requirements.txt
 script: tox
 deploy:
+  skip_cleanup: True
   provider: heroku
   api_key:
     secure: lg6HYo+UF4ld/Ge7x/Nma2YCKMzpT9usJF90vGmYYLu57Gb0vuXF461J41IgfsO0e6syUoyI8nP12zdeSlJgoQibqO29zyugRUCXU+W1cXDWiHTALxbcBOiX5RZt3HB/E0HSzTTfF2jcDUn8shYNBO5PYJ53zNpgGjznkGnWtEQ=
