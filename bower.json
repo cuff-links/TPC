@@ -1,0 +1,30 @@
+{
+  "name": "tpcv6",
+  "description": "Flask, grunt, angular application.",
+  "main": "TPC_Flask.py",
+  "authors": [
+    "John Dorlus"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "flask",
+    "bower",
+    "grunt",
+    "angular",
+    "material"
+  ],
+  "homepage": "https://www.github.com/silne30/TPC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tpc_flask/static/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-route": "^1.6.0",
+    "mdi": "^1.7.22"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tpc_flask">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Coder</title>
+
+    <link href="/static/js/vendor/angular-material/angular-material.min.css" type="text/css" rel="stylesheet" />
+    <link href="/static/js/vendor/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+
+</head>
+<body ng-controller="MaterialController">
+    <div layout-fill flex layout="column">
+        <div layout="row" layout-fill flex>
+            <md-sidenav class="md-sidenav-left md-whiteframe-z4" md-is-locked-open="$mdMedia('gt-md')"  md-component-id="left">
+                <md-toolbar>
+                     <div class="md-toolbar-tools">
+                        <span>Full Height Test</span>
+                        <span flex></span>
+                        <md-button ng-click="toggleSidenav('left')">Toggle Sidenav</md-button>
+                     </div>
+                </md-toolbar>
+                <md-content>
+                    <md-button ng-click="">Hooray</md-button>
+                </md-content>
+            </md-sidenav>
+            <md-content flex>
+                <md-toolbar>
+                     <div class="md-toolbar-tools">
+                        <span>Full Height Test</span>
+                        <span flex></span>
+                     </div>
+                </md-toolbar>
+              Content
+            </md-content>
+          </div>
+    </div>
+
+    {#    Load all Scripts For site#}
+    {#    vendor scripts#}
+    <script src="/static/js/vendor/angular/angular.js"></script>
+    <script src="/static/js/vendor/angular-route/angular-route.js"></script>
+    <script src="/static/js/vendor/angular-aria/angular-aria.js"></script>
+    <script src="/static/js/vendor/angular-messages/angular-messages.js"></script>
+    <script src="/static/js/vendor/angular-animate/angular-animate.js"></script>
+    <script src="/static/js/vendor/angular-material/angular-material.js"></script>
+
+    {#    my scripts#}
+    <script src="/static/js/deploy/indexBuilt.js"></script>
+</body>
+</html>

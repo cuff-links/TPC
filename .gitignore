@@ -1,0 +1,6 @@
+node_modules
+**/*.pyc
+tpc_flask/static/js/vendor
+**/.sass-cache
+.idea
+tpc_flask/static/js/deploy/*
