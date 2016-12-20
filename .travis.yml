@@ -7,8 +7,6 @@ install:
 before_script:
 - pip install .
 script: tox
-before_deploy:
-- npm install -g bower && bower install
 deploy:
   skip_cleanup: True
   provider: heroku
