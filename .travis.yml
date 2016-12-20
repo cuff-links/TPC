@@ -5,8 +5,8 @@ python:
 before_install:
 - nvm install 6.1
 - nvm use 6.1
-
 install:
+- npm install -g grunt-cli
 - pip install -r requirements.txt
 before_script:
 - pip install .
