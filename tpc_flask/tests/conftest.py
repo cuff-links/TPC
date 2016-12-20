@@ -1,4 +1,4 @@
-from tpc_flask.TPC_Flask import create_app
+from tpc_flask.tpc_flask import create_app
 
 import pytest
 

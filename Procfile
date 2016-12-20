@@ -1,1 +1,1 @@
-web: export FLASK_APP=tpc_flask/TPC_Flask.py && flask run
+web: export FLASK_APP=tpc_flask/runapp.py && flask run
