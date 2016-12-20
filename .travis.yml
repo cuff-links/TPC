@@ -16,6 +16,7 @@ before_script:
 - pip install .
 - npm install grunt jasmine karma
 - npm install --only=dev
+- npm test
 script: tox
 deploy:
   skip_cleanup: True
