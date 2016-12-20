@@ -15,7 +15,3 @@ def create_app(debug=False):
         return render_template('index.html')
     return app
 
-
-# if __name__ == '__main__':
-#     app = create_app()
-#     app.run()
