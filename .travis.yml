@@ -14,8 +14,9 @@ install:
 - gem install compass
 before_script:
 - pip install .
-- npm install grunt jasmine karma
+- npm install grunt bower jasmine karma
 - npm install --only=dev
+- bower install
 - npm test
 script: tox
 deploy:
