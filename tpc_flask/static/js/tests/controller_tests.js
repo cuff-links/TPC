@@ -5,7 +5,7 @@ describe("JsonControllerTests", function() {
 
     beforeEach(function() {
         JsonServiceMock  = {
-            getAssignedBugs: function() {
+            getBugs: function() {
                 deferred = q.defer();
                 deferred.resolve([{
                     id: '1',
@@ -21,11 +21,11 @@ describe("JsonControllerTests", function() {
                 return deferred.promise
             }
         };
-        spyOn(JsonServiceMock,'getAssignedBugs').and.callThrough();
+        spyOn(JsonServiceMock,'getBugs').and.callThrough();
     });
 
 
-    describe('AssignedBugs Controller Using Mock Serivice', function(){
+    describe('JsonController Using Mock Serivice', function(){
         beforeEach(inject(function ($rootScope, $controller, $q) {
             scope = $rootScope.$new();
             q = $q;
@@ -36,23 +36,23 @@ describe("JsonControllerTests", function() {
         }));
 
         it('The Bugs List Should Not be defined yet', function() {
-            expect(scope.assignedBugs).not.toBeDefined()
+            expect(scope.bugs).not.toBeDefined()
         });
         it('Applying the scope causes it to be defined', function () {
             scope.$apply();
-            expect(scope.assignedBugs).toBeDefined();
+            expect(scope.bugs).toBeDefined();
         });
         it('Ensure that the method was invoked', function () {
             scope.$apply();
-            expect(JsonServiceMock.getAssignedBugs).toHaveBeenCalled();
+            expect(JsonServiceMock.getBugs).toHaveBeenCalled();
         });
         it('Check the length of array returned from mock service', function () {
             scope.$apply();
-            expect(scope.assignedBugs.length).toBe(1);
+            expect(scope.bugs.length).toBe(1);
         });
         it('Verify Bug Returned is from Mocked Service getAssignedBugs', function() {
             scope.$apply();
-            expect(scope.assignedBugs[0].assignedTo).toBe('jdorlus@mozilla.com');
+            expect(scope.bugs[0].assignedTo).toBe('jdorlus@mozilla.com');
         });
     });
 });

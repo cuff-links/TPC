@@ -1,3 +1,17 @@
+.menu-icon {
+  color: #000;
+  width: 100% !important;
+  text-decoration: none; }
+  .menu-icon :visited {
+    color: #000; }
 
+.menu-text {
+  font-weight: 900;
+  color: #424242; }
 
-/*# sourceMappingURL=index.css.map */
+.information-list li {
+  width: 100% !important; }
+  .information-list li li {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px; }

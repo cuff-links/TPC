@@ -6,45 +6,65 @@
 
     <link href="/static/js/vendor/angular-material/angular-material.min.css" type="text/css" rel="stylesheet" />
     <link href="/static/js/vendor/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/static/css/index.min.css" media="all" rel="stylesheet" type="text/css" />
 
 </head>
-<body ng-controller="MaterialController">
+<body ng-controller="MaterialController" ng-cloak>
     <div layout-fill flex layout="column">
         <div layout="row" layout-fill flex>
             <md-sidenav class="md-sidenav-left md-whiteframe-z4" md-is-locked-open="$mdMedia('gt-md')"  md-component-id="left">
-                <md-toolbar>
+                <md-toolbar class="md-tall">
                      <div class="md-toolbar-tools">
-                        <span>Full Height Test</span>
+                         <ul class="information-list" style="float: right;">
+                             <li><span class="md-display-1">John<span style="font-weight: 900">Dorlus</span></span></li>
+                             <li><span class="md-title">Developer in Test</span></li>
+                             <li><span class="md-caption">Automation Engineer</span></li>
+                         </ul>
                         <span flex></span>
-                        <md-button ng-click="toggleSidenav('left')">Toggle Sidenav</md-button>
                      </div>
                 </md-toolbar>
                 <md-content>
-                    <md-button ng-click="">Hooray</md-button>
+                    <md-list>
+                        <md-list-item ng-repeat="item in menu">
+                            <a id="{a item.icon a}" ui-sref="{a item.link a}"  md-ink-ripple layout="row" layout-align="start center" class="menu-icon">
+                                <div class="inset">
+                                  <ng-md-icon icon="{a item.icon a}" ng-mouseover="transformIcon('{a item.icon a}')" style='fill: {a item.color a}'></ng-md-icon>
+                                </div>
+                                <div class="inset">
+                                    <span class="menu-text" >{a item.title a}</span>
+                                </div>
+                            </a>
+                        </md-list-item>
+                    </md-list>
                 </md-content>
             </md-sidenav>
             <md-content flex>
-                <md-toolbar>
-                     <div class="md-toolbar-tools">
-                        <span>Full Height Test</span>
+                <md-toolbar class="md-tall">
+                     <div class="md-toolbar-tools" layout="row" layout-gt-md="end center" layout-gt-xs="start center">
                         <span flex></span>
+                        <span class="md-title">Full Height Test</span>
                      </div>
                 </md-toolbar>
-              Content
+                <div>
+                    Content
+                </div>
+                <div ui-view></div>
             </md-content>
           </div>
     </div>
 
     {#    Load all Scripts For site#}
     {#    vendor scripts#}
-    <script src="/static/js/vendor/angular/angular.js"></script>
-    <script src="/static/js/vendor/angular-route/angular-route.js"></script>
-    <script src="/static/js/vendor/angular-aria/angular-aria.js"></script>
-    <script src="/static/js/vendor/angular-messages/angular-messages.js"></script>
-    <script src="/static/js/vendor/angular-animate/angular-animate.js"></script>
-    <script src="/static/js/vendor/angular-material/angular-material.js"></script>
+    <script src="/static/js/vendor/angular/angular.min.js"></script>
+    <script src="/static/js/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/static/js/vendor/angular-aria/angular-aria.min.js"></script>
+    <script src="/static/js/vendor/angular-messages/angular-messages.min.js"></script>
+    <script src="/static/js/vendor/angular-animate/angular-animate.min.js"></script>
+    <script src="/static/js/vendor/angular-material/angular-material.min.js"></script>
+    <script src="/static/js/vendor/angular-material-icons/angular-material-icons.js"></script>
+    <script src="/static/js/vendor/svg-morpheus/compile/minified/svg-morpheus.js"></script>
 
     {#    my scripts#}
-    <script src="/static/js/deploy/indexBuilt.js"></script>
+    <script src="/static/js/deploy/indexBuilt.min.js"></script>
 </body>
 </html>

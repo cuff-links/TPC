@@ -8,8 +8,8 @@ before_install:
 install:
 - npm install -g grunt-cli
 - pip install -r requirements.txt
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 - gem install sass
 - gem install compass
 before_script:
@@ -20,8 +20,11 @@ before_script:
 - npm test
 script: tox
 deploy:
-  skip_cleanup: True
+  skip_cleanup: true
   provider: heroku
   api_key:
     secure: lg6HYo+UF4ld/Ge7x/Nma2YCKMzpT9usJF90vGmYYLu57Gb0vuXF461J41IgfsO0e6syUoyI8nP12zdeSlJgoQibqO29zyugRUCXU+W1cXDWiHTALxbcBOiX5RZt3HB/E0HSzTTfF2jcDUn8shYNBO5PYJ53zNpgGjznkGnWtEQ=
   app: thepowercoder
+env:
+  global:
+    secure: sQ6QaG2fuIHC6d7xzOymhjCdCva9+85AVIDzOKdNpaSTPaGvMzlI0//fpEmfwhKdxBouSO2T+vU2L4fns/FY9/+OFE0N6QAUebcNrOny/RhmH5E7LkDytHG4oIA4Ybb0Tj4eSiqDB5XcDe0H5mpQj4K3/48RBWdRXp/sw+nRoVs=

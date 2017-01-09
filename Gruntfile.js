@@ -1,6 +1,17 @@
 module.exports = function(grunt){
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        cssmin: {
+          target: {
+            files: [{
+              expand: true,
+              cwd: 'tpc_flask/static/css',
+              src: ['*.css', '!*.min.css'],
+              dest: 'tpc_flask/static/css',
+              ext: '.min.css'
+            }]
+          }
+        },
         sass: {
             index:{
                 files : {
@@ -41,8 +52,8 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('build',['concat', 'uglify']);
+    grunt.registerTask('build',['concat', 'uglify', 'sass', 'cssmin']);
     grunt.registerTask('default',['build']);
 };

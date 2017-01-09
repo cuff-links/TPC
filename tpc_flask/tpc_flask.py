@@ -14,4 +14,3 @@ def create_app(debug=False):
             return redirect('http://blog.powercoder.tech', code=302)
         return render_template('index.html')
     return app
-
