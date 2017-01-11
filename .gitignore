@@ -7,5 +7,7 @@ tpc_flask/static/js/vendor
 .tox
 **/*.egg-info
 .coverage
+tpc_flask/static/css/*.map
+tpc_flask/static/css/*.min.css
 **/__pycache__/
 tpc_flask/static/js/deploy/

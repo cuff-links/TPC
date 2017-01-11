@@ -15,11 +15,12 @@ module.exports = function(config) {
     files: [
 
     'tpc_flask/static/js/vendor/angular/angular.js',
-    'tpc_flask/static/js/vendor/angular-route/angular-route.js',
+    'tpc_flask/static/js/vendor/angular-ui-router/release/angular-ui-router.js',
     'tpc_flask/static/js/vendor/angular-mocks/angular-mocks.js',
     'tpc_flask/static/js/vendor/angular-animate/angular-animate.js',
     'tpc_flask/static/js/vendor/angular-aria/angular-aria.js',
     'tpc_flask/static/js/vendor/angular-material/angular-material.js',
+    'tpc_flask/static/js/vendor/angular-material-icons/angular-material-icons.js',
     'tpc_flask/static/js/app.js',
     'tpc_flask/static/js/controllers.js',
     'tpc_flask/static/js/services.js',

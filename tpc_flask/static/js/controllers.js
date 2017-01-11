@@ -18,7 +18,8 @@ app.controller('BugzillaController', ['$scope', 'JsonService', function ($scope,
             "url" : "https://bugzilla.mozilla.org/rest/bug?creator=jdorlus@mozilla.com&include_fields=id,summary,status,resolution,product,component,blocks,depends_on"
         }
     ];
-    JsonService.getBugs(bugInfo[bugType])
+    //bugInfo[bugType]
+    JsonService.getBugs()
         .then(function (result) {
             $scope.bugs = result;
         });
@@ -41,7 +42,7 @@ app.controller('TrelloController', ['$scope', '$mdSidenav', function ($scope, $m
 }]);
 
 app.controller('MaterialController', ['$scope', '$mdSidenav', function ($scope, $mdSidenav) {
-    var menu = $scope.menu = [
+    $scope.menu = [
             {
                 link : 'home',
                 title: 'Dashboard',

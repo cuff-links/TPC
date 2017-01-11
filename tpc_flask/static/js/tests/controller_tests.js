@@ -26,10 +26,11 @@ describe("JsonControllerTests", function() {
 
 
     describe('JsonController Using Mock Serivice', function(){
-        beforeEach(inject(function ($rootScope, $controller, $q) {
+        beforeEach(inject(function ($rootScope, $controller, $q, $httpBackend) {
             scope = $rootScope.$new();
             q = $q;
-            controller = $controller('HomeController', {
+            $httpBackend.expectGET("static/partials/home.html").respond("<div>mock template</div>");
+            controller = $controller('BugzillaController', {
                 $scope: scope,
                 JsonService: JsonServiceMock
             });
@@ -50,7 +51,7 @@ describe("JsonControllerTests", function() {
             scope.$apply();
             expect(scope.bugs.length).toBe(1);
         });
-        it('Verify Bug Returned is from Mocked Service getAssignedBugs', function() {
+        it('Verify Bug Returned is from Mocked Service getBugs', function() {
             scope.$apply();
             expect(scope.bugs[0].assignedTo).toBe('jdorlus@mozilla.com');
         });
