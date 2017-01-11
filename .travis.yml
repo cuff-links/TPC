@@ -12,11 +12,11 @@ install:
 - gem install sass
 - gem install compass
 before_script:
-- pip install .
 - npm install grunt bower jasmine karma
 - npm install --only=dev
 - bower install
 - npm test
+- pip install tox
 script: tox
 deploy:
   skip_cleanup: true
