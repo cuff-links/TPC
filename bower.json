@@ -24,13 +24,11 @@
   ],
   "dependencies": {
     "angular-material": "^1.1.1",
-    "angular-route": "1.5.9",
+    "angular-route": "^1.6.0",
     "mdi": "^1.7.22",
-    "angular-mocks": "1.5.9",
+    "angular-mocks": "^1.6.0",
     "angular-ui-router": "^0.3.2",
     "angular-material-icons": "^0.7.1",
-    "svg-morpheus": "^0.3.2",
-    "angular-animate": "1.5.9",
-    "angular-aria": "1.5.9"
+    "svg-morpheus": "^0.3.2"
   }
 }
