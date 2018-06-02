@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,6 +20,14 @@ import SchoolIcon from '@material-ui/icons/School';
 import PersonIcon from '@material-ui/icons/Person';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { Tooltip } from '@material-ui/core';
+import FeedContainer from '../feed/feed_container'
+import React, { Component } from "react";
+import {
+  Route,
+  NavLink,
+  BrowserRouter
+} from "react-router-dom";
 
 
 const drawerWidth = 240;
@@ -91,14 +98,14 @@ const styles = theme => ({
   },
 });
 
-class Navbar extends React.Component {
+class Navbar extends Component {
   static navTabs = [
-    {icon: HomeIcon, title: 'Home'},
-    {icon: RssFeedIcon, title: 'Feed'},
-    {icon: WorkIcon, title: 'Experience'},
-    {icon: BuildIcon, title: 'Skills'},
-    {icon: SchoolIcon, title: 'Education'},
-    {icon: PersonIcon, title: 'Contact'}
+    {key: 'hm', icon: HomeIcon, title: 'Home', component: FeedContainer},
+    {key: 'fd', icon: RssFeedIcon, title: 'Feed', component: FeedContainer},
+    {key: 'wk', icon: WorkIcon, title: 'Experience', component: FeedContainer},
+    {key: 'sk', icon: BuildIcon, title: 'Skills', component: FeedContainer },
+    {key: 'sc', icon: SchoolIcon, title: 'Education', component: FeedContainer},
+    {key: 'ps', icon: PersonIcon, title: 'Contact', component: FeedContainer}
   ]
 
   state = {
@@ -132,7 +139,7 @@ class Navbar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+              John Dorlus
             </Typography>
           </Toolbar>
         </AppBar>
@@ -150,19 +157,34 @@ class Navbar extends React.Component {
           </div>
           <Divider />
           <List>
-            { Navbar.navTabs.map(item => (
-              <ListItem button>
-                <ListItemIcon>
-                  {React.createElement(item.icon, null, null)}
-                </ListItemIcon>
-                <ListItemText primary={item.title} />
-              </ListItem>
-            ))}
+            <BrowserRouter>
+              <div>
+                { Navbar.navTabs.map(item => (
+                  <Tooltip key={item.key} title={item.title}>
+                    <ListItem button component={NavLink} to={'/' + item.title.toLowerCase()}>
+                      <ListItemIcon>
+                        {React.createElement(item.icon, null, null)}
+                      </ListItemIcon>
+                      <ListItemText primary={item.title} />
+                    </ListItem>
+                  </Tooltip>
+                ))}
+              </div>
+            </BrowserRouter>
          </List>
         </Drawer>
-        <main className={classes.content}>
+        <main  className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+          <div id='content'>
+            <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+            <BrowserRouter>
+                <div>
+                  { Navbar.navTabs.map(item => (
+                    <Route key={item.key} path={'/' + item.title.toLowerCase()} component={item.component}/>
+                  ))}
+                </div>
+            </BrowserRouter>
+          </div>
         </main>
       </div>
     );
