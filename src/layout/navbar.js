@@ -124,40 +124,40 @@ class Navbar extends Component {
     const { classes, theme } = this.props;
 
     return (
-      <div className={classes.root}>
-        <AppBar
-          position="absolute"
-          className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
-        >
-          <Toolbar disableGutters={!this.state.open}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, this.state.open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              John Dorlus
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          classes={{
-            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
-          }}
-          open={this.state.open}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </div>
-          <Divider />
-          <List>
-            <BrowserRouter>
+      <BrowserRouter>
+        <div className={classes.root}>
+          <AppBar
+            position="absolute"
+            className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+          >
+            <Toolbar disableGutters={!this.state.open}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerOpen}
+                className={classNames(classes.menuButton, this.state.open && classes.hide)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="title" color="inherit" noWrap>
+                John Dorlus
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Drawer
+            variant="permanent"
+            classes={{
+              paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+            }}
+            open={this.state.open}
+          >
+            <div className={classes.toolbar}>
+              <IconButton onClick={this.handleDrawerClose}>
+                {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              </IconButton>
+            </div>
+            <Divider />
+            <List>
               <div>
                 { Navbar.navTabs.map(item => (
                   <Tooltip key={item.key} title={item.title}>
@@ -170,23 +170,25 @@ class Navbar extends Component {
                   </Tooltip>
                 ))}
               </div>
-            </BrowserRouter>
-         </List>
-        </Drawer>
-        <main  className={classes.content}>
-          <div className={classes.toolbar} />
-          <div id='content'>
-            <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-            <BrowserRouter>
-                <div>
-                  { Navbar.navTabs.map(item => (
-                    <Route key={item.key} path={'/' + item.title.toLowerCase()} component={item.component}/>
+          </List>
+          </Drawer>
+          <main  className={classes.content}>
+            <div className={classes.toolbar} />
+            <div id="content">
+              <Typography noWrap>
+                {"You think water moves fast? You should see ice."}
+              </Typography>
+                  {Navbar.navTabs.map(item => (
+                    <Route
+                      key={item.key}
+                      path={`/${item.title.toLowerCase()}`}
+                      component={item.component}
+                    />
                   ))}
-                </div>
-            </BrowserRouter>
-          </div>
-        </main>
-      </div>
+            </div>
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
