@@ -26,6 +26,7 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "install": "^0.11.0",
+    "mdi-material-ui": "^5.1.0",
     "npm": "^6.1.0",
     "prop-types": "^15.6.1",
     "react-apollo": "^2.1.4",
