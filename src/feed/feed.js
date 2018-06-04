@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import ApolloClient from "apollo-boost";
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
 import {
   Grid,
   Card,
@@ -20,14 +21,17 @@ const styles = {
 };
 
 export default class Feed extends Component {
-  renderResponse(requestUrl) {
+  renderResponse(baseUrl, graphqlQuery) {
+    console.log(baseUrl);
     const client = new ApolloClient({
-      uri: "https://api.github.com/graphql"
+      link: baseUrl,
+      cache: new InMemoryCache()
     });
-    axios
-      .get(requestUrl)
-      .then(function(response) {
-        console.log(response);
+    client
+      .query({
+        query: graphqlQuery
+      })
+      .then(response => {
         return <FeedListingItem listingData={response.data} />;
       })
       .catch(function(error) {
@@ -58,7 +62,10 @@ export default class Feed extends Component {
               }
             />
             <CardContent>
-              {this.renderResponse(feedListingItemData.requestUrl)}
+              {this.renderResponse(
+                feedListingItemData.baseUrl,
+                feedListingItemData.graphqlQuery
+              )}
             </CardContent>
           </Card>
         ))}

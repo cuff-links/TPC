@@ -1,0 +1,11 @@
+{
+  "semi": true,
+  "overrides": [
+    {
+      "files": "*.test.js",
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}
