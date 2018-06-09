@@ -2,13 +2,14 @@ import Grid from "@material-ui/core/Grid";
 import * as feedQueries from "../helpers/feedDataHelper";
 import { HttpLink } from "apollo-link-http";
 import React, { Component } from "react";
+import { RestLink } from "apollo-link-rest";
 import { Twitter, GithubBox } from "mdi-material-ui";
 
 import Feed from "./feed";
 
-const GITHUB_BEARER_TOKEN = process.env.GITHUB_BEARER_TOKEN;
-const TWITTER_BEARER_TOKEN = process.env.TWITTER_BEARER_TOKEN;
-
+const REACT_APP_GITHUB_BEARER_TOKEN = process.env.REACT_APP_GITHUB_BEARER_TOKEN;
+const REACT_APP_TWITTER_BEARER_TOKEN =
+  process.env.REACT_APP_TWITTER_BEARER_TOKEN;
 export default class FeedContainer extends Component {
   feedFetchData = this.props.feedFetchData || [
     {
@@ -17,12 +18,11 @@ export default class FeedContainer extends Component {
       subheader: "Tweets",
       icon: <Twitter />,
       graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
-      baseUrl: new HttpLink({
-        uri: "https://api.github.com/graphql",
-        fetchOptions: { method: "GET" },
+      baseUrl: new RestLink({
+        uri: "https://api.twitter.com/1.1/search/tweets.json",
         headers: {
-          authorization: TWITTER_BEARER_TOKEN
-            ? `Bearer ${TWITTER_BEARER_TOKEN}`
+          authorization: REACT_APP_TWITTER_BEARER_TOKEN
+            ? `Bearer ${REACT_APP_TWITTER_BEARER_TOKEN}`
             : null
         }
       }),
@@ -36,10 +36,9 @@ export default class FeedContainer extends Component {
       graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
       baseUrl: new HttpLink({
         uri: "https://api.github.com/graphql",
-        fetchOptions: { method: "GET" },
         headers: {
-          authorization: GITHUB_BEARER_TOKEN
-            ? `Bearer ${GITHUB_BEARER_TOKEN}`
+          authorization: REACT_APP_GITHUB_BEARER_TOKEN
+            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
             : null
         }
       }),
@@ -54,10 +53,9 @@ export default class FeedContainer extends Component {
       graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
       baseUrl: new HttpLink({
         uri: "https://api.github.com/graphql",
-        fetchOptions: { method: "GET" },
         headers: {
-          authorization: GITHUB_BEARER_TOKEN
-            ? `Bearer ${GITHUB_BEARER_TOKEN}`
+          authorization: REACT_APP_GITHUB_BEARER_TOKEN
+            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
             : null
         }
       }),
@@ -72,10 +70,9 @@ export default class FeedContainer extends Component {
       graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
       baseUrl: new HttpLink({
         uri: "https://api.github.com/graphql",
-        fetchOptions: { method: "GET" },
         headers: {
-          authorization: GITHUB_BEARER_TOKEN
-            ? `Bearer ${GITHUB_BEARER_TOKEN}`
+          authorization: REACT_APP_GITHUB_BEARER_TOKEN
+            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
             : null
         }
       }),

@@ -7,7 +7,8 @@ import {
   CardContent,
   CardHeader,
   Avatar,
-  IconButton
+  IconButton,
+  CircularProgress
 } from "@material-ui/core";
 import { Web } from "mdi-material-ui";
 import FeedListingItem from "./feed_listing";
@@ -21,22 +22,30 @@ const styles = {
 };
 
 export default class Feed extends Component {
+  state = {
+    isloading: false
+  };
+  //prettier-ignore
   renderResponse(baseUrl, graphqlQuery) {
-    console.log(baseUrl);
     const client = new ApolloClient({
       link: baseUrl,
       cache: new InMemoryCache()
     });
+    // this.isloading = true; 
     client
       .query({
         query: graphqlQuery
       })
       .then(response => {
-        return <FeedListingItem listingData={response.data} />;
+        console.log(response);
+        // this.setState({
+        //   isloading: false
+        // })
+        return (<FeedListingItem listingData={response.data} />);
       })
       .catch(function(error) {
         console.log(error);
-        return <div>Something bad happened: {error.message}</div>;
+        return (<div>Something bad happened: {error.message}</div>);
       });
   }
   render() {
@@ -66,6 +75,7 @@ export default class Feed extends Component {
                 feedListingItemData.baseUrl,
                 feedListingItemData.graphqlQuery
               )}
+              {this.loading && <CircularProgress size={24} />}
             </CardContent>
           </Card>
         ))}

@@ -28,9 +28,23 @@ export const GET_OPEN_ISSUE_QUERY = () => {
 };
 
 export const GET_CREATED_ISSUE_QUERY = gql`
-  query FeedQuery {
-    issue(author: "silne30") {
-      header: title
+  {
+    user(login: "silne30") {
+      issues(first: 20, orderBy: { field: CREATED_AT, direction: DESC }) {
+        edges {
+          node {
+            header: title
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_TWEETS_QUERY = gql`
+  {
+    person @rest(type: "Person", path: "people/1/") {
+      name
     }
   }
 `;
