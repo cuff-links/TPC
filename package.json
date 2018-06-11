@@ -19,10 +19,7 @@
   "devDependencies": {
     "@material-ui/core": "^1.1.0",
     "@material-ui/icons": "^1.1.0",
-    "apollo-boost": "^0.1.7",
-    "apollo-client-preset": "^1.0.8",
-    "apollo-link": "^1.2.2",
-    "apollo-link-rest": "^0.3.0",
+    "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.0",
     "babel-preset-env": "^1.7.0",
@@ -31,8 +28,6 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-plugin-prettier": "^2.6.0",
-    "graphql": "^0.13.2",
-    "graphql-tag": "^2.9.2",
     "husky": "^0.14.3",
     "install": "^0.11.0",
     "mdi-material-ui": "^5.1.0",
@@ -40,7 +35,7 @@
     "prettier": "1.13.4",
     "pretty-quick": "^1.6.0",
     "prop-types": "^15.6.1",
-    "react-apollo": "^2.1.4",
+    "react-axios": "^2.0.0",
     "react-router-dom": "^4.2.2"
   }
 }

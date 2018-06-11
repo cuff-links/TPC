@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import { Get } from "react-axios";
 import {
   Grid,
   Card,
@@ -22,31 +21,17 @@ const styles = {
 };
 
 export default class Feed extends Component {
-  state = {
-    isloading: false
-  };
   //prettier-ignore
-  renderResponse(baseUrl, graphqlQuery) {
-    const client = new ApolloClient({
-      link: baseUrl,
-      cache: new InMemoryCache()
-    });
-    // this.isloading = true; 
-    client
-      .query({
-        query: graphqlQuery
-      })
-      .then(response => {
-        console.log(response);
-        // this.setState({
-        //   isloading: false
-        // })
-        return (<FeedListingItem listingData={response.data} />);
-      })
-      .catch(function(error) {
-        console.log(error);
-        return (<div>Something bad happened: {error.message}</div>);
-      });
+  renderResponse(error, response, isLoading) {
+    if(error) {
+      return (<div>Something bad happened: {error.message}</div>)
+    } else if(isLoading) {
+      return (<CircularProgress size={48} />)
+    } else if(response !== null) {
+      console.log(response);
+      return (<FeedListingItem key={this.props.data.key} listingData={response.data}></FeedListingItem>)
+    }
+    return null
   }
   render() {
     const feedData = [this.props.data];
@@ -71,11 +56,17 @@ export default class Feed extends Component {
               }
             />
             <CardContent>
-              {this.renderResponse(
-                feedListingItemData.baseUrl,
-                feedListingItemData.graphqlQuery
-              )}
-              {this.loading && <CircularProgress size={24} />}
+              <code>
+                <Get
+                  url={feedListingItemData.baseUrl}
+                  config={{
+                    headers: feedListingItemData.headers,
+                    crossDomain: true
+                  }}
+                >
+                  {this.renderResponse.bind(this)}
+                </Get>
+              </code>
             </CardContent>
           </Card>
         ))}

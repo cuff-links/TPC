@@ -9,4 +9,6 @@ export default class FeedListingItem extends Component {
       </Grid>
     );
   }
+
+  componentDidMount() {}
 }

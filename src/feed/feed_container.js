@@ -1,8 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import * as feedQueries from "../helpers/feedDataHelper";
-import { HttpLink } from "apollo-link-http";
 import React, { Component } from "react";
-import { RestLink } from "apollo-link-rest";
 import { Twitter, GithubBox } from "mdi-material-ui";
 
 import Feed from "./feed";
@@ -17,67 +14,41 @@ export default class FeedContainer extends Component {
       title: "Twitter",
       subheader: "Tweets",
       icon: <Twitter />,
-      graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
-      baseUrl: new RestLink({
-        uri: "https://api.twitter.com/1.1/search/tweets.json",
-        headers: {
-          authorization: REACT_APP_TWITTER_BEARER_TOKEN
-            ? `Bearer ${REACT_APP_TWITTER_BEARER_TOKEN}`
-            : null
-        }
-      }),
-      link: "https://www.twitter.com/the_power_coder"
+      baseUrl:
+        "https://api.twitter.com/1.1/search/tweets.json?q=from:the_power_coder",
+      link: "https://www.twitter.com/the_power_coder",
+      headers: { Authorization: "Bearer " + REACT_APP_TWITTER_BEARER_TOKEN }
     },
     {
       key: "ghpr",
       title: "GitHub",
       icon: <GithubBox />,
-      subheader: "Open Pull Requests",
-      graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
-      baseUrl: new HttpLink({
-        uri: "https://api.github.com/graphql",
-        headers: {
-          authorization: REACT_APP_GITHUB_BEARER_TOKEN
-            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
-            : null
-        }
-      }),
+      subheader: "Open Assigned Pull Requests",
+      baseUrl:
+        "https://api.github.com/search/issues?q=%20+assignee:silne30+type:pr",
       link:
-        "https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Apr+author%3Asilne30+archived%3Afalse+&type="
+        "https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Apr+author%3Asilne30+archived%3Afalse+&type=",
+      headers: { Authorization: "Bearer " + REACT_APP_GITHUB_BEARER_TOKEN }
     },
     {
       key: "ghci",
       title: "GitHub",
       icon: <GithubBox />,
       subheader: "Open Created Issues",
-      graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
-      baseUrl: new HttpLink({
-        uri: "https://api.github.com/graphql",
-        headers: {
-          authorization: REACT_APP_GITHUB_BEARER_TOKEN
-            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
-            : null
-        }
-      }),
+      baseUrl: "https://api.github.com/search/issues?q=%20+author=silne30",
       link:
-        "https://github.com/search?q=is%3Aopen+is%3Aissue+author%3Asilne30+archived%3Afalse"
+        "https://github.com/search?q=is%3Aopen+is%3Aissue+author%3Asilne30+archived%3Afalse",
+      headers: { Authorization: "Bearer " + REACT_APP_GITHUB_BEARER_TOKEN }
     },
     {
       key: "ghai",
       title: "GitHub",
       icon: <GithubBox />,
       subheader: "Open Assigned Issues",
-      graphqlQuery: feedQueries.GET_CREATED_ISSUE_QUERY,
-      baseUrl: new HttpLink({
-        uri: "https://api.github.com/graphql",
-        headers: {
-          authorization: REACT_APP_GITHUB_BEARER_TOKEN
-            ? `Bearer ${REACT_APP_GITHUB_BEARER_TOKEN}`
-            : null
-        }
-      }),
+      baseUrl: "https://api.github.com/search/issues?q=%20+assignee:silne30",
       link:
-        "https://github.com/search?q=is%3Aopen+is%3Aissue+assignee%3Asilne30+archived%3Afalse"
+        "https://github.com/search?q=is%3Aopen+is%3Aissue+assignee%3Asilne30+archived%3Afalse",
+      headers: { Authorization: "Bearer " + REACT_APP_GITHUB_BEARER_TOKEN }
     }
   ];
   render() {
