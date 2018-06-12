@@ -15,7 +15,7 @@ export default class FeedContainer extends Component {
       subheader: "Tweets",
       icon: <Twitter />,
       baseUrl:
-        "https://api.twitter.com/1.1/search/tweets.json?q=from:the_power_coder",
+        "https://api.twitter.com/1.1/search/tweets.json?q=from:The_Power_Coder",
       link: "https://www.twitter.com/the_power_coder",
       headers: { Authorization: "Bearer " + REACT_APP_TWITTER_BEARER_TOKEN }
     },
@@ -23,7 +23,7 @@ export default class FeedContainer extends Component {
       key: "ghpr",
       title: "GitHub",
       icon: <GithubBox />,
-      subheader: "Open Assigned Pull Requests",
+      subheader: "Open Assigned PRs",
       baseUrl:
         "https://api.github.com/search/issues?q=%20+assignee:silne30+type:pr",
       link:
