@@ -23,11 +23,15 @@ const styles = theme => ({
   listSection: {
     backgroundColor: "inherit"
   },
+  listHeader: {
+    backgroundColor: theme.palette.primary.light
+  },
   ul: {
     backgroundColor: "inherit",
     padding: 0
   }
 });
+console.log(styles);
 
 class Feed extends Component {
   constructor(props) {
@@ -36,7 +40,6 @@ class Feed extends Component {
   }
   renderResponse(error, response, isLoading) {
     if (error) {
-      console.log(error);
       return <div>Something bad happened: {error.message}</div>;
     } else if (isLoading) {
       return <CircularProgress size={48} />;
@@ -48,6 +51,16 @@ class Feed extends Component {
             key={githubItem.id}
             html_url={githubItem.html_url}
             heading={githubItem.title}
+            created={githubItem.created_at}
+          />
+        ));
+      } else if (response.statuses) {
+        return response.data.statuses.map(twitterItem => (
+          <FeedListingItem
+            key={twitterItem.id_str}
+            html_url={"https://twitter.com/statuses/" + twitterItem.id}
+            heading={twitterItem.text}
+            created={twitterItem.created_at}
           />
         ));
       }
@@ -60,8 +73,8 @@ class Feed extends Component {
     return (
       <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
         {feedData.map(feedListingItemData => (
-          <div>
-            <Toolbar>
+          <div key={feedListingItemData.key}>
+            <Toolbar className={classes.listHeader}>
               <IconButton color="inherit" aria-label="Menu">
                 {feedListingItemData.icon}
               </IconButton>

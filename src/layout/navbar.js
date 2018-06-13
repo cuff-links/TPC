@@ -1,33 +1,40 @@
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import { grey, lightblue } from "@material-ui/core/colors";
+import { Route, NavLink, BrowserRouter } from "react-router-dom";
+
+import {
+  AppBar,
+  Tooltip,
+  Drawer,
+  Divider,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+  Typography
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
-import RssFeedIcon from "@material-ui/icons/RssFeed";
-import WorkIcon from "@material-ui/icons/Work";
 import BuildIcon from "@material-ui/icons/Build";
-import SchoolIcon from "@material-ui/icons/School";
-import PersonIcon from "@material-ui/icons/Person";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { Tooltip } from "@material-ui/core";
-import FeedContainer from "../feed/feed_container";
+import classNames from "classnames";
+import HomeIcon from "@material-ui/icons/Home";
+import MenuIcon from "@material-ui/icons/Menu";
+import PersonIcon from "@material-ui/icons/Person";
+import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Route, NavLink, BrowserRouter } from "react-router-dom";
+import RssFeedIcon from "@material-ui/icons/RssFeed";
+import SchoolIcon from "@material-ui/icons/School";
+import WorkIcon from "@material-ui/icons/Work";
+import FeedContainer from "../feed/feed_container";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
+  secondary: {
+    main: lightblue
+  },
   root: {
     flexGrow: 1,
     zIndex: 1,
@@ -43,6 +50,7 @@ const styles = theme => ({
     })
   },
   appBarShift: {
+    backgroundColor: "#cdcdcd",
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
@@ -132,6 +140,7 @@ class Navbar extends Component {
       <BrowserRouter>
         <div className={classes.root}>
           <AppBar
+            color="default"
             position="absolute"
             className={classNames(
               classes.appBar,
