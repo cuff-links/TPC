@@ -31,6 +31,7 @@
     "husky": "^0.14.3",
     "install": "^0.11.0",
     "mdi-material-ui": "^5.1.0",
+    "moment": "^2.22.2",
     "npm": "^6.1.0",
     "prettier": "1.13.4",
     "pretty-quick": "^1.6.0",
