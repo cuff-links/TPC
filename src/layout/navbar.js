@@ -28,6 +28,11 @@ import RssFeedIcon from "@material-ui/icons/RssFeed";
 import SchoolIcon from "@material-ui/icons/School";
 import WorkIcon from "@material-ui/icons/Work";
 import FeedContainer from "../feed/feed_container";
+import HomeContainer from "../home/home_container";
+import SkillsContainer from "../skills/skills_container";
+import AboutContainer from "../about/about_container";
+import EducationContainer from "../education/education_container";
+import WorkContainer from "../work/work_container";
 
 const drawerWidth = 240;
 
@@ -103,22 +108,22 @@ const styles = theme => ({
 
 class Navbar extends Component {
   static navTabs = [
-    { key: "hm", icon: HomeIcon, title: "Home", component: FeedContainer },
+    { key: "hm", icon: HomeIcon, title: "Home", component: HomeContainer },
     { key: "fd", icon: RssFeedIcon, title: "Feed", component: FeedContainer },
     {
       key: "wk",
       icon: WorkIcon,
-      title: "Experience",
-      component: FeedContainer
+      title: "Work",
+      component: WorkContainer
     },
-    { key: "sk", icon: BuildIcon, title: "Skills", component: FeedContainer },
+    { key: "sk", icon: BuildIcon, title: "Skills", component: SkillsContainer },
     {
       key: "sc",
       icon: SchoolIcon,
       title: "Education",
-      component: FeedContainer
+      component: EducationContainer
     },
-    { key: "ps", icon: PersonIcon, title: "Contact", component: FeedContainer }
+    { key: "ps", icon: PersonIcon, title: "Contact", component: AboutContainer }
   ];
 
   state = {
@@ -206,9 +211,6 @@ class Navbar extends Component {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <div id="content">
-              <Typography noWrap>
-                {"You think water moves fast? You should see ice."}
-              </Typography>
               {Navbar.navTabs.map(item => (
                 <Route
                   key={item.key}

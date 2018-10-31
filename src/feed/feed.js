@@ -31,7 +31,6 @@ const styles = theme => ({
     padding: 0
   }
 });
-console.log(styles);
 
 class Feed extends Component {
   constructor(props) {
