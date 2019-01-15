@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.homepage-profile-box {
+  height: 250px;
+  min-height: 250px;
+}
+
+#homepage-pic {
+  background-image: "";
+}

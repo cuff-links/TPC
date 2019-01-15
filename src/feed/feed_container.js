@@ -31,17 +31,6 @@ export default class FeedContainer extends Component {
       headers: { Authorization: "Bearer " + REACT_APP_GITHUB_BEARER_TOKEN }
     },
     {
-      key: "ghcpr",
-      title: "GitHub",
-      icon: <GithubBox />,
-      subheader: "Merged PRs",
-      baseUrl:
-        "https://api.github.com/search/issues?q=author:silne30+type:pr+state:closed",
-      link:
-        "https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Apr+author%3Asilne30+archived%3Afalse+&type=",
-      headers: { Authorization: "Bearer " + REACT_APP_GITHUB_BEARER_TOKEN }
-    },
-    {
       key: "ghmpr",
       title: "GitHub",
       icon: <GithubBox />,
